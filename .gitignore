@@ -7,6 +7,9 @@
 *.obj
 *.elf
 
+# .idea folder
+.idea/
+
 # Linker output
 *.ilk
 *.map
