@@ -17,7 +17,7 @@
 #include "geometry_msgs/msg/point.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <math.h>

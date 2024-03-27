@@ -203,9 +203,9 @@ void Camera::stereo_calibration(){
     cv::Size imageLeftSize, imageRightSize;
 
     for(int i=1;i<=5;i++){
-        //ament_index_cpp::get_package_share_directory("ros_interface_umi_rtx")+"/images/icon.png"
-        cv::Mat imageLeft = cv::imread(ament_index_cpp::get_package_share_directory("ros_interface_umi_rtx") + "/CalibrationImages/leftImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
-        cv::Mat imageRight = cv::imread(ament_index_cpp::get_package_share_directory("ros_interface_umi_rtx") + "/CalibrationImages/rightImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
+        //ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/icon.png"
+        cv::Mat imageLeft = cv::imread(ament_index_cpp::get_package_share_directory("umi_rtx_controller") + "/CalibrationImages/leftImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
+        cv::Mat imageRight = cv::imread(ament_index_cpp::get_package_share_directory("umi_rtx_controller") + "/CalibrationImages/rightImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
 
         if(imageLeft.empty()){
             std::cout << "Error reading the calibration left image " << i << std::endl;

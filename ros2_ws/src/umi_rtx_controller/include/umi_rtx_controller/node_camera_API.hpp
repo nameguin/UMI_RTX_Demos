@@ -16,7 +16,7 @@
 #include "sensor_msgs/msg/image.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <math.h>
