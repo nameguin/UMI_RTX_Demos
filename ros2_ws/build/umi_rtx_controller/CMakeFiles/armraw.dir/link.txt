@@ -1,2 +1,0 @@
-/usr/bin/ar qc libarmraw.a CMakeFiles/armraw.dir/armraw_autogen/mocs_compilation.cpp.o CMakeFiles/armraw.dir/src/drivers/armlib/armraw.cpp.o
-/usr/bin/ranlib libarmraw.a
