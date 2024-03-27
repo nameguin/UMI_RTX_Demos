@@ -1,0 +1,4 @@
+source;share/umi_rtx_controller/local_setup.bash
+source;share/umi_rtx_controller/local_setup.dsv
+source;share/umi_rtx_controller/local_setup.sh
+source;share/umi_rtx_controller/local_setup.zsh

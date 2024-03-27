@@ -1,0 +1,260 @@
+[33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):
+  No header defined for python310; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)
+  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)
+  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)
+  CMakeLists.txt:33 (find_package)
+
+[0m
+[0mWARNING: Target "nodeCameraAPI" requests linking to directory "/usr/local/zed/lib".  Targets may link only to libraries.  CMake is dropping the item.[0m
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:[m[K In function ‘[01m[Kint armperror(char*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:126:37:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 4 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  126 |         return fprintf(stderr,"%s: [01;35m[K%s[m[K\n",s,[32m[Karmstrerror(armerrno)[m[K);
+      |                                    [01;35m[K~^[m[K      [32m[K~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                     [01;35m[K|[m[K                 [32m[K|[m[K
+      |                                     [01;35m[Kchar*[m[K             [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:128:33:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 3 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  128 |         return fprintf(stderr,"[01;35m[K%s[m[K\n",[32m[Karmstrerror(armerrno)[m[K);
+      |                                [01;35m[K~^[m[K    [32m[K~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [01;35m[K|[m[K               [32m[K|[m[K
+      |                                 [01;35m[Kchar*[m[K           [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kvoid freertx(int, void*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:91:25:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstatus[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   91 | static void freertx([01;35m[Kint status[m[K, void *arg)
+      |                     [01;35m[K~~~~^~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:91:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Karg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   91 | static void freertx(int status, [01;35m[Kvoid *arg[m[K)
+      |                                 [01;35m[K~~~~~~^~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kint arm_interrupt(int, libio*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:280:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 2 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  280 |         printf( "arm_interrupt: [01;35m[K%s[m[K\n", [32m[Krtxstrcommand(rtxparams->what)[m[K);
+      |                                 [01;35m[K~^[m[K     [32m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                  [01;35m[K|[m[K                  [32m[K|[m[K
+      |                                  [01;35m[Kchar*[m[K              [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:[m[K In function ‘[01m[Kint armperror(char*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:126:37:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 4 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  126 |         return fprintf(stderr,"%s: [01;35m[K%s[m[K\n",s,[32m[Karmstrerror(armerrno)[m[K);
+      |                                    [01;35m[K~^[m[K      [32m[K~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                     [01;35m[K|[m[K                 [32m[K|[m[K
+      |                                     [01;35m[Kchar*[m[K             [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:128:33:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 3 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  128 |         return fprintf(stderr,"[01;35m[K%s[m[K\n",[32m[Karmstrerror(armerrno)[m[K);
+      |                                [01;35m[K~^[m[K    [32m[K~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [01;35m[K|[m[K               [32m[K|[m[K
+      |                                 [01;35m[Kchar*[m[K           [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kvoid freertx(int, void*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:91:25:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstatus[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   91 | static void freertx([01;35m[Kint status[m[K, void *arg)
+      |                     [01;35m[K~~~~^~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:91:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Karg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   91 | static void freertx(int status, [01;35m[Kvoid *arg[m[K)
+      |                                 [01;35m[K~~~~~~^~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kint arm_interrupt(int, libio*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:280:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 2 has type ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  280 |         printf( "arm_interrupt: [01;35m[K%s[m[K\n", [32m[Krtxstrcommand(rtxparams->what)[m[K);
+      |                                 [01;35m[K~^[m[K     [32m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                  [01;35m[K|[m[K                  [32m[K|[m[K
+      |                                  [01;35m[Kchar*[m[K              [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:[m[K In function ‘[01m[Kvoid umi_init()[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:122:20:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  122 |         char *temp=[01;35m[K"root"[m[K;
+      |                    [01;35m[K^~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:139:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  139 |                 armperror([01;35m[K"init connections "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:141:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  141 |                 armperror([01;35m[K"restart"[m[K);
+      |                           [01;35m[K^~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:144:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  144 |                 armperror([01;35m[K"enable PWM output"[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:164:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  164 |                 armperror([01;35m[K"soak init"[m[K);
+      |                           [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:171:35:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  171 |                         armperror([01;35m[K"general_status"[m[K);
+      |                                   [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:[m[K In function ‘[01m[Kvoid umi_stop()[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:186:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  186 |                 armperror([01;35m[K"tried FREE_STOP"[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:191:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  191 |                 armperror([01;35m[K"tried FREE_OFF"[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:[m[K In function ‘[01m[Kvoid umi_go()[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:235:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  235 |                 armperror([01;35m[K"position error with zed "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:238:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  238 |                 armperror([01;35m[K"position error with sld "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:241:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  241 |                 armperror([01;35m[K"position error with elb "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:244:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  244 |                 armperror([01;35m[K"position error with yaw "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:247:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  247 |                 armperror([01;35m[K"position error with wr1 "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:250:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  250 |                 armperror([01;35m[K"position error with wr2 "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:253:27:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  253 |                 armperror([01;35m[K"position error with grp "[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:261:43:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+  261 |                                 armperror([01;35m[K"error with arm_go "[m[K);
+      |                                           [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:[m[K At global scope:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:80:17:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid print_status()[m[K’ declared ‘[01m[Kstatic[m[K’ but never defined [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+   80 | static  void    [01;35m[Kprint_status[m[K(/*int status*/);
+      |                 [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/umi/umicmds.cpp:358:13:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid print_status(int)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+  358 | static void [01;35m[Kprint_status[m[K(int status)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera.cpp:[m[K In member function ‘[01m[Kvoid Camera::get_banana_and_angles(geometry_msgs::msg::Point, geometry_msgs::msg::Vector3)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera.cpp:104:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  104 |         for (int i = 0; [01;35m[Ki < contours.size()[m[K; i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/include/umi_rtx_controller/node_camera_API.hpp:32[m[K,
+                 from [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera_API.cpp:1[m[K:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:986:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+  986 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1137:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1137 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1314:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1314 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1516:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1516 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1520:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1520 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1524:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1524 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1815:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1815 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1819:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1819 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1823:20:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+ 1823 |             struct [01;35m[K{[m[K
+      |                    [01;35m[K^[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[Ksl::Timestamp sl::operator+(sl::Timestamp, const sl::Timestamp&)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2360:16:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr sl::Timestamp::Timestamp(const sl::Timestamp&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 2360 |         return [01;35m[Klhs[m[K;
+      |                [01;35m[K^~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2281:20:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Timestamp[m[K’ has user-provided ‘[01m[Ksl::Timestamp& sl::Timestamp::operator=(sl::Timestamp)[m[K’
+ 2281 |         Timestamp& [01;36m[Koperator[m[K=(Timestamp other) {
+      |                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[Ksl::Timestamp sl::operator-(sl::Timestamp, const sl::Timestamp&)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2365:16:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr sl::Timestamp::Timestamp(const sl::Timestamp&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 2365 |         return [01;35m[Klhs[m[K;
+      |                [01;35m[K^~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2281:20:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Timestamp[m[K’ has user-provided ‘[01m[Ksl::Timestamp& sl::Timestamp::operator=(sl::Timestamp)[m[K’
+ 2281 |         Timestamp& [01;36m[Koperator[m[K=(Timestamp other) {
+      |                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[Ksl::Timestamp sl::operator/(sl::Timestamp, const sl::Timestamp&)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2370:16:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr sl::Timestamp::Timestamp(const sl::Timestamp&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 2370 |         return [01;35m[Klhs[m[K;
+      |                [01;35m[K^~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2281:20:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Timestamp[m[K’ has user-provided ‘[01m[Ksl::Timestamp& sl::Timestamp::operator=(sl::Timestamp)[m[K’
+ 2281 |         Timestamp& [01;36m[Koperator[m[K=(Timestamp other) {
+      |                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[Ksl::Timestamp sl::operator*(sl::Timestamp, const sl::Timestamp&)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2375:16:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr sl::Timestamp::Timestamp(const sl::Timestamp&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 2375 |         return [01;35m[Klhs[m[K;
+      |                [01;35m[K^~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2281:20:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Timestamp[m[K’ has user-provided ‘[01m[Ksl::Timestamp& sl::Timestamp::operator=(sl::Timestamp)[m[K’
+ 2281 |         Timestamp& [01;36m[Koperator[m[K=(Timestamp other) {
+      |                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[Ksl::Timestamp sl::getCurrentTimeStamp()[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2409:16:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr sl::Timestamp::Timestamp(const sl::Timestamp&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 2409 |         return [01;35m[Kcurrent_ts[m[K;
+      |                [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2281:20:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Timestamp[m[K’ has user-provided ‘[01m[Ksl::Timestamp& sl::Timestamp::operator=(sl::Timestamp)[m[K’
+ 2281 |         Timestamp& [01;36m[Koperator[m[K=(Timestamp other) {
+      |                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In function ‘[01m[KcudaError sl::__cudaSafeCall(cudaError, const char*, const char*, int)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2416:89:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfile[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+ 2416 |     static inline cudaError __cudaSafeCall(cudaError err, const char *func, [01;35m[Kconst char *file[m[K, const int line) {
+      |                                                                             [01;35m[K~~~~~~~~~~~~^~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:2416:105:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kline[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+ 2416 |     static inline cudaError __cudaSafeCall(cudaError err, const char *func, const char *file, [01;35m[Kconst int line[m[K) {
+      |                                                                                               [01;35m[K~~~~~~~~~~^~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In member function ‘[01m[Ksl::CalibrationParameters sl::CalibrationParameters::scale(sl::Resolution)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:3518:62:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Ksl::Transform& sl::Transform::operator=(const sl::Transform&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 3518 |             output_calibration_parameters.stereo_transform = [01;35m[Kstereo_transform[m[K;
+      |                                                              [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:3302:9:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Transform[m[K’ has user-provided ‘[01m[Ksl::Transform::Transform(const sl::Transform&)[m[K’
+ 3302 |         [01;36m[KTransform[m[K(const Transform &motion);
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In member function ‘[01m[Ksl::Transform& sl::Transform::operator=(const sl::Transform&)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:3291:60:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Ksl::Matrix4f& sl::Matrix4f::operator=(const sl::Matrix4f&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+ 3291 |     class /*@cond SHOWHIDDEN*/ SL_CORE_EXPORT /*@endcond*/ [01;35m[KTransform[m[K : public Matrix4f {
+      |                                                            [01;35m[K^~~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:1159:9:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Ksl::Matrix4f[m[K’ has user-provided ‘[01m[Ksl::Matrix4f::Matrix4f(const sl::Matrix4f&)[m[K’
+ 1159 |         [01;36m[KMatrix4f[m[K(const Matrix4f &mat);
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K In member function ‘[01m[Ksl::CalibrationParameters sl::CalibrationParameters::scale(sl::Resolution)[m[K’:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:3518:62:[m[K [01;36m[Knote: [m[Ksynthesized method ‘[01m[Ksl::Transform& sl::Transform::operator=(const sl::Transform&)[m[K’ first required here
+ 3518 |             output_calibration_parameters.stereo_transform = [01;36m[Kstereo_transform[m[K;
+      |                                                              [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/zed/include/sl/Camera.hpp:[m[K At global scope:
+[01m[K/usr/local/zed/include/sl/Camera.hpp:6428:12:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wignored-qualifiers-Wignored-qualifiers]8;;[m[K]
+ 6428 |     inline [01;35m[Kconst[m[K void /*@cond SHOWHIDDEN*/SL_SDK_EXPORT/*@endcond*/ getZEDSDKBuildVersion(int &major, int& minor, int& patch) {
+      |            [01;35m[K^~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera_API.cpp:[m[K In member function ‘[01m[Kvoid Camera_API::get_banana_and_angles(geometry_msgs::msg::Pose)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera_API.cpp:107:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  107 |         for (int i = 0; [01;35m[Ki < contours.size()[m[K; i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/node_camera_API.cpp:83:65:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kmsg[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-parameter-Wunused-but-set-parameter]8;;[m[K]
+   83 | void Camera_API::get_banana_and_angles([01;35m[Kgeometry_msgs::msg::Pose msg[m[K){
+      |                                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:1[m[K:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/include/umi_rtx_controller/main_gui.hpp:[m[K In constructor ‘[01m[KMainGUI::MainGUI(QApplication*, const std::shared_ptr<Objective_node>&, rviz_common::ros_integration::RosNodeAbstractionIface::WeakPtr, QWidget*)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/include/umi_rtx_controller/main_gui.hpp:118:19:[m[K [01;35m[Kwarning: [m[K‘[01m[KMainGUI::app_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  118 |     QApplication* [01;35m[Kapp_[m[K;
+      |                   [01;35m[K^~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/include/umi_rtx_controller/main_gui.hpp:116:38:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kconst std::shared_ptr<Objective_node> MainGUI::ros2_node[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  116 |     const shared_ptr<Objective_node> [01;35m[Kros2_node[m[K;
+      |                                      [01;35m[K^~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:3:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    3 | [01;35m[KMainGUI[m[K::MainGUI(QApplication * app,
+      | [01;35m[K^~~~~~~[m[K
+In file included from [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:1[m[K:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/include/umi_rtx_controller/main_gui.hpp:128:68:[m[K [01;35m[Kwarning: [m[K‘[01m[KMainGUI::rviz_ros_node_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  128 |     rviz_common::ros_integration::RosNodeAbstractionIface::WeakPtr [01;35m[Krviz_ros_node_[m[K;
+      |                                                                    [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:7:87:[m[K [01;35m[Kwarning: [m[K  base ‘[01m[KQMainWindow[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    7 |   : app_(app), ros2_node(ros2_node), rviz_ros_node_(rviz_ros_node), QMainWindow(parent[01;35m[K)[m[K
+      |                                                                                       [01;35m[K^[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:3:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    3 | [01;35m[KMainGUI[m[K::MainGUI(QApplication * app,
+      | [01;35m[K^~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:[m[K In member function ‘[01m[Kvirtual rviz_common::PanelDockWidget* MainGUI::addPane(const QString&, QWidget*, Qt::DockWidgetArea, bool)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:338:34:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kname[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  338 | MainGUI::addPane([01;35m[Kconst QString & name[m[K, QWidget * pane, Qt::DockWidgetArea area, bool floating)
+      |                  [01;35m[K~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:338:50:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpane[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  338 | MainGUI::addPane(const QString & name, [01;35m[KQWidget * pane[m[K, Qt::DockWidgetArea area, bool floating)
+      |                                        [01;35m[K~~~~~~~~~~^~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:338:75:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Karea[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  338 | MainGUI::addPane(const QString & name, QWidget * pane, [01;35m[KQt::DockWidgetArea area[m[K, bool floating)
+      |                                                        [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:338:86:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfloating[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  338 | MainGUI::addPane(const QString & name, QWidget * pane, Qt::DockWidgetArea area, [01;35m[Kbool floating[m[K)
+      |                                                                                 [01;35m[K~~~~~^~~~~~~~[m[K
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:[m[K In member function ‘[01m[Kvirtual void MainGUI::setStatus(const QString&)[m[K’:
+[01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/main_gui.cpp:344:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmessage[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  344 | MainGUI::setStatus([01;35m[Kconst QString & message[m[K)
+      |                    [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~[m[K

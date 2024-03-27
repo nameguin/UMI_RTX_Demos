@@ -1,0 +1,460 @@
+[0.098s] Invoking command in '/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller -- -j12 -l12
+[0.253s] [  6%] [34m[1mAutomatic MOC and UIC for target armcmds[0m
+[0.254s] [  6%] [34m[1mAutomatic MOC and UIC for target armraw[0m
+[0.258s] [ 10%] [34m[1mAutomatic MOC and UIC for target nodeSimu[0m
+[0.263s] [ 15%] [34m[1mAutomatic MOC and UIC for target nodeInverseKinematics[0m
+[0.266s] [ 17%] [34m[1mAutomatic MOC and UIC for target armerror[0m
+[0.267s] [ 17%] [34m[1mAutomatic MOC and UIC for target nodeCameraAPI[0m
+[0.268s] [ 17%] [34m[1mAutomatic MOC and UIC for target nodeCamera[0m
+[0.269s] [ 17%] [34m[1mAutomatic MOC and UIC for target GUI[0m
+[0.328s] [ 17%] Built target nodeInverseKinematics_autogen
+[0.330s] [ 17%] Built target armcmds_autogen
+[0.332s] [ 17%] Built target nodeSimu_autogen
+[0.333s] [ 17%] Built target nodeCameraAPI_autogen
+[0.340s] [ 17%] Built target GUI_autogen
+[0.349s] [ 17%] Built target nodeCamera_autogen
+[0.351s] [ 17%] Built target armraw_autogen
+[0.354s] [ 17%] Built target armerror_autogen
+[0.381s] [35m[1mConsolidate compiler generated dependencies of target armcmds[0m
+[0.383s] [35m[1mConsolidate compiler generated dependencies of target nodeSimu[0m
+[0.384s] [35m[1mConsolidate compiler generated dependencies of target nodeCameraAPI[0m
+[0.387s] [35m[1mConsolidate compiler generated dependencies of target nodeInverseKinematics[0m
+[0.404s] [35m[1mConsolidate compiler generated dependencies of target GUI[0m
+[0.406s] [35m[1mConsolidate compiler generated dependencies of target armraw[0m
+[0.408s] [35m[1mConsolidate compiler generated dependencies of target nodeCamera[0m
+[0.409s] [35m[1mConsolidate compiler generated dependencies of target armerror[0m
+[0.650s] [ 19%] [32mBuilding CXX object CMakeFiles/armerror.dir/src/drivers/armlib/armerror.cpp.o[0m
+[0.707s] [ 26%] Built target armcmds
+[0.777s] [ 28%] [32mBuilding CXX object CMakeFiles/armraw.dir/src/drivers/armlib/armraw.cpp.o[0m
+[0.878s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:[m[K In function ‘[01m[Kchar* armstrerror(int)[m[K’:
+[0.880s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:56:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.881s]    56 |         return [01;35m[K"Communication failure"[m[K;
+[0.882s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.884s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:58:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.885s]    58 |         return [01;35m[K"Communication not initialised"[m[K;
+[0.887s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.888s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:62:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.889s]    62 |         return [01;35m[K"No response"[m[K;
+[0.890s]       |                [01;35m[K^~~~~~~~~~~~~[m[K
+[0.891s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:64:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.892s]    64 |         return [01;35m[K"Too many bytes in response"[m[K;
+[0.894s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.895s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:66:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.896s]    66 |         return [01;35m[K"Not enough bytes in response"[m[K;
+[0.898s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.899s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:68:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.901s]    68 |         return [01;35m[K"Unexpected response"[m[K;
+[0.902s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[0.904s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:73:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.905s]    73 |         return [01;35m[K"Reserved for future ROM releases"[m[K;
+[0.907s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.908s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:75:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.909s]    75 |         return [01;35m[K"Axis busy, wait until axis is stopped"[m[K;
+[0.911s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.912s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:77:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.913s]    77 |         return [01;35m[K"IP command decoder busy, try again later"[m[K;
+[0.915s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.916s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:79:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.918s]    79 |         return [01;35m[K"Parameter out of range"[m[K;
+[0.920s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.921s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:83:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.922s]    83 |         return [01;35m[K"Read only variable"[m[K;
+[0.924s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[0.925s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:86:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.926s]    86 |         return [01;35m[K"Selection out of range"[m[K;
+[0.928s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.929s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:89:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.930s]    89 |         return [01;35m[K"Illegal command"[m[K;
+[0.932s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[0.933s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:91:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.934s]    91 |         return [01;35m[K"Not enough bytes in command"[m[K;
+[0.935s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.937s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:93:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.938s]    93 |         return [01;35m[K"Too many bytes in command"[m[K;
+[0.939s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.940s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:95:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.941s]    95 |         return [01;35m[K"Parity error"[m[K;
+[0.943s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[0.944s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:97:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.946s]    97 |         return [01;35m[K"The IP was restarted. restart"[m[K;
+[0.947s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.949s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:100:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.950s]   100 |         return [01;35m[K"Checksum error"[m[K;
+[0.951s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[0.952s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:102:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.952s]   102 |         return [01;35m[K"Parameter out of range"[m[K;
+[0.954s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.956s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:104:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.957s]   104 |         return [01;35m[K"Toggle mode off (must be on for arm_interpolate)"[m[K;
+[0.958s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.960s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:106:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.961s]   106 |         return [01;35m[K"Privileged command"[m[K;
+[0.962s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[0.964s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:108:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.965s]   108 |         return [01;35m[K"RTX in use"[m[K;
+[0.966s]       |                [01;35m[K^~~~~~~~~~~~[m[K
+[0.968s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:110:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.969s]   110 |         return [01;35m[K"Command not supported"[m[K;
+[0.970s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.972s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:112:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.973s]   112 |         return [01;35m[K"Cannot connect to daemon"[m[K;
+[0.975s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.979s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:114:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.982s]   114 |         return [01;35m[K"Lost connection to RTX daemon"[m[K;
+[0.985s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.988s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:116:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[0.990s]   116 |         return [01;35m[K"Connection read-only"[m[K;
+[0.991s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.992s] [ 30%] [32m[1mLinking CXX static library libarmerror.a[0m
+[1.074s] [ 32%] Built target armerror
+[1.173s] [ 39%] Built target nodeSimu
+[1.289s] [ 47%] Built target nodeCameraAPI
+[1.297s] [ 52%] Built target nodeCamera
+[1.597s] [ 60%] Built target GUI
+[1.842s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kvoid freertx(int, void*)[m[K’:
+[1.843s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:90:25:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstatus[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.843s]    90 | static void freertx([01;35m[Kint status[m[K, void *arg)
+[1.844s]       |                     [01;35m[K~~~~^~~~~~[m[K
+[1.845s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:90:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Karg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.846s]    90 | static void freertx(int status, [01;35m[Kvoid *arg[m[K)
+[1.846s]       |                                 [01;35m[K~~~~~~^~~[m[K
+[1.847s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kchar* rtxstrcommand(int)[m[K’:
+[1.848s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:449:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.848s]   449 |         return [01;35m[K"RTX_CMD_FIRST"[m[K;
+[1.848s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[1.849s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:451:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.849s]   451 |         return [01;35m[K"RTX_CMD_QUIT"[m[K;
+[1.850s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.851s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:453:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.851s]   453 |         return [01;35m[K"RTX_CMD_ABORT"[m[K;
+[1.852s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[1.854s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:455:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.858s]   455 |         return [01;35m[K"RTX_CMD_GET_NCON"[m[K;
+[1.861s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[1.863s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:457:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.864s]   457 |         return [01;35m[K"RTX_CMD_GET_CON"[m[K;
+[1.864s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[1.865s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:459:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.866s]   459 |         return [01;35m[K"RTX_CMD_GET_CON"[m[K;
+[1.866s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[1.867s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:461:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.868s]   461 |         return [01;35m[K"RTX_CMD_PRIV"[m[K;
+[1.868s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.869s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:463:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.869s]   463 |         return [01;35m[K"RTX_CMD_READ_WRITE"[m[K;
+[1.870s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[1.870s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:465:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.871s]   465 |         return [01;35m[K"RTX_CMD_READ_ONLY"[m[K;
+[1.871s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[1.872s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:467:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.872s]   467 |         return [01;35m[K"RTX_CMD_GET_PARAMS"[m[K;
+[1.873s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[1.874s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:469:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.874s]   469 |         return [01;35m[K"RTX_CMD_SET_PARAMS"[m[K;
+[1.875s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[1.875s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:473:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.876s]   473 |         return [01;35m[K"RTX_CMD_RAW"[m[K;
+[1.877s]       |                [01;35m[K^~~~~~~~~~~~~[m[K
+[1.877s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:475:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.878s]   475 |         return [01;35m[K"RTX_CMD_RESTART"[m[K;
+[1.879s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[1.879s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:477:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.880s]   477 |         return [01;35m[K"RTX_CMD_DEFINE_HOME"[m[K;
+[1.880s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[1.881s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:479:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.881s]   479 |         return [01;35m[K"RTX_CMD_RELOAD_PIDS"[m[K;
+[1.882s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[1.883s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:481:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.883s]   481 |         return [01;35m[K"RTX_CMD_SET_MODE"[m[K;
+[1.884s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[1.884s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:483:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.885s]   483 |         return [01;35m[K"RTX_CMD_STOP"[m[K;
+[1.886s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.887s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:485:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.887s]   485 |         return [01;35m[K"RTX_CMD_GO"[m[K;
+[1.888s]       |                [01;35m[K^~~~~~~~~~~~[m[K
+[1.888s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:487:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.889s]   487 |         return [01;35m[K"RTX_CMD_WRITE"[m[K;
+[1.890s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[1.890s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:489:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.891s]   489 |         return [01;35m[K"RTX_CMD_INTERPOLATE"[m[K;
+[1.891s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[1.892s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:491:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.893s]   491 |         return [01;35m[K"RTX_CMD_SOAK"[m[K;
+[1.893s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.894s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:493:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.894s]   493 |         return [01;35m[K"RTX_CMD_INIT"[m[K;
+[1.895s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.896s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:498:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[1.896s]   498 |         return [01;35m[K"RTX_CMD_STATUS"[m[K;
+[1.897s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[1.916s] [ 63%] [32m[1mLinking CXX static library libarmraw.a[0m
+[1.987s] [ 69%] Built target nodeInverseKinematics
+[1.997s] [ 71%] Built target armraw
+[2.042s] [ 73%] [34m[1mAutomatic MOC and UIC for target nodeArm[0m
+[2.126s] [ 73%] Built target nodeArm_autogen
+[2.215s] [35m[1mConsolidate compiler generated dependencies of target nodeArm[0m
+[2.785s] [ 76%] [32mBuilding CXX object CMakeFiles/nodeArm.dir/src/drivers/armlib/armraw.cpp.o[0m
+[2.794s] [ 78%] [32mBuilding CXX object CMakeFiles/nodeArm.dir/src/drivers/armlib/armerror.cpp.o[0m
+[2.891s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:[m[K In function ‘[01m[Kchar* armstrerror(int)[m[K’:
+[2.892s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:56:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.892s]    56 |         return [01;35m[K"Communication failure"[m[K;
+[2.893s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.893s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:58:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.894s]    58 |         return [01;35m[K"Communication not initialised"[m[K;
+[2.894s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.895s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:62:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.896s]    62 |         return [01;35m[K"No response"[m[K;
+[2.896s]       |                [01;35m[K^~~~~~~~~~~~~[m[K
+[2.897s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:64:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.897s]    64 |         return [01;35m[K"Too many bytes in response"[m[K;
+[2.898s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.899s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:66:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.899s]    66 |         return [01;35m[K"Not enough bytes in response"[m[K;
+[2.900s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.901s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:68:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.902s]    68 |         return [01;35m[K"Unexpected response"[m[K;
+[2.902s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[2.903s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:73:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.903s]    73 |         return [01;35m[K"Reserved for future ROM releases"[m[K;
+[2.904s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.904s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:75:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.905s]    75 |         return [01;35m[K"Axis busy, wait until axis is stopped"[m[K;
+[2.906s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.907s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:77:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.907s]    77 |         return [01;35m[K"IP command decoder busy, try again later"[m[K;
+[2.908s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.909s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:79:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.910s]    79 |         return [01;35m[K"Parameter out of range"[m[K;
+[2.910s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.911s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:83:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.912s]    83 |         return [01;35m[K"Read only variable"[m[K;
+[2.912s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[2.913s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:86:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.914s]    86 |         return [01;35m[K"Selection out of range"[m[K;
+[2.915s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.916s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:89:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.916s]    89 |         return [01;35m[K"Illegal command"[m[K;
+[2.917s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.917s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:91:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.918s]    91 |         return [01;35m[K"Not enough bytes in command"[m[K;
+[2.919s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.919s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:93:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.920s]    93 |         return [01;35m[K"Too many bytes in command"[m[K;
+[2.920s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.921s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:95:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.921s]    95 |         return [01;35m[K"Parity error"[m[K;
+[2.922s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.923s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:97:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.923s]    97 |         return [01;35m[K"The IP was restarted. restart"[m[K;
+[2.924s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.924s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:100:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.925s]   100 |         return [01;35m[K"Checksum error"[m[K;
+[2.926s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[2.926s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:102:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.927s]   102 |         return [01;35m[K"Parameter out of range"[m[K;
+[2.927s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.928s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:104:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.929s]   104 |         return [01;35m[K"Toggle mode off (must be on for arm_interpolate)"[m[K;
+[2.929s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.930s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:106:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.930s]   106 |         return [01;35m[K"Privileged command"[m[K;
+[2.931s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[2.932s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:108:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.932s]   108 |         return [01;35m[K"RTX in use"[m[K;
+[2.933s]       |                [01;35m[K^~~~~~~~~~~~[m[K
+[2.933s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:110:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.934s]   110 |         return [01;35m[K"Command not supported"[m[K;
+[2.935s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.935s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:112:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.936s]   112 |         return [01;35m[K"Cannot connect to daemon"[m[K;
+[2.936s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.937s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:114:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.938s]   114 |         return [01;35m[K"Lost connection to RTX daemon"[m[K;
+[2.938s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.939s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armerror.cpp:116:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.939s]   116 |         return [01;35m[K"Connection read-only"[m[K;
+[2.940s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.544s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kvoid freertx(int, void*)[m[K’:
+[3.545s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:90:25:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstatus[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[3.547s]    90 | static void freertx([01;35m[Kint status[m[K, void *arg)
+[3.549s]       |                     [01;35m[K~~~~^~~~~~[m[K
+[3.550s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:90:39:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Karg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[3.551s]    90 | static void freertx(int status, [01;35m[Kvoid *arg[m[K)
+[3.553s]       |                                 [01;35m[K~~~~~~^~~[m[K
+[3.554s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:[m[K In function ‘[01m[Kchar* rtxstrcommand(int)[m[K’:
+[3.555s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:449:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.556s]   449 |         return [01;35m[K"RTX_CMD_FIRST"[m[K;
+[3.556s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[3.557s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:451:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.558s]   451 |         return [01;35m[K"RTX_CMD_QUIT"[m[K;
+[3.559s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.560s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:453:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.560s]   453 |         return [01;35m[K"RTX_CMD_ABORT"[m[K;
+[3.561s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[3.561s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:455:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.561s]   455 |         return [01;35m[K"RTX_CMD_GET_NCON"[m[K;
+[3.562s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.562s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:457:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.563s]   457 |         return [01;35m[K"RTX_CMD_GET_CON"[m[K;
+[3.563s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[3.564s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:459:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.565s]   459 |         return [01;35m[K"RTX_CMD_GET_CON"[m[K;
+[3.565s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[3.566s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:461:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.567s]   461 |         return [01;35m[K"RTX_CMD_PRIV"[m[K;
+[3.568s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.569s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:463:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.570s]   463 |         return [01;35m[K"RTX_CMD_READ_WRITE"[m[K;
+[3.570s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.571s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:465:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.571s]   465 |         return [01;35m[K"RTX_CMD_READ_ONLY"[m[K;
+[3.573s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.573s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:467:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.574s]   467 |         return [01;35m[K"RTX_CMD_GET_PARAMS"[m[K;
+[3.575s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.575s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:469:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.576s]   469 |         return [01;35m[K"RTX_CMD_SET_PARAMS"[m[K;
+[3.576s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.577s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:473:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.577s]   473 |         return [01;35m[K"RTX_CMD_RAW"[m[K;
+[3.578s]       |                [01;35m[K^~~~~~~~~~~~~[m[K
+[3.579s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:475:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.579s]   475 |         return [01;35m[K"RTX_CMD_RESTART"[m[K;
+[3.580s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[3.580s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:477:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.581s]   477 |         return [01;35m[K"RTX_CMD_DEFINE_HOME"[m[K;
+[3.582s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.582s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:479:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.583s]   479 |         return [01;35m[K"RTX_CMD_RELOAD_PIDS"[m[K;
+[3.584s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.584s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:481:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.585s]   481 |         return [01;35m[K"RTX_CMD_SET_MODE"[m[K;
+[3.585s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.586s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:483:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.587s]   483 |         return [01;35m[K"RTX_CMD_STOP"[m[K;
+[3.587s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.588s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:485:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.588s]   485 |         return [01;35m[K"RTX_CMD_GO"[m[K;
+[3.589s]       |                [01;35m[K^~~~~~~~~~~~[m[K
+[3.590s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:487:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.590s]   487 |         return [01;35m[K"RTX_CMD_WRITE"[m[K;
+[3.591s]       |                [01;35m[K^~~~~~~~~~~~~~~[m[K
+[3.591s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:489:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.592s]   489 |         return [01;35m[K"RTX_CMD_INTERPOLATE"[m[K;
+[3.593s]       |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.593s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:491:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.594s]   491 |         return [01;35m[K"RTX_CMD_SOAK"[m[K;
+[3.594s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.595s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:493:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.595s]   493 |         return [01;35m[K"RTX_CMD_INIT"[m[K;
+[3.596s]       |                [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.597s] [01m[K/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/src/umi_rtx_controller/src/drivers/armlib/armraw.cpp:498:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[3.598s]   498 |         return [01;35m[K"RTX_CMD_STATUS"[m[K;
+[3.598s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[3.616s] [ 80%] [32m[1mLinking CXX executable nodeArm[0m
+[7.301s] [100%] Built target nodeArm
+[7.458s] Invoked command in '/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller -- -j12 -l12
+[7.569s] Invoking command in '/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller
+[7.576s] -- Install configuration: ""
+[7.641s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeCamera
+[7.711s] -- Installing: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeArm
+[8.237s] -- Set runtime path of "/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeArm" to ""
+[8.271s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeInverseKinematics
+[8.336s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeSimu
+[8.398s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/GUI
+[8.464s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/lib/umi_rtx_controller/nodeCameraAPI
+[8.502s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include
+[8.519s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller
+[8.540s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/arm_parts
+[8.570s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/arm_parts/arm.h
+[8.592s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/arm_parts/forearm.h
+[8.614s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/arm_parts/joint.h
+[8.638s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/arm_parts/wrist.h
+[8.655s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/bsd
+[8.715s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/bsd/sys
+[8.840s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/bsd/sys/filio.h
+[8.870s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/bsd/sys/ioccom.h
+[8.890s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/mainpage.h
+[8.909s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/main_gui.hpp
+[8.928s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_arm.hpp
+[8.947s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_camera.hpp
+[8.968s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_camera_API.hpp
+[8.987s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_commands.hpp
+[9.004s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_invkin.hpp
+[9.021s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/node_simu.hpp
+[9.038s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/rapidxml.hpp
+[9.052s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics
+[9.079s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/arm.h
+[9.098s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/armlib.h
+[9.120s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/basics.h
+[9.139s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/chess.h
+[9.160s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/chesscmds.h
+[9.181s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/config.h
+[9.200s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/interface.h
+[9.225s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/inverse.h
+[9.247s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/matrix.h
+[9.272s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/path.h
+[9.298s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/pathplan.h
+[9.320s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/simulator.h
+[9.343s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/spp.h
+[9.366s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/umi.h
+[9.388s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/umiinit.h
+[9.408s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/xml_parser.h
+[9.430s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/robotics/_template.h
+[9.446s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers
+[9.475s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/680x0.h
+[9.499s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/armlib.h
+[9.521s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/armraw.h
+[9.544s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/comm.h
+[9.568s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/duart.h
+[9.591s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/hostlib.h
+[9.615s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/ipc.h
+[9.639s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/ipcrt.h
+[9.659s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/m68kipc
+[9.694s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/m68kipc/a.out.h
+[9.717s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/m68kipc/exec.h
+[9.739s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/rtx.h
+[9.762s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/rtxcmds.h
+[9.785s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/include/include/umi_rtx_controller/umi-drivers/rtxd.h
+[9.798s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/launch
+[9.821s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/launch/arm.launch.py
+[9.839s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/launch/simu.launch.py
+[9.851s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/rviz
+[9.871s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/rviz/rviz_basic_settings.rviz
+[9.882s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/urdf
+[10.057s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/urdf/umi_rtx.urdf
+[10.108s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/images
+[10.157s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/images/icon.png
+[10.173s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages
+[10.197s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/image01.jpg
+[10.212s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/image02.jpg
+[10.229s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/image03.jpg
+[10.249s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/image04.jpg
+[10.272s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/image05.jpg
+[10.290s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/leftImage01.png
+[10.309s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/leftImage02.png
+[10.328s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/leftImage03.png
+[10.350s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/leftImage04.png
+[10.370s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/leftImage05.png
+[10.389s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/rightImage01.png
+[10.407s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/rightImage02.png
+[10.425s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/rightImage03.png
+[10.449s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/rightImage04.png
+[10.468s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/CalibrationImages/rightImage05.png
+[10.496s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/ament_index/resource_index/package_run_dependencies/umi_rtx_controller
+[10.526s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/ament_index/resource_index/parent_prefix_path/umi_rtx_controller
+[10.542s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/environment/ament_prefix_path.sh
+[10.561s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/environment/ament_prefix_path.dsv
+[10.575s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/environment/path.sh
+[10.593s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/environment/path.dsv
+[10.610s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/local_setup.bash
+[10.624s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/local_setup.sh
+[10.639s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/local_setup.zsh
+[10.656s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/local_setup.dsv
+[10.675s] -- Installing: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/package.dsv
+[10.752s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/ament_index/resource_index/packages/umi_rtx_controller
+[10.778s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/cmake/umi_rtx_controllerConfig.cmake
+[10.791s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/cmake/umi_rtx_controllerConfig-version.cmake
+[10.809s] -- Up-to-date: /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/install/umi_rtx_controller/share/umi_rtx_controller/package.xml
+[10.818s] Invoked command in '/mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /mnt/c/Users/Natha/Documents/umi_rtx_demos/ros2_ws/build/umi_rtx_controller

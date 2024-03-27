@@ -1,0 +1,2 @@
+/usr/bin/ar qc libarmerror.a CMakeFiles/armerror.dir/armerror_autogen/mocs_compilation.cpp.o CMakeFiles/armerror.dir/src/drivers/armlib/armerror.cpp.o
+/usr/bin/ranlib libarmerror.a

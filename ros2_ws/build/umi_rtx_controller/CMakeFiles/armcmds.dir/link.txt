@@ -1,0 +1,2 @@
+/usr/bin/ar qc libarmcmds.a CMakeFiles/armcmds.dir/armcmds_autogen/mocs_compilation.cpp.o CMakeFiles/armcmds.dir/src/drivers/armlib/armcmds.cpp.o
+/usr/bin/ranlib libarmcmds.a
