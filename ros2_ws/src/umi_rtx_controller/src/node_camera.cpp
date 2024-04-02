@@ -14,8 +14,9 @@ void Camera::init_interfaces(){
 }
 
 void Camera::init_camera(){
-    //cap.open(0); // webcam
-    cap.open(4); // robot's camera or stereo device on my computer
+    cap.open(4); // webcam
+    std::cout << "Opening webcam... " << std::endl;
+    //cap.open(4); // robot's camera or stereo device on my computer
 
     if (!cap.isOpened()) {
         std::cout << "ERROR! Unable to open camera" << std::endl;
@@ -29,6 +30,9 @@ void Camera::init_camera(){
 
     m_frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
     m_frame_height = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
+
+    std::cout << "m_frame_width " << m_frame_width << std::endl;
+    std::cout << "m_frame_height " << m_frame_height << std::endl;
     //std::cout << "init done" << std::endl;
 }
 
@@ -36,7 +40,10 @@ void Camera::timer_callback(){
     geometry_msgs::msg::Point coord_msg;
     geometry_msgs::msg::Vector3 angles_msg;
 
-    cap.read(frame);
+    std::cout << "Image read" << cap.read(frame) << std::endl;
+
+    int width = frame.cols;
+    int height = frame.rows;
 
     stereo_split_views();
 
@@ -66,6 +73,7 @@ void Camera::timer_callback(){
 }
 
 void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg){
+    std::cout << "Banana research" << std::endl;
     cv::Mat hsv_img;
     //cv::cvtColor(frame,hsv_img,cv::COLOR_BGR2HSV);
     cv::cvtColor(frameLeft,hsv_img,cv::COLOR_BGR2HSV);
@@ -81,7 +89,7 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
     cv::findContours(bin_hsv_img, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
 
     if(contours.empty()){
-        //std::cout << "Cannot detect the target" << std::endl;
+        std::cout << "Cannot detect the target" << std::endl;
 
         //cv::circle(frame,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
         cv::circle(frameLeft,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);

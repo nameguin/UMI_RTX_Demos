@@ -37,8 +37,8 @@ find_package(rviz_common REQUIRED)
 find_package(rviz_rendering REQUIRED)
 find_package(rviz_default_plugins REQUIRED)
 find_package(rviz_ogre_vendor REQUIRED)
-find_package(ZED 3 REQUIRED)
-find_package(CUDA ${ZED_CUDA_VERSION} REQUIRED)
+#find_package(ZED 3 REQUIRED)
+#find_package(CUDA ${ZED_CUDA_VERSION} REQUIRED)
 
 
 include_directories(
@@ -47,8 +47,8 @@ include_directories(
         ${rviz_common_INCLUDE_DIRS}
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
-        ${CUDA_INCLUDE_DIRS}
-        ${ZED_INCLUDE_DIRS}
+        #${CUDA_INCLUDE_DIRS}
+        #${ZED_INCLUDE_DIRS}
 )
 
 add_library(armcmds src/drivers/armlib/armcmds.cpp)
@@ -87,6 +87,7 @@ target_include_directories(nodeCamera PUBLIC
         $<INSTALL_INTERFACE:include>)
 
 ##################################### Node camera API
+#[===[
 add_executable(nodeCameraAPI
         src/node_camera_API.cpp
 )
@@ -107,6 +108,7 @@ target_link_libraries(nodeCameraAPI "${cpp_typesupport_target}" ${OpenCV_LIBS} $
 target_include_directories(nodeCameraAPI PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
+#]===]
 
 ##################################### Node Arm
 add_executable(nodeArm
@@ -216,7 +218,7 @@ if(BUILD_TESTING)
  ament_lint_auto_find_test_dependencies()
 endif()
 
-install(TARGETS nodeCamera nodeArm nodeInverseKinematics nodeSimu GUI nodeCameraAPI
+install(TARGETS nodeCamera nodeArm nodeInverseKinematics nodeSimu GUI
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY include
