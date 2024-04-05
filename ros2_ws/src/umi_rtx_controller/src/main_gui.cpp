@@ -317,7 +317,8 @@ void MainGUI::updateFrame()
         *frame = ros2_node->processed_frame;
     }
     int w = frame->cols,h = frame->rows;
-    cv::Size newSize(w / 2, h / 2); // resize frame to do less calculations
+
+    cv::Size newSize(640,360); // resize frame to do less calculations
     if (newSize.area() > 0){
         cv::resize(*frame,*frame,newSize);
     }

@@ -14,25 +14,17 @@ void Camera::init_interfaces(){
 }
 
 void Camera::init_camera(){
-    cap.open(4); // webcam
     std::cout << "Opening webcam... " << std::endl;
-    //cap.open(4); // robot's camera or stereo device on my computer
 
-    if (!cap.isOpened()) {
-        std::cout << "ERROR! Unable to open camera" << std::endl;
-    }
+    m_frame_width = 1280;
+    m_frame_height = 720;
+    cfg.enable_stream(RS2_STREAM_DEPTH, m_frame_width/2, m_frame_height/2, RS2_FORMAT_Z16, 30);
+    cfg.enable_stream(RS2_STREAM_COLOR, m_frame_width, m_frame_height, RS2_FORMAT_BGR8, 30);
+    pipe.start(cfg);
 
-    // Stereo Calibration of the ZED M device
-    stereo_calibration();
+    auto sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>();
+    sensor.set_option(rs2_option::RS2_OPTION_VISUAL_PRESET, rs2_rs400_visual_preset::RS2_RS400_VISUAL_PRESET_HIGH_ACCURACY);
 
-    // Computing rectification parameters
-    stereo_rectification();
-
-    m_frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
-    m_frame_height = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
-
-    std::cout << "m_frame_width " << m_frame_width << std::endl;
-    std::cout << "m_frame_height " << m_frame_height << std::endl;
     //std::cout << "init done" << std::endl;
 }
 
@@ -40,43 +32,56 @@ void Camera::timer_callback(){
     geometry_msgs::msg::Point coord_msg;
     geometry_msgs::msg::Vector3 angles_msg;
 
-    std::cout << "Image read" << cap.read(frame) << std::endl;
+    rs2::frameset frames = pipe.wait_for_frames();
 
-    int width = frame.cols;
-    int height = frame.rows;
+    // Align depth frame to color frame
+    frames = align_to_color.process(frames);
 
-    stereo_split_views();
+    //color_map.set_option(RS2_OPTION_COLOR_SCHEME, 0);
+    color_map.set_option(RS2_OPTION_MIN_DISTANCE, 0.0f); // Minimum distance (0.0 meters)
+    color_map.set_option(RS2_OPTION_MAX_DISTANCE, 6.0f); // Maximum distance (6.0 meters)
+    color_map.set_option(RS2_OPTION_HISTOGRAM_EQUALIZATION_ENABLED, false); // Disable histogram equalization
+    //color_map.set_option(RS2_OPTION_THRESHOLD, 0.0f); // Disable threshold filter
 
-    m_frame_width_left = frameLeft.cols;
-    m_frame_height_left = frameLeft.rows;
+    rs2::depth_frame depth = frames.get_depth_frame();
+    rs2::frame coloredDepth = frames.get_depth_frame().apply_filter(color_map);
+    rs2::frame color = frames.get_color_frame();
 
-    // Remplacer frame par frameLeft dans le cas où on utilise la caméra stéréo
+    // Query frame size (width and height)
+    const int depth_w = depth.as<rs2::video_frame>().get_width();
+    const int depth_h = depth.as<rs2::video_frame>().get_height();
+    const int color_w = color.as<rs2::video_frame>().get_width();
+    const int color_h = color.as<rs2::video_frame>().get_height();
 
-    get_banana_and_angles(coord_msg,angles_msg);
+    // Create OpenCV matrix of size (w,h) from the colorized depth data
+    depthFrameCV = cv::Mat(cv::Size(depth_w, depth_h), CV_8UC3, (void*)coloredDepth.get_data(), cv::Mat::AUTO_STEP);
 
-    stereo_get_disparity();
-    sensor_msgs::msg::Image::SharedPtr disp_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"mono8",disparityMap).toImageMsg();
-    disparity_publisher->publish(*disp_msg);
+    // Create OpenCV matrix of size (w,h) from the color data
+    colorFrameCV = cv::Mat(cv::Size(color_w, color_h), CV_8UC3, (void*)color.get_data(), cv::Mat::AUTO_STEP);
 
-    stereo_get_depth();
-    sensor_msgs::msg::Image::SharedPtr depth_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"mono8",depthMap).toImageMsg();
+    get_banana_and_angles(coord_msg,angles_msg, depth);
+
+    //sensor_msgs::msg::Image::SharedPtr disp_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"mono8",disparityMap).toImageMsg();
+    //disparity_publisher->publish(*disp_msg);
+
+    sensor_msgs::msg::Image::SharedPtr depth_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",depthFrameCV).toImageMsg();
     depth_publisher->publish(*depth_msg);
 
-    std_msgs::msg::Float64 target_depth_msg;
+        //std_msgs::msg::Float64 target_depth_msg;
     //target_depth_msg.data = depthMap.at<float>(depthMap.rows/2,depthMap.cols/2);
-    target_depth_msg.data = cv::mean(depthMap)[0];
+       //target_depth_msg.data = cv::mean(depthMap)[0];
     //target_depth_msg.data = (0.5*m_frame_width_left/tan(90*0.5*M_PI/180)) * m_baseline / disparityMap.at<float>(m_frame_width_left/2,m_frame_height_left/2);
     //target_depth_msg.data = disparityMap.at<float>(m_frame_width_left/2,m_frame_height_left/2);
     //target_depth_msg.data = depthMap.at<uchar>(300,300);
-    double_publisher->publish(target_depth_msg);
+       //double_publisher->publish(target_depth_msg);
 
 }
 
-void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg){
-    std::cout << "Banana research" << std::endl;
+void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg, rs2::depth_frame depth){
+
     cv::Mat hsv_img;
     //cv::cvtColor(frame,hsv_img,cv::COLOR_BGR2HSV);
-    cv::cvtColor(frameLeft,hsv_img,cv::COLOR_BGR2HSV);
+    cv::cvtColor(colorFrameCV,hsv_img,cv::COLOR_BGR2HSV);
 
 
     cv::Scalar lower_bound = cv::Scalar(20,100,100);
@@ -91,16 +96,16 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
     if(contours.empty()){
         std::cout << "Cannot detect the target" << std::endl;
 
-        //cv::circle(frame,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
-        cv::circle(frameLeft,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
+        cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
+        //cv::circle(frameLeft,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
 
-        //cv::line(frame,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
-        //cv::line(frame,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
-        cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
-        cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
+        cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
+        cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
+        //cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
+        //cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
 
-        //sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",frame).toImageMsg();
-        sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",frameLeft).toImageMsg();
+        sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",colorFrameCV).toImageMsg();
+        //sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",frameLeft).toImageMsg();
         image_publisher->publish(*img_msg);
     }
 
@@ -125,8 +130,8 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
 
         if(maxAreaIdx > -1) {
             get_angles(contours);
-            //cv::drawContours(frame, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
-            cv::drawContours(frameLeft, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
+            cv::drawContours(colorFrameCV, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
+            //cv::drawContours(frameLeft, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
 
             cv::Moments moments = cv::moments(contours[maxAreaIdx]);
 
@@ -147,8 +152,8 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
                 coord_msg.x = m_cx;
                 coord_msg.y = m_cy;
 
-                //cv::circle(frame,cv::Point(m_frame_width-40,40),20,cv::Scalar(100,50,100),-1);
-                cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(100,50,100),-1);
+                cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(100,50,100),-1);
+                //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(100,50,100),-1);
             }
         }
 
@@ -157,16 +162,20 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
             coord_msg.y = m_cy;
         }
 
-        //cv::circle(frame,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,255,0),-1);
-        cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(0,255,0),-1);
+        std::cout << "Yellow object detected at (" << m_cx <<";"<< m_cy << ")" << std::endl;
+        std::cout << "Depth: " << depth.get_distance(m_cx, m_cy) << std::endl;
+        cv::circle(colorFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
 
-        //cv::line(frame,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
-        //cv::line(frame,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
-        cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
-        cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
+        //cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,255,0),-1);
+        //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(0,255,0),-1);
 
-        //sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", frame).toImageMsg();
-        sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", frameLeft).toImageMsg();
+        cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
+        cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
+        //cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
+        //cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
+
+        sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", colorFrameCV).toImageMsg();
+        //sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", frameLeft).toImageMsg();
         image_publisher->publish(*img_msg);
     }
     coord_publisher->publish(coord_msg);
@@ -199,114 +208,6 @@ void Camera::get_angles(vector<vector<cv::Point>> &contours){
     pitch = 90.;
     roll = theta*180/M_PI;
 
-}
-
-void Camera::stereo_calibration(){
-    std::cout << "Calibrating the stereo device..." << std::endl;
-
-    std::vector<std::vector<cv::Point3f>> objectPoints;
-    std::vector<std::vector<cv::Point2f>> cornersLeft;
-    std::vector<std::vector<cv::Point2f>> cornersRight;
-
-    cv::Size imageLeftSize, imageRightSize;
-
-    for(int i=1;i<=5;i++){
-        //ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/icon.png"
-        cv::Mat imageLeft = cv::imread(ament_index_cpp::get_package_share_directory("umi_rtx_controller") + "/CalibrationImages/leftImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
-        cv::Mat imageRight = cv::imread(ament_index_cpp::get_package_share_directory("umi_rtx_controller") + "/CalibrationImages/rightImage0" + std::to_string(i) + ".png", cv::IMREAD_GRAYSCALE);
-
-        if(imageLeft.empty()){
-            std::cout << "Error reading the calibration left image " << i << std::endl;
-        }
-        if(imageRight.empty()){
-            std::cout << "Error reading the calibration right image " << i << std::endl;
-        }
-
-        imageLeftSize = imageLeft.size();
-        imageRightSize = imageRight.size();
-        //std::cout << "Left image size: " << imageLeftSize << std::endl;
-        //std::cout << "Right image size: " << imageRightSize << std::endl;
-
-        std::vector<cv::Point2f> cornersLeftSub;
-        std::vector<cv::Point2f> cornersRightSub;
-
-        bool patternFoundLeft = cv::findChessboardCorners(imageLeft, cv::Size(7,5), cornersLeftSub, cv::CALIB_CB_ADAPTIVE_THRESH | cv::CALIB_CB_NORMALIZE_IMAGE);
-        bool patternFoundRight = cv::findChessboardCorners(imageRight, cv::Size(7,5), cornersRightSub, cv::CALIB_CB_ADAPTIVE_THRESH | cv::CALIB_CB_NORMALIZE_IMAGE);
-        //std::cout << "Found corners on left image? " << patternFoundLeft << std::endl;
-        //std::cout << "Found corners on right image? " << patternFoundRight << std::endl;
-        //std::cout << "Number of corners detected in image " << i << " (left) test1: " << cornersLeftSub.size() << std::endl;
-        //std::cout << "Number of corners detected in image " << i << " (right) test1: " << cornersRightSub.size() << std::endl;
-
-        if(patternFoundLeft && patternFoundRight){
-            cv::cornerSubPix(imageLeft, cornersLeftSub, cv::Size(5,5), cv::Size(-1,-1), cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::COUNT, 30, 0.1));
-            cv::cornerSubPix(imageRight, cornersRightSub, cv::Size(5,5), cv::Size(-1,-1), cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::COUNT, 30, 0.1));
-
-            cornersLeft.push_back(cornersLeftSub);
-            cornersRight.push_back(cornersRightSub);
-
-            std::vector<cv::Point3f> objectPointsImage;
-
-            for (int y = 0; y < cv::Size(7,5).height; y++) {
-                for (int x = 0; x < cv::Size(7,5).width; x++) {
-                    objectPointsImage.push_back(cv::Point3f(x * m_squareSize, y * m_squareSize, 0));
-                }
-            }
-
-            objectPoints.push_back(objectPointsImage);
-        }
-
-        //cv::drawChessboardCorners(imageLeft, patternSize, cornersLeftSub, patternFoundLeft);
-        //cv::drawChessboardCorners(imageRight, patternSize, cornersRightSub, patternFoundRight);
-    }
-
-    m_rms_error = cv::stereoCalibrate(objectPoints, cornersLeft, cornersRight, m_cameraMatrixLeft, m_distCoeffsLeft, m_cameraMatrixRight, m_distCoeffsRight, imageLeftSize, m_R, m_T, m_E, m_F,cv::CALIB_SAME_FOCAL_LENGTH | cv::CALIB_ZERO_TANGENT_DIST);
-
-    std::cout << "Stereo device calibrated\n" << std::endl;
-}
-
-void Camera::stereo_rectification(){
-    std::cout << "Computing rectification paramters..." << std::endl;
-
-    cv::stereoRectify(m_cameraMatrixLeft, m_distCoeffsLeft, m_cameraMatrixRight, m_distCoeffsRight, cv::Size(1280,720), m_R, m_T, m_R1, m_R2, m_P1, m_P2, m_Q, cv::CALIB_ZERO_DISPARITY);
-
-    cv::initUndistortRectifyMap(m_cameraMatrixLeft, m_distCoeffsLeft, m_R1, m_P1, cv::Size(1280,720), CV_32FC1, m_map1Left, m_map2Left);
-    cv::initUndistortRectifyMap(m_cameraMatrixRight, m_distCoeffsRight, m_R2, m_P2, cv::Size(1280,720), CV_32FC1, m_map1Right, m_map2Right);
-
-    std::cout << "Rectification parameters computed\n" << std::endl;
-}
-
-void Camera::stereo_split_views(){
-    if(frame.empty()){
-        std::cout << "Error reading the frame" << std::endl;
-    }
-
-    int width = frame.cols;
-    int height = frame.rows;
-
-    frameLeft = frame(cv::Rect(0,0,width/2,height));
-    frameRight = frame(cv::Rect(width/2,0,width/2,height));
-
-    cv::resize(frameLeft,frameLeft,cv::Size(1280,720));
-    cv::resize(frameRight,frameRight,cv::Size(1280,720));
-}
-
-void Camera::stereo_get_disparity(){
-    cv::remap(frameLeft,frameLeft,m_map1Left,m_map2Left,cv::INTER_LINEAR);
-    cv::remap(frameRight,frameRight,m_map1Right,m_map2Right,cv::INTER_LINEAR);
-
-    stereo->compute(frameLeft,frameRight,disparityMap);
-
-    cv::threshold(disparityMap,disparityMap,0,0,cv::THRESH_TOZERO);
-
-    disparityMap.convertTo(disparityMap,CV_32F,1.0/16.0);
-    cv::normalize(disparityMap, disparityMap, 0, 255, cv::NORM_MINMAX, CV_8U); // à méditer
-}
-
-void Camera::stereo_get_depth(){
-    //depthMap = (m_focalLength*m_baseline)/disparityMap;
-    depthMap = depth_factor * (0.5*m_frame_width_left/tan(90*0.5*M_PI/180)) * m_baseline / disparityMap;
-    //cv::normalize(depthMap,depthMap,0,255,cv::NORM_MINMAX,CV_8U);
-    //depthMap = 255 - depthMap;
 }
 
 int main(int argc, char * argv[]){

@@ -37,6 +37,7 @@ find_package(rviz_common REQUIRED)
 find_package(rviz_rendering REQUIRED)
 find_package(rviz_default_plugins REQUIRED)
 find_package(rviz_ogre_vendor REQUIRED)
+find_package(realsense2 REQUIRED)
 #find_package(ZED 3 REQUIRED)
 #find_package(CUDA ${ZED_CUDA_VERSION} REQUIRED)
 
@@ -47,6 +48,7 @@ include_directories(
         ${rviz_common_INCLUDE_DIRS}
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
+        ${realsense2_INCLUDE_DIR}
         #${CUDA_INCLUDE_DIRS}
         #${ZED_INCLUDE_DIRS}
 )
@@ -81,7 +83,7 @@ ament_target_dependencies(nodeCamera
         std_msgs
 )
 
-target_link_libraries(nodeCamera "${cpp_typesupport_target}" ${OpenCV_LIBS})
+target_link_libraries(nodeCamera "${cpp_typesupport_target}" ${OpenCV_LIBS}  ${realsense2_LIBRARY})
 target_include_directories(nodeCamera PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)

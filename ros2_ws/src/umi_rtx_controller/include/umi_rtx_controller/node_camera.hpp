@@ -28,6 +28,7 @@
 #include <opencv2/calib3d.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/ximgproc.hpp>
+#include <librealsense2/rs.hpp>
 
 #include <ament_index_cpp/get_package_share_directory.hpp>
 
@@ -46,7 +47,7 @@ public:
      * Tries to open the stereo camera, calibrates it and rectifies the images.
      * 
      */
-    Camera() : Node("control") {
+    Camera() : Node("control"), align_to_color(RS2_STREAM_COLOR){
         init_interfaces();
         init_camera();
     };
@@ -79,7 +80,7 @@ private:
      * @param coord_msg Message to publish the position of the banana.
      * @param angles_msg Message to publish the orientation of the banana.
      */
-    void get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg);
+    void get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg, rs2::depth_frame depth);
 
     /**
      * @brief Finds the fittest line with respect to the contour of the target and
@@ -135,20 +136,20 @@ private:
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher;//! Publisher of the depth map of the scene.
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr double_publisher;//! Publisher of depth value for a chosen point.
 
-    cv::VideoCapture cap;//! Camera instance.
+    rs2::pipeline pipe;
+    rs2::config cfg;
+    rs2::align align_to_color;
+    rs2::colorizer color_map;
 
-    cv::Mat frame, frameLeft, frameRight;//! Stereo, left and right images for the stereo camera.
-    cv::Mat m_cameraMatrixLeft, m_distCoeffsLeft, m_cameraMatrixRight, m_distCoeffsRight;//! Extrinsic parameters.
+    cv::Mat colorFrameCV, depthFrameCV;
+    cv::Mat depth_normalized;
     cv::Mat m_R, m_T, m_E, m_F;//! Extrinsic parameters.
     cv::Mat m_R1, m_R2, m_P1, m_P2, m_Q;//! Extrinsic parameters.
-    cv::Mat m_map1Left, m_map2Left, m_map1Right, m_map2Right;//! Rectification parameters.
-    cv::Mat disparityMap;//! Disparity map.
-    cv::Mat depthMap;//! Depth map.
 
     cv::Ptr<cv::StereoSGBM> stereo;//! Block-matching algorithm instance.
 
     int m_frame_width, m_frame_height;//! Size of the stereo images.
-    int m_frame_width_left, m_frame_height_left;//! Size of the left images.
+    int m_depth_frame_width, m_depth_frame_height;
     int blockSize = 7;//!
     int min_disp = 0;//!
     int max_disp = 80;//!
