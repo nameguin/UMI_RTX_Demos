@@ -319,7 +319,7 @@ void MainGUI::updateFrame()
     int w = frame->cols,h = frame->rows;
 
     cv::Size newSize(640,360); // resize frame to do less calculations
-    if (newSize.area() > 0){
+    if (w > 0 && h > 0){
         cv::resize(*frame,*frame,newSize);
     }
 

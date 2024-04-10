@@ -6,20 +6,36 @@ void Camera::init_interfaces(){
     timer_ = this->create_wall_timer(loop_dt_,std::bind(&Camera::timer_callback,this));
 
     image_publisher = this->create_publisher<sensor_msgs::msg::Image>("processed_image",10);
-    coord_publisher = this->create_publisher<geometry_msgs::msg::Point>("processed_position",10);
-    angles_publisher = this->create_publisher<geometry_msgs::msg::Vector3>("processed_angles",10);
-    disparity_publisher = this->create_publisher<sensor_msgs::msg::Image>("disparity_image",10);
+    processed_pose_publisher = this->create_publisher<geometry_msgs::msg::Pose>("processed_pose",10);
     depth_publisher = this->create_publisher<sensor_msgs::msg::Image>("depth_image",10);
-    double_publisher = this->create_publisher<std_msgs::msg::Float64>("target_depth",10);
+    //double_publisher = this->create_publisher<std_msgs::msg::Float64>("target_depth",10);
 }
 
 void Camera::init_camera(){
-    std::cout << "Opening webcam... " << std::endl;
+    std::cout << "Checking for available cameras... " << std::endl;
+
+    rs2::context ctx;
+    auto device_list = ctx.query_devices();
+
+    if (device_list.size() == 0)
+        throw std::runtime_error("No RealSense camera detected!");
+    else if(device_list.size() == 1)
+        std::cout << "There is " << device_list.size() << " connected RealSense device." << std::endl << std::endl;
+    else
+        std::cout << "There are " << device_list.size() << " connected RealSense devices." << std::endl << std::endl;
+
+    auto dev = device_list[0];
+    std::cout << "Using device 0 " << std::endl;
+    std::cout << "Name: " << dev.get_info(RS2_CAMERA_INFO_NAME) << std::endl;
+    std::cout << "Serial number: " << dev.get_info(RS2_CAMERA_INFO_SERIAL_NUMBER) << std::endl;
+    std::cout << "Firmware version: " << dev.get_info(RS2_CAMERA_INFO_FIRMWARE_VERSION) << std::endl;
 
     m_frame_width = 1280;
     m_frame_height = 720;
+
     cfg.enable_stream(RS2_STREAM_DEPTH, m_frame_width/2, m_frame_height/2, RS2_FORMAT_Z16, 30);
     cfg.enable_stream(RS2_STREAM_COLOR, m_frame_width, m_frame_height, RS2_FORMAT_BGR8, 30);
+
     pipe.start(cfg);
 
     auto sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>();
@@ -29,8 +45,7 @@ void Camera::init_camera(){
 }
 
 void Camera::timer_callback(){
-    geometry_msgs::msg::Point coord_msg;
-    geometry_msgs::msg::Vector3 angles_msg;
+    geometry_msgs::msg::Pose pose_msg;
 
     rs2::frameset frames = pipe.wait_for_frames();
 
@@ -41,7 +56,6 @@ void Camera::timer_callback(){
     color_map.set_option(RS2_OPTION_MIN_DISTANCE, 0.0f); // Minimum distance (0.0 meters)
     color_map.set_option(RS2_OPTION_MAX_DISTANCE, 6.0f); // Maximum distance (6.0 meters)
     color_map.set_option(RS2_OPTION_HISTOGRAM_EQUALIZATION_ENABLED, false); // Disable histogram equalization
-    //color_map.set_option(RS2_OPTION_THRESHOLD, 0.0f); // Disable threshold filter
 
     rs2::depth_frame depth = frames.get_depth_frame();
     rs2::frame coloredDepth = frames.get_depth_frame().apply_filter(color_map);
@@ -59,7 +73,14 @@ void Camera::timer_callback(){
     // Create OpenCV matrix of size (w,h) from the color data
     colorFrameCV = cv::Mat(cv::Size(color_w, color_h), CV_8UC3, (void*)color.get_data(), cv::Mat::AUTO_STEP);
 
-    get_banana_and_angles(coord_msg,angles_msg, depth);
+    get_banana_and_angles(pose_msg, depth);
+
+    pose_msg.position.x = m_cx;
+    pose_msg.position.y = m_cy;
+    pose_msg.position.z = m_cz;
+
+    processed_pose_publisher->publish(pose_msg);
+//  std::cout << "Distance at {"<<m_cx<<";"<<m_cy<<"}: " << target_depth_msg.data << std::endl;
 
     //sensor_msgs::msg::Image::SharedPtr disp_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"mono8",disparityMap).toImageMsg();
     //disparity_publisher->publish(*disp_msg);
@@ -77,14 +98,14 @@ void Camera::timer_callback(){
 
 }
 
-void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg, rs2::depth_frame depth){
+void Camera::get_banana_and_angles(geometry_msgs::msg::Pose msg, rs2::depth_frame depth){
 
     cv::Mat hsv_img;
     //cv::cvtColor(frame,hsv_img,cv::COLOR_BGR2HSV);
     cv::cvtColor(colorFrameCV,hsv_img,cv::COLOR_BGR2HSV);
 
 
-    cv::Scalar lower_bound = cv::Scalar(20,100,100);
+    cv::Scalar lower_bound = cv::Scalar(25,100,100);
     cv::Scalar upper_bound = cv::Scalar(60,255,255);
 
     cv::Mat bin_hsv_img;
@@ -112,13 +133,14 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
     else{
 
         double maxArea = 0;
+        double minArea = 0.0;
         int maxAreaIdx = -1;
 
         for (int i = 0; i < contours.size(); i++)
         {
             double area = cv::contourArea(contours[i]);
 
-            if (area > maxArea)
+            if (area > maxArea && area > minArea)
             {
                 maxArea = area;
                 maxAreaIdx = i;
@@ -127,11 +149,10 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
 
         //std::cout << "indice : " << maxAreaIdx << std::endl;
 
-
         if(maxAreaIdx > -1) {
             get_angles(contours);
             cv::drawContours(colorFrameCV, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
-            //cv::drawContours(frameLeft, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
+            cv::drawContours(depthFrameCV, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
 
             cv::Moments moments = cv::moments(contours[maxAreaIdx]);
 
@@ -139,9 +160,6 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
                 double cx = moments.m10 / moments.m00;
                 double cy = moments.m01 / moments.m00;
                 //std::cout << "Centroid : (" << cx << ", " << cy << ")" << std::endl;
-
-                coord_msg.x = cx;
-                coord_msg.y = cy;
                 m_cx = cx;
                 m_cy = cy;
             }
@@ -149,41 +167,44 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry
             else {
                 std::cout << "Impossible centroid calculation" << std::endl;
 
-                coord_msg.x = m_cx;
-                coord_msg.y = m_cy;
-
                 cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(100,50,100),-1);
                 //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(100,50,100),-1);
             }
+            std::cout << "Yellow object detected at (" << m_cx <<";"<< m_cy << ")" << std::endl;
+            std::cout << "Depth: " << depth.get_distance(m_cx, m_cy) << std::endl;
+            cv::circle(colorFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
+            cv::circle(depthFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
+
+            //cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,255,0),-1);
+            //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(0,255,0),-1);
+
+            cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
+            cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
+            //cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
+            //cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
         }
 
         else{
-            coord_msg.x = m_cx;
-            coord_msg.y = m_cy;
+            std::cout << "Cannot detect the target" << std::endl;
+
+            cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
+            //cv::circle(frameLeft,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
+
+            cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
+            cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
+            //cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
+            //cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
+            //coord_msg.x = m_cx;
+            //coord_msg.y = m_cy;
         }
-
-        std::cout << "Yellow object detected at (" << m_cx <<";"<< m_cy << ")" << std::endl;
-        std::cout << "Depth: " << depth.get_distance(m_cx, m_cy) << std::endl;
-        cv::circle(colorFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
-
-        //cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,255,0),-1);
-        //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(0,255,0),-1);
-
-        cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
-        cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
-        //cv::line(frameLeft,cv::Point (m_frame_width_left/2 - 25,m_frame_height_left/2),cv::Point (m_frame_width_left/2 + 25,m_frame_height_left/2),cv::Scalar(255,255,255),2);
-        //cv::line(frameLeft,cv::Point (m_frame_width_left/2,m_frame_height_left/2 - 25),cv::Point (m_frame_width_left/2,m_frame_height_left/2 + 25),cv::Scalar(255,255,255),2);
 
         sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", colorFrameCV).toImageMsg();
         //sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", frameLeft).toImageMsg();
         image_publisher->publish(*img_msg);
     }
-    coord_publisher->publish(coord_msg);
-
-    angles_msg.x = yaw;
-    angles_msg.y = pitch;
-    angles_msg.z = roll;
-    angles_publisher->publish(angles_msg);
+    msg.orientation.x = yaw;
+    msg.orientation.y = pitch;
+    msg.orientation.z = roll;
 }
 
 void Camera::get_angles(vector<vector<cv::Point>> &contours){

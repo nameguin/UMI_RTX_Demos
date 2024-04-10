@@ -131,8 +131,6 @@ void Simu_node::init_urdf(){
     }
 }
 
-
-
 void Simu_node::get_commands(const sensor_msgs::msg::JointState::SharedPtr msg){
 
     // Zed

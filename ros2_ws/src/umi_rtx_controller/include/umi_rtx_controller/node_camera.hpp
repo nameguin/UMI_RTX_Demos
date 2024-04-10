@@ -16,6 +16,7 @@
 #include "sensor_msgs/msg/image.hpp"
 #include "geometry_msgs/msg/point.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
+#include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
@@ -80,7 +81,7 @@ private:
      * @param coord_msg Message to publish the position of the banana.
      * @param angles_msg Message to publish the orientation of the banana.
      */
-    void get_banana_and_angles(geometry_msgs::msg::Point coord_msg, geometry_msgs::msg::Vector3 angles_msg, rs2::depth_frame depth);
+    void get_banana_and_angles(geometry_msgs::msg::Pose pose_msg, rs2::depth_frame depth);
 
     /**
      * @brief Finds the fittest line with respect to the contour of the target and
@@ -129,12 +130,9 @@ private:
 
     rclcpp::TimerBase::SharedPtr timer_;//! Pointer to the timer.
 
-    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_publisher;//! Publisher of the left view with target contour.
-    rclcpp::Publisher<geometry_msgs::msg::Point>::SharedPtr coord_publisher;//! Publisher of the target's coordinates.
-    rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr angles_publisher;//! Publisher of the target's orientation.
-    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr disparity_publisher;//! Publisher of the disparity map of the scene.
-    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher;//! Publisher of the depth map of the scene.
-    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr double_publisher;//! Publisher of depth value for a chosen point.
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_publisher; //! Image publisher of the left view with the contour of the target.
+    rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr processed_pose_publisher; //! Pose publisher of the position and orientation of the target.
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher; //! Image publisher of the depth map of the scene.
 
     rs2::pipeline pipe;
     rs2::config cfg;

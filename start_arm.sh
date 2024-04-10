@@ -29,10 +29,10 @@ else
       ros2 launch umi_rtx_controller arm.launch.py
 
       ##### REMOVE NEXT LINE IF YOU WANT LOGS #####
-      echo "Delete logs...."
-      rm -rf logs/*
-      cd
-      rm -rf .ros/log/*
+      # echo "Delete logs...."
+      # rm -rf logs/*
+      # cd
+      # rm -rf .ros/log/*
       #####
 
       echo "------------------"

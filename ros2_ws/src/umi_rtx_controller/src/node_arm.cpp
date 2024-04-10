@@ -1,6 +1,5 @@
 #include "umi_rtx_controller/node_arm.hpp"
 
-
 using namespace std::placeholders;
 using namespace std;
 
