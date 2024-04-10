@@ -68,4 +68,60 @@ To run the simulation, execute the following command:
 ros2 launch umi_rtx_controller simu.launch.py
 ```
 
+## Docker
+
+### 1. Docker installation
+
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-docker2 nvidia-container-toolkit
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+### 2. Build the docker image
+
+```bash
+# Place yourself in umi_rtx_demos
+docker build -t "name" .
+```
+
+Be careful to replace "name" with the name you want, and everything is ready !
+
+### 3. Run the image into a container
+
+```bash
+# Give the permission to use the screen
+xhost +
+
+# Launch the container (replace "name" with the name you chose)
+docker run --gpus all -it --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm "name":latest
+```
+
+### 4. Run the program
+
+Start by running these commands:
+
+```bash
+cd ROS_ws/
+colcon build
+source install/setup.bash
+cd ..
+```
+
+Then, if you want to launch only the simulation, run this:
+
+```bash
+ros2 launch umi_rtx_controller simu.launch.py
+```
+
+If you want to use the arm, run this:
+
+```bash
+./start_arm.sh
+```
+
 
