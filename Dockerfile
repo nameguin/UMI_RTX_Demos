@@ -1,79 +1,49 @@
-# Use the ROS Iron Perception base image
-FROM ros:iron-perception
+FROM stereolabs/zed:4.0-gl-devel-cuda11.4-ubuntu20.04
 
-# Set the working directory to /ros2_ws
-ENV WS_DIR="/ros2_ws"
-WORKDIR ${WS_DIR}
-
-# Set the default shell to /bin/bash
+ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
-# Install locales
-RUN apt update && apt install -y locales
+ENV USER=root
+# Setlocale
+RUN apt update && apt install locales
 RUN locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-ENV LANG=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
 
-# Set ARG to handle frontend during installation
-ARG DEBIAN_FRONTEND=noninteractive
-
-# Update and install necessary tools and libraries
-RUN apt-get update \
- && apt-get install -y \
-    build-essential \
-    cmake \
-    git-all \
-    software-properties-common \
- && rm -rf /var/lib/apt/lists/*
-
-# Add universe repository
+RUN apt install software-properties-common -y
 RUN add-apt-repository universe
 
-# Install librealsense2 and realsense2 ROS packages
-RUN apt-get update \
- && apt-get install -y \
-    ros-${ROS_DISTRO}-librealsense2* \
-    ros-${ROS_DISTRO}-realsense2-* \
- && rm -rf /var/lib/apt/lists/*
 
-# Install rviz2 ROS package
-RUN apt-get update \
- && apt-get install -y \
-    ros-${ROS_DISTRO}-rviz2 \
- && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install curl -y
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-# Update and upgrade the system
-RUN apt update && apt upgrade -y
 
-# Install ROS Iron desktop packages and other dependencies
-RUN apt install -y \
-    ros-iron-desktop \
-    python3-argcomplete \
-    ros-iron-pinocchio \
-    ros-iron-xacro \
-    python3-colcon-common-extensions
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# Source ROS Iron setup.bash in .bashrc
-RUN echo "source /opt/ros/iron/setup.bash" >> ~/.bashrc
-RUN source /opt/ros/iron/setup.bash
+
+RUN apt update
+RUN apt upgrade -y
+
+
+RUN apt install ros-foxy-desktop python3-argcomplete -y
+
+
+RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+RUN source /opt/ros/foxy/setup.bash
 RUN source ~/.bashrc
 
-# Set environment variable USER to root
-ENV USER=root
+RUN apt-get install git wget -y
 
-# Set working directory to /home/ros_user and clone UMI_RTX_Demos repository
-WORKDIR /home/ros_user
-RUN git clone --depth=1 https://github.com/nameguin/UMI_RTX_Demos
-
-# Set working directory to /home/ros_user/UMI_RTX_Demos and create logs directory
-WORKDIR /home/ros_user/UMI_rtx_Demos
+WORKDIR /home/Stage
+RUN git clone https://github.com/gardegu/LAB42_RTX_control.git
+WORKDIR /home/Stage/LAB42_RTX_control
+RUN ./install_dependencies.sh
 RUN mkdir logs
 
-# Append LD_LIBRARY_PATH, PATH, and PYTHONPATH to .bashrc
-RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/iron/lib:/opt/ros/iron/opt/rviz_ogre_vendor:/opt/ros/iron/opt/aml_cpp_vendor' >> ~/.bashrc
-RUN echo 'export PATH=$PATH:/opt/ros/iron/bin' >> ~/.bashrc
-RUN echo 'export PYTHONPATH=$PYTHONPATH:/opt/ros/iron/lib/python3.10/site-packages' >> ~/.bashrc
+RUN apt install python3-colcon-common-extensions -y
+RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/foxy/lib:/opt/ros/foxy/opt/rviz_ogre_vendor:/opt/ros/foxy/opt/aml_cpp_vendor' >> ~/.bashrc
+RUN echo 'export PATH=$PATH:/opt/ros/foxy/bin' >> ~/.bashrc
+RUN echo 'export PYTHONPATH=$PYTHONPATH:/opt/ros/foxy/lib/python3.8/site-packages' >> ~/.bashrc
 
-# Set working directory to /home/ros_user/UMI_RTX_Demos and install nano
-WORKDIR /home/ros_user/UMI_RTX_Demos
+WORKDIR /home/Stage/LAB42_RTX_control
 RUN apt install nano -y
