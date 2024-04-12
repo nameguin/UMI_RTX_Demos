@@ -16,8 +16,8 @@ RUN add-apt-repository universe
 # Install librealsense2 and realsense2 ROS packages
 RUN apt-get update \
  && apt-get install -y \
-    ros-foxy-librealsense2* \
-    ros-foxy-realsense2-* \
+    ros-iron-librealsense2* \
+    ros-iron-realsense2-* \
  && rm -rf /var/lib/apt/lists/*
 
 
@@ -32,11 +32,11 @@ RUN apt update
 RUN apt upgrade -y
 
 
-RUN apt install ros-foxy-desktop python3-argcomplete -y
+RUN apt install ros-iron-desktop python3-argcomplete -y
 
 
-RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
-RUN source /opt/ros/foxy/setup.bash
+RUN echo "source /opt/ros/iron/setup.bash" >> ~/.bashrc
+RUN source /opt/ros/iron/setup.bash
 RUN source ~/.bashrc
 
 RUN apt-get install git wget -y
@@ -48,9 +48,9 @@ RUN ./install_dependencies.sh
 RUN mkdir logs
 
 RUN apt install python3-colcon-common-extensions -y
-RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/foxy/lib:/opt/ros/foxy/opt/rviz_ogre_vendor:/opt/ros/foxy/opt/aml_cpp_vendor' >> ~/.bashrc
-RUN echo 'export PATH=$PATH:/opt/ros/foxy/bin' >> ~/.bashrc
-RUN echo 'export PYTHONPATH=$PYTHONPATH:/opt/ros/foxy/lib/python3.8/site-packages' >> ~/.bashrc
+RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/iron/lib:/opt/ros/iron/opt/rviz_ogre_vendor:/opt/ros/iron/opt/aml_cpp_vendor' >> ~/.bashrc
+RUN echo 'export PATH=$PATH:/opt/ros/iron/bin' >> ~/.bashrc
+RUN echo 'export PYTHONPATH=$PYTHONPATH:/opt/ros/iron/lib/python3.8/site-packages' >> ~/.bashrc
 
 WORKDIR /home/Stage/LAB42_RTX_control
 RUN apt install nano -y
