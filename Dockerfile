@@ -13,6 +13,13 @@ RUN export LANG=en_US.UTF-8
 RUN apt install software-properties-common -y
 RUN add-apt-repository universe
 
+# Install librealsense2 and realsense2 ROS packages
+RUN apt-get update \
+ && apt-get install -y \
+    ros-foxy-librealsense2* \
+    ros-foxy-realsense2-* \
+ && rm -rf /var/lib/apt/lists/*
+
 
 RUN apt update && apt install curl -y
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
