@@ -5,6 +5,7 @@ void Objective_node::init_interfaces(){
 
     pose_publisher  = this->create_publisher<geometry_msgs::msg::Pose>("target_pose",10);
     grip_publisher  = this->create_publisher<std_msgs::msg::Float32>("target_grip",10);
+    has_played_publisher  = this->create_publisher<std_msgs::msg::Bool>("has_played",10);
 
     pose_subscriber = this->create_subscription<geometry_msgs::msg::Pose>("processed_pose",10,
         std::bind(&Objective_node::get_processed_pose, this, _1));
@@ -12,11 +13,19 @@ void Objective_node::init_interfaces(){
         std::bind(&Objective_node::get_processed_image, this, _1));
     depth_image_subscriber = this->create_subscription<sensor_msgs::msg::Image>("depth_image",10,
         std::bind(&Objective_node::get_depth_image, this, _1));
+
+    game_data_subscriber = this->create_subscription<umi_rtx_interfaces::msg::GameData>("game_data",10,
+        std::bind(&Objective_node::get_game_data, this, _1));
+
+    robot_next_move_subscriber = this->create_subscription<std_msgs::msg::Int32>("robot_next_move",10,
+        std::bind(&Objective_node::get_robot_next_move, this, _1));
+
 }
 
 void Objective_node::timer_callback(){
+
     double dt1 = 8;
-    /*
+    /*a
     We follow a simple trajectory between each step :
         - Open the grip and goes to the target
         - Close the grip to grab the object
@@ -140,6 +149,25 @@ void Objective_node::timer_callback(){
     std_msgs::msg::Float32 grip_msg;
     grip_msg.data = grip;
     grip_publisher->publish(grip_msg);
+
+    std_msgs::msg::Bool has_played_msg;
+    if(count % 100 == 0)
+        has_played_msg.data = true;
+    else
+        has_played_msg.data = false;
+
+    has_played_publisher->publish(has_played_msg);
+    count++;
+}
+
+void Objective_node::get_robot_next_move(const std_msgs::msg::Int32::SharedPtr msg){
+    robot_next_move = msg->data;
+}
+
+void Objective_node::get_game_data(const umi_rtx_interfaces::msg::GameData::SharedPtr msg){
+    turn = msg->turn;
+    for(int i = 0; i < 9; i++)
+        grid[i/3][i%3] = msg->grid.data[i];
 }
 
 void Objective_node::get_processed_pose(const geometry_msgs::msg::Pose::SharedPtr msg){

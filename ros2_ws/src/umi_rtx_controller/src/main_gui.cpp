@@ -7,30 +7,54 @@ MainGUI::MainGUI(QApplication * app,
   : app_(app), ros2_node(ros2_node), rviz_ros_node_(rviz_ros_node), QMainWindow(parent)
 {
     main_widget = new QWidget(this);
+    main_layout = new QHBoxLayout(main_widget);
 
-    QGridLayout* main_layout = new QGridLayout;
+    board_layout = new QVBoxLayout;
+    info_layout = new QVBoxLayout;
+    umi_layout = new QVBoxLayout;
+    // Layout principal de la fenêtr
+
     main_layout->setSpacing(10);
     main_layout->setMargin(10);
 
     QLabel *Title = new QLabel("UMI-RTX Interface");
     Title->setAlignment(Qt::AlignHCenter);
-    main_layout->addWidget(Title, 0,1);
+    info_layout->addWidget(Title);
 
-    /// Add sliders
+
+    grid_label = new QLabel;
+    chat_label = new QLabel;
+
+    // Redimensionnement des images si nécessaire
+    grid = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid.png"));
+    chat = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/chat-border.png"));
+
+    grid_label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    chat_label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+
+    info_layout->addWidget(chat_label);
+    board_layout->addWidget(grid_label);
+
+
+
+    ///////////////////////////// Add sliders /////////////////////////////////
+
+    QGridLayout* sliders_layout = new QGridLayout;
+    
     QLabel *label_x = new QLabel("X :");
     label_x->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_x,1,0);
+    sliders_layout->addWidget(label_x,1,0);
     // Slider creation, to control x position
     QSlider* slider_x = new QSlider(Qt::Horizontal);
     slider_x->setRange(-60, 60); // range of values
     slider_x->setSingleStep(1); 
-    main_layout->addWidget(slider_x,1,1);
+    sliders_layout->addWidget(slider_x,1,1);
 
     spinBox_x = new QDoubleSpinBox;
     spinBox_x->setMaximum(60);
     spinBox_x->setMinimum(-60);
     spinBox_x->setSingleStep(1);
-    main_layout->addWidget(spinBox_x,1,2);
+    sliders_layout->addWidget(spinBox_x,1,2);
     // Link slider and spinBox
     QObject::connect(slider_x, &QSlider::valueChanged, spinBox_x, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_x, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_x, &QSlider::setValue);
@@ -39,17 +63,17 @@ MainGUI::MainGUI(QApplication * app,
     // Same for y
     QLabel *label_y = new QLabel("Y :");
     label_y->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_y,2,0);
+    sliders_layout->addWidget(label_y,2,0);
 
     QSlider* slider_y = new QSlider(Qt::Horizontal);
     slider_y->setRange(20, 70); 
     slider_y->setSingleStep(1);
-    main_layout->addWidget(slider_y,2,1);
+    sliders_layout->addWidget(slider_y,2,1);
 
     spinBox_y = new QDoubleSpinBox;
     spinBox_y->setMaximum(70);
     spinBox_y->setMinimum(20);
-    main_layout->addWidget(spinBox_y,2,2);
+    sliders_layout->addWidget(spinBox_y,2,2);
 
     QObject::connect(slider_y, &QSlider::valueChanged, spinBox_y, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_y, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_y, &QSlider::setValue);
@@ -57,78 +81,78 @@ MainGUI::MainGUI(QApplication * app,
 
     QLabel *label_z = new QLabel("Z :");
     label_z->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_z,3,0);
+    sliders_layout->addWidget(label_z,3,0);
 
     QSlider* slider_z = new QSlider(Qt::Horizontal);
     slider_z->setRange(10, 70); 
     slider_z->setSingleStep(1);
-    main_layout->addWidget(slider_z,3,1);
+    sliders_layout->addWidget(slider_z,3,1);
 
     spinBox_z = new QDoubleSpinBox;
     spinBox_z->setMaximum(70);
     spinBox_z->setMinimum(10);
-    main_layout->addWidget(spinBox_z,3,2);
+    sliders_layout->addWidget(spinBox_z,3,2);
 
     QObject::connect(slider_z, &QSlider::valueChanged, spinBox_z, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_z, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_z, &QSlider::setValue);
 
     QLabel *label_yaw = new QLabel("Yaw :");
     label_yaw->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_yaw,4,0);
+    sliders_layout->addWidget(label_yaw,4,0);
     QSlider* slider_yaw = new QSlider(Qt::Horizontal);
     slider_yaw->setRange(-110, 110);
     slider_yaw->setSingleStep(1);
-    main_layout->addWidget(slider_yaw,4,1);
+    sliders_layout->addWidget(slider_yaw,4,1);
     spinBox_yaw = new QDoubleSpinBox;
     spinBox_yaw->setMaximum(110);
     spinBox_yaw->setMinimum(-110);
     spinBox_yaw->setSingleStep(1);
-    main_layout->addWidget(spinBox_yaw,4,2);
+    sliders_layout->addWidget(spinBox_yaw,4,2);
     QObject::connect(slider_yaw, &QSlider::valueChanged, spinBox_yaw, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_yaw, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_yaw, &QSlider::setValue);
 
     QLabel *label_pitch = new QLabel("Pitch :");
     label_pitch->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_pitch,5,0);
+    sliders_layout->addWidget(label_pitch,5,0);
     QSlider* slider_pitch = new QSlider(Qt::Horizontal);
     slider_pitch->setRange(0, 90);
     slider_pitch->setSingleStep(1);
-    main_layout->addWidget(slider_pitch,5,1);
+    sliders_layout->addWidget(slider_pitch,5,1);
     spinBox_pitch = new QDoubleSpinBox;
     spinBox_pitch->setMaximum(90);
     spinBox_pitch->setMinimum(0);
     spinBox_pitch->setSingleStep(1);
-    main_layout->addWidget(spinBox_pitch,5,2);
+    sliders_layout->addWidget(spinBox_pitch,5,2);
     QObject::connect(slider_pitch, &QSlider::valueChanged, spinBox_pitch, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_pitch, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_pitch, &QSlider::setValue);
 
     QLabel *label_roll = new QLabel("Roll :");
     label_roll->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_roll,6,0);
+    sliders_layout->addWidget(label_roll,6,0);
     QSlider* slider_roll = new QSlider(Qt::Horizontal);
     slider_roll->setRange(0, 90);
     slider_roll->setSingleStep(1);
-    main_layout->addWidget(slider_roll,6,1);
+    sliders_layout->addWidget(slider_roll,6,1);
     spinBox_roll = new QDoubleSpinBox;
     spinBox_roll->setMaximum(90);
     spinBox_roll->setMinimum(0);
     spinBox_roll->setSingleStep(1);
-    main_layout->addWidget(spinBox_roll,6,2);
+    sliders_layout->addWidget(spinBox_roll,6,2);
     QObject::connect(slider_roll, &QSlider::valueChanged, spinBox_roll, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_roll, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_roll, &QSlider::setValue);
 
     QLabel *label_grip = new QLabel("Grip :");
     label_grip->setAlignment(Qt::AlignRight);
-    main_layout->addWidget(label_grip,7,0);
+    sliders_layout->addWidget(label_grip,7,0);
     QSlider* slider_grip = new QSlider(Qt::Horizontal);
     slider_grip->setRange(20, 80);
     slider_grip->setSingleStep(1);
-    main_layout->addWidget(slider_grip,7,1);
+    sliders_layout->addWidget(slider_grip,7,1);
     spinBox_grip = new QDoubleSpinBox;
     spinBox_grip->setMaximum(80);
     spinBox_grip->setMinimum(20);
     spinBox_grip->setSingleStep(1);
-    main_layout->addWidget(spinBox_grip,7,2);
+    sliders_layout->addWidget(spinBox_grip,7,2);
     QObject::connect(slider_grip, &QSlider::valueChanged, spinBox_grip, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::setValue));
     QObject::connect(spinBox_grip, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), slider_grip, &QSlider::setValue);
 
@@ -202,7 +226,6 @@ MainGUI::MainGUI(QApplication * app,
     imageButton->setCheckable(true);
     imageButton->setChecked(false);
     // Personnalisation de l'apparence du image
-    imageButton->setFixedSize(650, 50);
     imageButton->setText("Image displayed");
     imageButton->setStyleSheet("QPushButton {"
                                 "border: none;"
@@ -227,18 +250,20 @@ MainGUI::MainGUI(QApplication * app,
         }
     });
 
-    main_layout->addWidget(switchButton,0,3);
 
-    // Initialize RViz configuration
+ // Initialize RViz configuration
     initializeRViz();
 
     // Add RViz widget to the interface
-    QVBoxLayout* rviz_layout = new QVBoxLayout;
-    rviz_layout->addWidget(render_panel_);
+    render_panel_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+
+    umi_layout->addWidget(render_panel_);
+    umi_layout->addLayout(sliders_layout);
+    umi_layout->addWidget(switchButton);
 
 
     videoLabel = new QLabel("");
-    // capture.open(0);
     frame = new cv::Mat;
     image = new QImage;
     timer = new QTimer(this);
@@ -258,14 +283,19 @@ MainGUI::MainGUI(QApplication * app,
         spinBox_roll->setValue(up_roll);
     });
     timer->start(40);
-    rviz_layout->addWidget(videoLabel);
-    rviz_layout->addWidget(imageButton);
 
-    QHBoxLayout* glob_layout = new QHBoxLayout;
-    glob_layout->addLayout(rviz_layout);
-    glob_layout->addLayout(main_layout);
+    board_layout->addWidget(videoLabel);
+    board_layout->addWidget(imageButton);
 
-    main_widget->setLayout(glob_layout);
+    main_layout->addLayout(board_layout);
+    main_layout->addLayout(info_layout);
+    main_layout->addLayout(umi_layout);
+
+    main_layout->setStretch(0, 1);
+    main_layout->setStretch(1, 1);
+    main_layout->setStretch(2, 1);
+
+    main_widget->setLayout(main_layout);
     setCentralWidget(main_widget);
     setStyleSheet("background-color: #e0e8bd;");
 
@@ -324,7 +354,9 @@ void MainGUI::updateFrame()
     }
 
     *image = QImage(frame->data, frame->cols, frame->rows, frame->step, QImage::Format_RGB888).rgbSwapped();
+    *image = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);
     videoLabel->setPixmap(QPixmap::fromImage(*image));
+    videoLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 }
 
 

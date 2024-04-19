@@ -25,6 +25,8 @@ rosidl_generate_interfaces(
     msg/Detection3D.msg
     msg/Disparity.msg
     msg/DriveSpace.msg
+        ../../../umi_rtx_interfaces/msg/GameData.msg
+        ../../../umi_rtx_interfaces/msg/Grid.msg
     msg/ObjectPos3D.msg
     msg/ObjectPos.msg
     msg/StereoDetection.msg
@@ -33,4 +35,5 @@ rosidl_generate_interfaces(
     DEPENDENCIES std_msgs
     )
 
+ament_export_dependencies(rosidl_default_runtime)
 ament_package()

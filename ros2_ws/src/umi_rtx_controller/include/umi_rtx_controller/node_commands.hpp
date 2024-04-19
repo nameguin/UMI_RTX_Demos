@@ -15,8 +15,11 @@
 #include "geometry_msgs/msg/vector3.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float32.hpp"
+#include "std_msgs/msg/int32.hpp"
 #include "std_msgs/msg/string.hpp"
+#include "std_msgs/msg/bool.hpp"
 #include "sensor_msgs/msg/image.hpp"
+#include "umi_rtx_interfaces/msg/game_data.hpp"
 
 #include <cv_bridge/cv_bridge.hpp>
 
@@ -44,7 +47,7 @@ public:
     /**
      * @brief Construct a new Objective_node object
      */
-    Objective_node() : Node("objective"){
+    Objective_node() : Node("objective"), count(0){
         init_interfaces();
     };
 
@@ -93,9 +96,18 @@ private :
      * @param msg 
      */
     void get_depth_image(const sensor_msgs::msg::Image::SharedPtr msg);
+
+    void get_robot_next_move(const std_msgs::msg::Int32::SharedPtr msg);
+
+    void get_game_data(const umi_rtx_interfaces::msg::GameData::SharedPtr msg);
     
     std::chrono::milliseconds loop_dt_ = 40ms;
 
+    int robot_next_move;
+    int turn;
+    bool has_played;
+    int count;
+    int grid[3][3];
     double x0,y0,z0,yaw0,pitch0,roll0,t0;
     float t=0,dt=0.04;
 
@@ -108,10 +120,14 @@ private :
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr pose_publisher;
     rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr grip_publisher;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr has_played_publisher;
 
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr pose_subscriber;
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr processed_image_subscriber;
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr depth_image_subscriber;
+
+    rclcpp::Subscription<umi_rtx_interfaces::msg::GameData>::SharedPtr game_data_subscriber;
+    rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr robot_next_move_subscriber;
     
 };
 

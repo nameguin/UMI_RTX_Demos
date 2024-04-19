@@ -25,6 +25,7 @@
 #include <QProcess>
 #include <QVBoxLayout>
 #include <QCheckBox>
+#include <QResizeEvent>
 #include <QTimer>
 #include <QImage>
 
@@ -121,6 +122,18 @@ private:
     QLabel* videoLabel;
     QTimer* timer;
     QDoubleSpinBox *spinBox_x,*spinBox_y,*spinBox_z,*spinBox_yaw,*spinBox_pitch,*spinBox_roll, *spinBox_grip; 
+    QHBoxLayout *main_layout;
+
+    QVBoxLayout* board_layout;
+    QVBoxLayout* info_layout;
+    QVBoxLayout* umi_layout;
+
+    QLabel *grid_label;
+    QLabel *chat_label;
+
+    QPixmap grid;
+    QPixmap chat;
+
 
     rviz_common::RenderPanel * render_panel_;
     rviz_common::Display *TF_, *Model_;
@@ -144,6 +157,25 @@ private slots:
      * @brief Function to update the video frame     * 
      */
     void updateFrame();
+
+protected:
+    void resizeEvent(QResizeEvent *event) override {
+        // Redimensionner les images pour qu'elles s'adaptent aux labels
+        grid = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid.png"));
+        chat = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/chat-border.png"));
+
+        grid = grid.scaled(grid_label->size(), Qt::KeepAspectRatio);
+        chat = chat.scaled(chat_label->size(), Qt::KeepAspectRatio);
+        QImage scaledImage = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);
+
+
+        // Définir les images redimensionnées comme contenu des labels
+        grid_label->setPixmap(grid);
+        chat_label->setPixmap(chat);
+        videoLabel->setPixmap(QPixmap::fromImage(scaledImage));
+
+        event->accept();
+    }
 
 };
 

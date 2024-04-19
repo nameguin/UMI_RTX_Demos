@@ -97,6 +97,13 @@ def generate_launch_description():
         executable='GUI',
         name='GUI',
     )
+    nodeGame = Node(
+        package='umi_rtx_controller',
+        namespace='',
+        executable='nodeGame',
+        name='game',
+        output='screen'
+    )
     
     
     return LaunchDescription([declare_rviz_config_file_cmd, declare_use_robot_state_pub_cmd,
@@ -105,7 +112,8 @@ def generate_launch_description():
                               nodeArm, nodeInvKin,
                               nodeSimu,
                               nodeCamera,
-                              GUI
+                              GUI,
+                              nodeGame
                               ])
 
     #nodeCamera, actions.ExecuteProcess(cmd=['ros2','bag','record','-a'],output='screen') #TODO

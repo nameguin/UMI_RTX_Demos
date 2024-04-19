@@ -8,6 +8,10 @@ void Camera::init_interfaces(){
     image_publisher = this->create_publisher<sensor_msgs::msg::Image>("processed_image",10);
     processed_pose_publisher = this->create_publisher<geometry_msgs::msg::Pose>("processed_pose",10);
     depth_publisher = this->create_publisher<sensor_msgs::msg::Image>("depth_image",10);
+
+    grid_state_publisher = this->create_publisher<umi_rtx_interfaces::msg::Grid>("grid_state",10);
+    grid_coordinates_publisher = this->create_publisher<umi_rtx_interfaces::msg::GridCoordinates>("grid_coordinates",10);
+
     //double_publisher = this->create_publisher<std_msgs::msg::Float64>("target_depth",10);
 }
 
@@ -87,6 +91,13 @@ void Camera::timer_callback(){
 
     sensor_msgs::msg::Image::SharedPtr depth_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",depthFrameCV).toImageMsg();
     depth_publisher->publish(*depth_msg);
+
+
+    umi_rtx_interfaces::msg::Grid grid_msg;
+    for(int i = 0; i < 9; i++){
+        grid_msg.data[i] = 7;
+    }
+    grid_state_publisher->publish(grid_msg); 
 
         //std_msgs::msg::Float64 target_depth_msg;
     //target_depth_msg.data = depthMap.at<float>(depthMap.rows/2,depthMap.cols/2);
@@ -170,8 +181,8 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Pose msg, rs2::depth_fram
                 cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(100,50,100),-1);
                 //cv::circle(frameLeft,cv::Point(m_frame_width_left-40,40),20,cv::Scalar(100,50,100),-1);
             }
-            std::cout << "Yellow object detected at (" << m_cx <<";"<< m_cy << ")" << std::endl;
-            std::cout << "Depth: " << depth.get_distance(m_cx, m_cy) << std::endl;
+            //std::cout << "Yellow object detected at (" << m_cx <<";"<< m_cy << ")" << std::endl;
+            //std::cout << "Depth: " << depth.get_distance(m_cx, m_cy) << std::endl;
             cv::circle(colorFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
             cv::circle(depthFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
 

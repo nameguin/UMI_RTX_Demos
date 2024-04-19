@@ -18,6 +18,9 @@
 #include "geometry_msgs/msg/vector3.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float64.hpp"
+#include "umi_rtx_interfaces/msg/grid.hpp"
+#include "umi_rtx_interfaces/msg/game_data.hpp"
+#include "umi_rtx_interfaces/msg/grid_coordinates.hpp"
 #include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
@@ -134,6 +137,9 @@ private:
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr processed_pose_publisher; //! Pose publisher of the position and orientation of the target.
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher; //! Image publisher of the depth map of the scene.
 
+    rclcpp::Publisher<umi_rtx_interfaces::msg::Grid>::SharedPtr grid_state_publisher; 
+    rclcpp::Publisher<umi_rtx_interfaces::msg::GridCoordinates>::SharedPtr grid_coordinates_publisher; 
+
     rs2::pipeline pipe;
     rs2::config cfg;
     rs2::align align_to_color;
@@ -146,6 +152,7 @@ private:
 
     cv::Ptr<cv::StereoSGBM> stereo;//! Block-matching algorithm instance.
 
+    bool hasPlayed;
     int m_frame_width, m_frame_height;//! Size of the stereo images.
     int m_depth_frame_width, m_depth_frame_height;
     int blockSize = 7;//!

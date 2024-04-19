@@ -29,6 +29,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(umi_rtx_interfaces REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(ament_index_cpp REQUIRED)
@@ -81,6 +82,7 @@ ament_target_dependencies(nodeCamera
         geometry_msgs
         ament_index_cpp
         std_msgs
+        umi_rtx_interfaces
 )
 
 target_link_libraries(nodeCamera "${cpp_typesupport_target}" ${OpenCV_LIBS}  ${realsense2_LIBRARY})
@@ -133,6 +135,7 @@ ament_target_dependencies(nodeArm
         std_msgs
         sensor_msgs
         geometry_msgs
+        umi_rtx_interfaces
 
 )
 
@@ -154,6 +157,7 @@ ament_target_dependencies(nodeInverseKinematics
         sensor_msgs
         pinocchio
         ament_index_cpp
+        umi_rtx_interfaces
 )
 
 target_link_libraries(nodeInverseKinematics "${cpp_typesupport_target}" )
@@ -171,6 +175,7 @@ ament_target_dependencies(nodeSimu
         std_msgs
         sensor_msgs
         ament_index_cpp
+        umi_rtx_interfaces
 )
 
 target_link_libraries(nodeSimu "${cpp_typesupport_target}" )
@@ -197,6 +202,7 @@ ament_target_dependencies(GUI
         rviz_ogre_vendor
         OpenCV
         cv_bridge
+        umi_rtx_interfaces
 )
 
 target_link_libraries(GUI "${cpp_typesupport_target}" Qt5::Core
@@ -209,6 +215,22 @@ target_include_directories(GUI PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
 
+add_executable(nodeGame
+        src/node_game.cpp
+)
+
+ament_target_dependencies(nodeGame
+        rclcpp
+        std_msgs
+        ament_index_cpp
+        umi_rtx_interfaces
+)
+target_link_libraries(nodeGame "${cpp_typesupport_target}")
+target_include_directories(nodeGame PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>)
+
+
 if(BUILD_TESTING)
  find_package(ament_lint_auto REQUIRED)
  # the following line skips the linter which checks for copyrights
@@ -220,7 +242,7 @@ if(BUILD_TESTING)
  ament_lint_auto_find_test_dependencies()
 endif()
 
-install(TARGETS nodeCamera nodeArm nodeInverseKinematics nodeSimu GUI
+install(TARGETS nodeCamera nodeArm nodeInverseKinematics nodeSimu GUI nodeGame
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY include

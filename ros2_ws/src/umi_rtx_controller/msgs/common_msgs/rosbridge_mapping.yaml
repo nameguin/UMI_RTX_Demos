@@ -94,3 +94,21 @@
     drvSpace:         'drv_space'
     fsBoundaryLength: 'fs_boundary_length'
     fsBoundary:       'fs_boundary'
+
+-
+  ros1_package_name: 'common_msgs'
+  ros1_message_name: 'IntArray'
+  ros2_package_name: 'common_msgs'
+  ros2_message_name: 'IntArray'
+  fields_1_to_2:
+    data: 'data'
+
+-
+
+  ros1_package_name: 'common_msgs'
+  ros1_message_name: 'GameData'
+  ros2_package_name: 'common_msgs'
+  ros2_message_name: 'GameData'
+  fields_1_to_2:
+    grid: 'grid'
+    turn: 'turn'

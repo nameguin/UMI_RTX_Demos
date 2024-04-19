@@ -94,6 +94,13 @@ def generate_launch_description():
     #     executable='nodeCameraAPI',
     #     name='camera_api',
     # )
+    nodeGame = Node(
+        package='umi_rtx_controller',
+        namespace='',
+        executable='nodeGame',
+        name='game',
+        output='screen'
+    )
     
             
     return LaunchDescription([declare_rviz_config_file_cmd, declare_use_robot_state_pub_cmd,
@@ -102,6 +109,7 @@ def generate_launch_description():
                               nodeInvKin, nodeSimu,
                               nodeCamera,
                               GUI,
+                              nodeGame,
                               ])
          
     
