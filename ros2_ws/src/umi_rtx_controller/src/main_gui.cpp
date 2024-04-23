@@ -6,35 +6,51 @@ MainGUI::MainGUI(QApplication * app,
                  QWidget* parent)
   : app_(app), ros2_node(ros2_node), rviz_ros_node_(rviz_ros_node), QMainWindow(parent)
 {
+
     main_widget = new QWidget(this);
     main_layout = new QHBoxLayout(main_widget);
 
-    board_layout = new QVBoxLayout;
+    game_layout = new QVBoxLayout;
+    board_layout = new QGridLayout;
     info_layout = new QVBoxLayout;
+    history_layout = new QVBoxLayout;
     umi_layout = new QVBoxLayout;
-    // Layout principal de la fenêtr
 
     main_layout->setSpacing(10);
     main_layout->setMargin(10);
 
-    QLabel *Title = new QLabel("UMI-RTX Interface");
+    board_layout->setContentsMargins(0, 0, 0, 0);
+    board_layout->setSpacing(0);
+
+
+    Title = new QLabel("UMI-RTX Interface");
     Title->setAlignment(Qt::AlignHCenter);
     info_layout->addWidget(Title);
 
-
-    grid_label = new QLabel;
-    chat_label = new QLabel;
-
     // Redimensionnement des images si nécessaire
-    grid = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid.png"));
-    chat = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/chat-border.png"));
+    case0 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid0.png"));
+    case1 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid1.png"));
+    case2 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid2.png"));
 
-    grid_label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    chat_label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            board_labels[i][j] = new QLabel;
+            board_labels[i][j]->setScaledContents(true); 
 
-    info_layout->addWidget(chat_label);
-    board_layout->addWidget(grid_label);
+            if(board[i][j] == 0)
+                board_labels[i][j]->setPixmap(case0);
+            else if(board[i][j] == 1)
+                board_labels[i][j]->setPixmap(case1);
+            else
+                board_labels[i][j]->setPixmap(case2);
 
+            board_labels[i][j]->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+
+            // Ajouter le QLabel à la grille
+            board_layout->addWidget(board_labels[i][j], i, j);
+        }
+    }
+    game_layout->addLayout(board_layout);
 
 
     ///////////////////////////// Add sliders /////////////////////////////////
@@ -193,7 +209,7 @@ MainGUI::MainGUI(QApplication * app,
     switchButton->setCheckable(true);
     switchButton->setChecked(true);
     // Personnalisation de l'apparence du switch
-    switchButton->setFixedSize(120, 50);
+    switchButton->setFixedHeight(50);
     switchButton->setText("Manual mode");
     switchButton->setStyleSheet("QPushButton {"
                                 "border: none;"
@@ -226,6 +242,7 @@ MainGUI::MainGUI(QApplication * app,
     imageButton->setCheckable(true);
     imageButton->setChecked(false);
     // Personnalisation de l'apparence du image
+    imageButton->setFixedHeight(50);
     imageButton->setText("Image displayed");
     imageButton->setStyleSheet("QPushButton {"
                                 "border: none;"
@@ -255,7 +272,7 @@ MainGUI::MainGUI(QApplication * app,
     initializeRViz();
 
     // Add RViz widget to the interface
-    render_panel_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    render_panel_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 
     umi_layout->addWidget(render_panel_);
@@ -284,10 +301,37 @@ MainGUI::MainGUI(QApplication * app,
     });
     timer->start(40);
 
-    board_layout->addWidget(videoLabel);
-    board_layout->addWidget(imageButton);
+    videoLabel->setAlignment(Qt::AlignCenter);
+    game_layout->addWidget(videoLabel);
+    game_layout->addWidget(imageButton);
 
-    main_layout->addLayout(board_layout);
+    turn_label = new QLabel("Turn " + QString::number(ros2_node->turn));
+    turn_label->setAlignment(Qt::AlignCenter); // Alignement centré
+    turn_label->setStyleSheet("font-size: 40px;"); // Taille de police plus grande
+    player_label = new QLabel("");
+    player_label->setStyleSheet("font-size: 20px;");
+    player_label->setAlignment(Qt::AlignCenter); // Alignement centré
+
+    for(int i = 0; i < 9; i++){
+        info_labels[i] = new QLabel("");
+        info_labels[i]->setAlignment(Qt::AlignCenter);
+        info_labels[i]->setContentsMargins(0, 10, 0, 10);
+        history_layout->addWidget(info_labels[i]);
+        
+    }
+
+    info_layout->addWidget(turn_label);
+    info_layout->addWidget(player_label);
+    info_layout->addLayout(history_layout);
+
+
+    turn_label->setContentsMargins(0, 0, 0, 0);
+    history_layout->setContentsMargins(0, 50, 0, 150);
+    player_label->setContentsMargins(0, 50, 0, 100);
+
+
+
+    main_layout->addLayout(game_layout);
     main_layout->addLayout(info_layout);
     main_layout->addLayout(umi_layout);
 
@@ -339,7 +383,6 @@ void MainGUI::initializeRViz()
 
 void MainGUI::updateFrame()
 {   
-    // capture.read(*frame); // get current frame
     if (depth_frame){
         *frame = ros2_node->depth_frame;
     }
@@ -354,9 +397,58 @@ void MainGUI::updateFrame()
     }
 
     *image = QImage(frame->data, frame->cols, frame->rows, frame->step, QImage::Format_RGB888).rgbSwapped();
-    *image = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);
+    if (!image->isNull())
+        *image = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);
     videoLabel->setPixmap(QPixmap::fromImage(*image));
     videoLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    
+    if(ros2_node->need_update){
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                board[i][j] = ros2_node->board[i][j];
+                // Sélectionner l'image en fonction de la valeur dans le tableau
+                QPixmap pixmap;
+                if (board[i][j] == 1) {
+                    pixmap = case1;
+                } else if (board[i][j] == 2) {
+                    pixmap = case2;
+                } else {
+                    pixmap = case0;
+                }
+
+                // Définir l'image sur le QLabel
+                board_labels[i][j]->setPixmap(pixmap);
+
+                // Ajouter le QLabel à la grille
+                board_layout->addWidget(board_labels[i][j], i, j);
+            }
+        }
+        
+        if(ros2_node->result != -1) {
+            turn_label->setText("Game ended");
+            if(ros2_node->result == 0)
+                player_label->setText("Draw !");
+            else if(ros2_node->result == 1)
+                player_label->setText("Robot won !");
+            else
+                player_label->setText("Human won !");
+            player_label->setStyleSheet("font-size: 26px;");
+        }
+        else {
+            turn_label->setText("Turn " + QString::number(ros2_node->turn));
+
+            if(ros2_node->player_turn == 1)
+                player_label->setText("Human");
+            else
+                player_label->setText("Robot");
+            player_label->setStyleSheet("font-size: 20px;");
+        }
+        for (int i = 0; i < ros2_node->recent_msgs.size(); i++) {
+            info_labels[i]->setText(QString::fromStdString(ros2_node->recent_msgs[i]));
+        }
+
+        ros2_node->need_update = false;
+    }
 }
 
 

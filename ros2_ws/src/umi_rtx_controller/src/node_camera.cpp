@@ -9,8 +9,8 @@ void Camera::init_interfaces(){
     processed_pose_publisher = this->create_publisher<geometry_msgs::msg::Pose>("processed_pose",10);
     depth_publisher = this->create_publisher<sensor_msgs::msg::Image>("depth_image",10);
 
-    grid_state_publisher = this->create_publisher<umi_rtx_interfaces::msg::Grid>("grid_state",10);
-    grid_coordinates_publisher = this->create_publisher<umi_rtx_interfaces::msg::GridCoordinates>("grid_coordinates",10);
+    board_state_publisher = this->create_publisher<umi_rtx_interfaces::msg::Board>("board_state",10);
+    board_coordinates_publisher = this->create_publisher<umi_rtx_interfaces::msg::BoardCoordinates>("board_coordinates",10);
 
     //double_publisher = this->create_publisher<std_msgs::msg::Float64>("target_depth",10);
 }
@@ -93,11 +93,11 @@ void Camera::timer_callback(){
     depth_publisher->publish(*depth_msg);
 
 
-    umi_rtx_interfaces::msg::Grid grid_msg;
+    umi_rtx_interfaces::msg::Board board_msg;
     for(int i = 0; i < 9; i++){
-        grid_msg.data[i] = 7;
+        board_msg.data[i] = 0;
     }
-    grid_state_publisher->publish(grid_msg); 
+    board_state_publisher->publish(board_msg); 
 
         //std_msgs::msg::Float64 target_depth_msg;
     //target_depth_msg.data = depthMap.at<float>(depthMap.rows/2,depthMap.cols/2);
@@ -126,7 +126,7 @@ void Camera::get_banana_and_angles(geometry_msgs::msg::Pose msg, rs2::depth_fram
     cv::findContours(bin_hsv_img, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
 
     if(contours.empty()){
-        std::cout << "Cannot detect the target" << std::endl;
+        //std::cout << "Cannot detect the target" << std::endl;
 
         cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
         //cv::circle(frameLeft,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);

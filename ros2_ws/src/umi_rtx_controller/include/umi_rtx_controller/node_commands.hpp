@@ -20,6 +20,7 @@
 #include "std_msgs/msg/bool.hpp"
 #include "sensor_msgs/msg/image.hpp"
 #include "umi_rtx_interfaces/msg/game_data.hpp"
+#include "umi_rtx_interfaces/msg/info.hpp"
 
 #include <cv_bridge/cv_bridge.hpp>
 
@@ -34,6 +35,7 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <deque>
 
 using namespace std::chrono_literals;
 using namespace std::placeholders;
@@ -49,6 +51,9 @@ public:
      */
     Objective_node() : Node("objective"), count(0){
         init_interfaces();
+        for(int i = 0; i < 3; ++i)
+            for(int j = 0;j < 3; ++j)
+                board[i][j] = 0;
     };
 
     /**
@@ -67,6 +72,12 @@ public:
     string mode="manual";
     cv::Mat processed_frame, depth_frame;
     double x=0., y=0.6, z=0.6, yaw=0.,pitch=0.,roll=0., grip=0.2;
+    int board[3][3];
+    int turn;
+    int player_turn;
+    int result;
+    std::deque<std::string> recent_msgs;
+    bool need_update;
 
 private :
     /**
@@ -100,14 +111,14 @@ private :
     void get_robot_next_move(const std_msgs::msg::Int32::SharedPtr msg);
 
     void get_game_data(const umi_rtx_interfaces::msg::GameData::SharedPtr msg);
+
+    void get_messages(const umi_rtx_interfaces::msg::Info::SharedPtr msg);
     
     std::chrono::milliseconds loop_dt_ = 40ms;
 
     int robot_next_move;
-    int turn;
     bool has_played;
     int count;
-    int grid[3][3];
     double x0,y0,z0,yaw0,pitch0,roll0,t0;
     float t=0,dt=0.04;
 
@@ -128,7 +139,7 @@ private :
 
     rclcpp::Subscription<umi_rtx_interfaces::msg::GameData>::SharedPtr game_data_subscriber;
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr robot_next_move_subscriber;
-    
+    rclcpp::Subscription<umi_rtx_interfaces::msg::Info>::SharedPtr messages_subscriber;
 };
 
 #endif

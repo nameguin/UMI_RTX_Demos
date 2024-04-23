@@ -18,9 +18,9 @@
 #include "geometry_msgs/msg/vector3.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "umi_rtx_interfaces/msg/grid.hpp"
+#include "umi_rtx_interfaces/msg/board.hpp"
 #include "umi_rtx_interfaces/msg/game_data.hpp"
-#include "umi_rtx_interfaces/msg/grid_coordinates.hpp"
+#include "umi_rtx_interfaces/msg/board_coordinates.hpp"
 #include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
@@ -137,8 +137,8 @@ private:
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr processed_pose_publisher; //! Pose publisher of the position and orientation of the target.
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher; //! Image publisher of the depth map of the scene.
 
-    rclcpp::Publisher<umi_rtx_interfaces::msg::Grid>::SharedPtr grid_state_publisher; 
-    rclcpp::Publisher<umi_rtx_interfaces::msg::GridCoordinates>::SharedPtr grid_coordinates_publisher; 
+    rclcpp::Publisher<umi_rtx_interfaces::msg::Board>::SharedPtr board_state_publisher; 
+    rclcpp::Publisher<umi_rtx_interfaces::msg::BoardCoordinates>::SharedPtr board_coordinates_publisher; 
 
     rs2::pipeline pipe;
     rs2::config cfg;

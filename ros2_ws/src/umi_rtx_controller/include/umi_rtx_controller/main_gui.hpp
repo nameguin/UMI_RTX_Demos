@@ -119,20 +119,29 @@ private:
     QApplication* app_;
     QWidget* main_widget;
     QImage* image;
+    QLabel *Title;
     QLabel* videoLabel;
     QTimer* timer;
     QDoubleSpinBox *spinBox_x,*spinBox_y,*spinBox_z,*spinBox_yaw,*spinBox_pitch,*spinBox_roll, *spinBox_grip; 
     QHBoxLayout *main_layout;
 
-    QVBoxLayout* board_layout;
+    QVBoxLayout* game_layout;
+    QGridLayout* board_layout;
     QVBoxLayout* info_layout;
+    QVBoxLayout* history_layout;
     QVBoxLayout* umi_layout;
 
-    QLabel *grid_label;
-    QLabel *chat_label;
+    QLabel *turn_label;
+    QLabel *player_label;
+    QLabel *info_labels[9];
 
-    QPixmap grid;
-    QPixmap chat;
+    QLabel *board_labels[3][3];
+    int board[3][3];
+    std::vector<std::string> msgs;
+
+    QPixmap case0;
+    QPixmap case1;
+    QPixmap case2;
 
 
     rviz_common::RenderPanel * render_panel_;
@@ -161,17 +170,28 @@ private slots:
 protected:
     void resizeEvent(QResizeEvent *event) override {
         // Redimensionner les images pour qu'elles s'adaptent aux labels
-        grid = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid.png"));
-        chat = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/chat-border.png"));
+        case0 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid0.png"));
+        case1 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid1.png"));
+        case2 = QPixmap(QString::fromStdString(ament_index_cpp::get_package_share_directory("umi_rtx_controller")+"/images/grid2.png"));
 
-        grid = grid.scaled(grid_label->size(), Qt::KeepAspectRatio);
-        chat = chat.scaled(chat_label->size(), Qt::KeepAspectRatio);
+        case0 = case0.scaled(board_labels[0][0]->size(), Qt::KeepAspectRatio);
+        case1 = case1.scaled(board_labels[0][0]->size(), Qt::KeepAspectRatio);
+        case2 = case2.scaled(board_labels[0][0]->size(), Qt::KeepAspectRatio);
+
+                // Définir les images redimensionnées comme contenu des labels
+        for (int row = 0; row < 3; ++row) {
+            for (int col = 0; col < 3; ++col) {
+                if(board[row][col] == 0)
+                    board_labels[row][col]->setPixmap(case0);
+                else if(board[row][col] == 1)
+                    board_labels[row][col]->setPixmap(case1);
+                else
+                    board_labels[row][col]->setPixmap(case2);
+            }
+        }
         QImage scaledImage = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);
 
-
         // Définir les images redimensionnées comme contenu des labels
-        grid_label->setPixmap(grid);
-        chat_label->setPixmap(chat);
         videoLabel->setPixmap(QPixmap::fromImage(scaledImage));
 
         event->accept();

@@ -5,28 +5,51 @@
 #include "std_msgs/msg/int32.hpp"
 #include "std_msgs/msg/bool.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "umi_rtx_interfaces/msg/grid.hpp"
+#include "umi_rtx_interfaces/msg/board.hpp"
 #include "umi_rtx_interfaces/msg/game_data.hpp"
+#include "umi_rtx_interfaces/msg/info.hpp"
 
 
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <random>
 
 using namespace std;
 using namespace std::chrono_literals;
 using namespace std::placeholders;
+
+// Définition de la taille de la grille
+const int BOARD_SIZE = 3;
+const int ROBOT = 1;
+const int HUMAN = 2;
+
+// Structure représentant une position sur la grille
+struct Position {
+    int row;
+    int col;
+};
 
 class Game_node : public rclcpp::Node{
 public:
     /**
      * @brief Construct a new Game_node object
      */
-    Game_node() : Node("game"){
+    Game_node() : Node("game"), turn(1), human_has_played(true){
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(1, 2);
+        starter = dis(gen);
+
+        for(int i = 0; i < 3; ++i)
+            for(int j = 0;j < 3; ++j)
+                board[i][j] = 0;
+
         init_interfaces();
     };
 
 private :
+
     /**
      * @brief Initialize the timer, subscribers and publishers
      */
@@ -41,22 +64,40 @@ private :
      *
      * @param msg
      */
-    void get_grid(const umi_rtx_interfaces::msg::Grid::SharedPtr msg);
+    void get_board(const umi_rtx_interfaces::msg::Board::SharedPtr msg);
 
     void get_has_played(const std_msgs::msg::Bool::SharedPtr msg);
+
+    Position getAIMove();
+
+    vector<Position> getAvailablePositions();
+
+    bool hasWinner(int player);
+
+    int get_player_turn();
+
+    bool isBoardFull();
+
+    void displayBoard();
 
     std::chrono::milliseconds loop_dt_ = 40ms;
 
     bool robot_has_played;
-    int robot_next_move;
+    bool human_has_played;
+    int starter;
+    bool is_finished;
+    Position robot_next_move;
     int turn;
-    int grid[3][3];
+    int player_turn;
+    int board[3][3];
+    std::vector<std::string> msgs;
 
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<umi_rtx_interfaces::msg::GameData>::SharedPtr game_data_publisher;
     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr robot_next_move_publisher;
+    rclcpp::Publisher<umi_rtx_interfaces::msg::Info>::SharedPtr messages_publisher;
 
-    rclcpp::Subscription<umi_rtx_interfaces::msg::Grid>::SharedPtr grid_state_subscription;
+    rclcpp::Subscription<umi_rtx_interfaces::msg::Board>::SharedPtr board_state_subscription;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr has_played_subscription;
 
 };

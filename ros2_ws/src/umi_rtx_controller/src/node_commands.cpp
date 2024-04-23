@@ -20,6 +20,10 @@ void Objective_node::init_interfaces(){
     robot_next_move_subscriber = this->create_subscription<std_msgs::msg::Int32>("robot_next_move",10,
         std::bind(&Objective_node::get_robot_next_move, this, _1));
 
+    messages_subscriber = this->create_subscription<umi_rtx_interfaces::msg::Info>("messages",10,
+        std::bind(&Objective_node::get_messages, this, _1));
+
+
 }
 
 void Objective_node::timer_callback(){
@@ -164,10 +168,19 @@ void Objective_node::get_robot_next_move(const std_msgs::msg::Int32::SharedPtr m
     robot_next_move = msg->data;
 }
 
+void Objective_node::get_messages(const umi_rtx_interfaces::msg::Info::SharedPtr msg){
+
+    need_update = true;
+    for(auto it = msg->data.begin(); it != msg->data.end(); ++it)
+        recent_msgs.push_back(*it);
+}
+
 void Objective_node::get_game_data(const umi_rtx_interfaces::msg::GameData::SharedPtr msg){
+    player_turn = msg->playerturn;
+    result = msg->result;
     turn = msg->turn;
     for(int i = 0; i < 9; i++)
-        grid[i/3][i%3] = msg->grid.data[i];
+        board[i/3][i%3] = msg->board.data[i];
 }
 
 void Objective_node::get_processed_pose(const geometry_msgs::msg::Pose::SharedPtr msg){
