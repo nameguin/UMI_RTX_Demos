@@ -165,7 +165,11 @@ private slots:
     /**
      * @brief Function to update the video frame     * 
      */
-    void updateFrame();
+    void updateFrameAndInterface();
+
+    void addSlider(QGridLayout* layout, const QString& label, QSlider*& slider, QDoubleSpinBox*& spinBox, int min, int max, int singleStep, int value);
+
+    void connectSlidersWithSpinBoxes();
 
 protected:
     void resizeEvent(QResizeEvent *event) override {
@@ -181,12 +185,12 @@ protected:
                 // Définir les images redimensionnées comme contenu des labels
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                if(board[row][col] == 0)
-                    board_labels[row][col]->setPixmap(case0);
-                else if(board[row][col] == 1)
+                if(board[row][col] == 1)
                     board_labels[row][col]->setPixmap(case1);
-                else
+                else if(board[row][col] == 2)
                     board_labels[row][col]->setPixmap(case2);
+                else
+                    board_labels[row][col]->setPixmap(case0);
             }
         }
         QImage scaledImage = image->scaled(videoLabel->size(), Qt::KeepAspectRatio);

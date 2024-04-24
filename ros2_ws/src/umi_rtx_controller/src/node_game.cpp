@@ -59,7 +59,7 @@ void Game_node::timer_callback(){
             }
         }
         player_turn = get_player_turn();
-        data_msg.playerturn = player_turn;
+        data_msg.playerturn = player_turn == 1 ? 2 : 1;
         data_msg.turn = turn;
         game_data_publisher->publish(data_msg);
         messages_publisher->publish(info_msg);

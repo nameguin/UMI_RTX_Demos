@@ -40,6 +40,7 @@ public:
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> dis(1, 2);
         starter = dis(gen);
+        player_turn = starter;
 
         for(int i = 0; i < 3; ++i)
             for(int j = 0;j < 3; ++j)

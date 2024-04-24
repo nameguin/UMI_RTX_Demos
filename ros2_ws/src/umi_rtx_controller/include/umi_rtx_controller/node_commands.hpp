@@ -49,7 +49,7 @@ public:
     /**
      * @brief Construct a new Objective_node object
      */
-    Objective_node() : Node("objective"), count(0){
+    Objective_node() : Node("objective"), count(1), need_update(false), turn(1){
         init_interfaces();
         for(int i = 0; i < 3; ++i)
             for(int j = 0;j < 3; ++j)

@@ -108,8 +108,8 @@ def generate_launch_description():
                               start_robot_state_publisher_cmd,
                               nodeInvKin, nodeSimu,
                               nodeCamera,
-                              GUI,
                               nodeGame,
+                              GUI,
                               ])
          
     

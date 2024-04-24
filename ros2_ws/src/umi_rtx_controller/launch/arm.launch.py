@@ -112,8 +112,8 @@ def generate_launch_description():
                               nodeArm, nodeInvKin,
                               nodeSimu,
                               nodeCamera,
+                              nodeGame,
                               GUI,
-                              nodeGame
                               ])
 
     #nodeCamera, actions.ExecuteProcess(cmd=['ros2','bag','record','-a'],output='screen') #TODO
