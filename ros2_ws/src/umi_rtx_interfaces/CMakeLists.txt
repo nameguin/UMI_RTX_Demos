@@ -15,6 +15,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/Board.msg"
         "msg/BoardCoordinates.msg"
         "msg/Info.msg"
+        "msg/Pose.msg"
         DEPENDENCIES geometry_msgs
 )
 

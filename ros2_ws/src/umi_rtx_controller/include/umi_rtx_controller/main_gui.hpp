@@ -88,7 +88,8 @@ public:
     double x=0., y=0.6, z=0.6, yaw=0., pitch=0., roll=0., grip=0.02;
     double raw_yaw=0.;
 
-    bool manual_on = true, depth_frame=false;
+    bool manual_on = true;
+    int frame_stream = 0;
 
     /**
      * @brief Get the Parent Window object, override of the QMainWindow property, necessary for compilation but useless here

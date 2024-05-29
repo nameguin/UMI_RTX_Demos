@@ -37,6 +37,15 @@ void InvKin_node::get_pose(const geometry_msgs::msg::Pose::SharedPtr msg){
     target_pitch = msg->orientation.y*M_PI/180;
     target_roll = msg->orientation.z*M_PI/180;
 
+/*
+    std::cout << "X : " << x << std::endl;
+    std::cout << "Y : " << y << std::endl;
+    std::cout << "Z : " << z << std::endl;
+    std::cout << "target_yaw : " << target_yaw << std::endl;
+    std::cout << "target_pitch : " << target_pitch << std::endl;
+    std::cout << "target_roll : " << target_roll << std::endl;*/
+
+
     get_state(x,y,z);
 
 }

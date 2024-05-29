@@ -44,6 +44,12 @@ using namespace std;
  * @brief This class uses OpenCV
  * 
  */
+ struct GridSquare {
+    cv::Point2f center;
+    std::vector<cv::Point> contours;
+    int area;
+};
+
 class Camera : public rclcpp::Node{
 public:
     /**
@@ -84,7 +90,7 @@ private:
      * @param coord_msg Message to publish the position of the banana.
      * @param angles_msg Message to publish the orientation of the banana.
      */
-    void get_banana_and_angles(geometry_msgs::msg::Pose pose_msg, rs2::depth_frame depth);
+    void get_colored_objects(geometry_msgs::msg::Pose pose_msg, rs2::depth_frame depth);
 
     /**
      * @brief Finds the fittest line with respect to the contour of the target and
@@ -129,6 +135,10 @@ private:
      */
     void stereo_get_depth();
 
+    void get_grid_position();
+
+    std::vector<GridSquare> board_coordinates;
+
     std::chrono::milliseconds loop_dt_ = 40ms;//! Work loop timer.
 
     rclcpp::TimerBase::SharedPtr timer_;//! Pointer to the timer.
@@ -136,6 +146,7 @@ private:
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_publisher; //! Image publisher of the left view with the contour of the target.
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr processed_pose_publisher; //! Pose publisher of the position and orientation of the target.
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher; //! Image publisher of the depth map of the scene.
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr edges_publisher;
 
     rclcpp::Publisher<umi_rtx_interfaces::msg::Board>::SharedPtr board_state_publisher; 
     rclcpp::Publisher<umi_rtx_interfaces::msg::BoardCoordinates>::SharedPtr board_coordinates_publisher; 
@@ -144,6 +155,7 @@ private:
     rs2::config cfg;
     rs2::align align_to_color;
     rs2::colorizer color_map;
+    int available_device;
 
     cv::Mat colorFrameCV, depthFrameCV;
     cv::Mat depth_normalized;

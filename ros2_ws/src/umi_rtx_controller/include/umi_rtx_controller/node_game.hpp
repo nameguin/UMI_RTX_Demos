@@ -7,13 +7,15 @@
 #include "std_msgs/msg/string.hpp"
 #include "umi_rtx_interfaces/msg/board.hpp"
 #include "umi_rtx_interfaces/msg/game_data.hpp"
-#include "umi_rtx_interfaces/msg/info.hpp"
 
 
 #include <iostream>
 #include <math.h>
 #include <string>
 #include <random>
+#include <climits>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 using namespace std::chrono_literals;
@@ -35,17 +37,19 @@ public:
     /**
      * @brief Construct a new Game_node object
      */
-    Game_node() : Node("game"), turn(1), human_has_played(true){
+    Game_node() : Node("game"), turn(1), human_has_played(true), robot_has_played(true), count(0){
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> dis(1, 2);
         starter = dis(gen);
-        player_turn = starter;
+        player_turn = 2;
+        data_msg.result = -1;
 
         for(int i = 0; i < 3; ++i)
             for(int j = 0;j < 3; ++j)
                 board[i][j] = 0;
 
+        std::this_thread::sleep_for(std::chrono::seconds(2));
         init_interfaces();
     };
 
@@ -81,6 +85,14 @@ private :
 
     void displayBoard();
 
+    Position findBestMove();
+
+    int minimax(int depth, bool isMaximizer);
+
+    bool isGameOver();
+
+    int evaluate();
+
     std::chrono::milliseconds loop_dt_ = 40ms;
 
     bool robot_has_played;
@@ -91,12 +103,15 @@ private :
     int turn;
     int player_turn;
     int board[3][3];
+    int count;
     std::vector<std::string> msgs;
+    std_msgs::msg::String last_move_msg;
+    umi_rtx_interfaces::msg::GameData data_msg;
 
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<umi_rtx_interfaces::msg::GameData>::SharedPtr game_data_publisher;
     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr robot_next_move_publisher;
-    rclcpp::Publisher<umi_rtx_interfaces::msg::Info>::SharedPtr messages_publisher;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr last_move_publisher;
 
     rclcpp::Subscription<umi_rtx_interfaces::msg::Board>::SharedPtr board_state_subscription;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr has_played_subscription;

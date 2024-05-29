@@ -108,9 +108,9 @@ private:
     pinocchio::Model model;
     pinocchio::Data data;
     const int JOINT_ID = 6;
-    const double eps  = 1e-4;
+    const double eps  = 1e-2;
     const int IT_MAX  = 1000;
-    const double DT   = 1e-1;
+    const double DT   = 1e-2;
     const double damp = 1e-12;
     pinocchio::Data::Matrix6x J;
     Eigen::VectorXd q;

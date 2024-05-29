@@ -82,33 +82,32 @@ MainGUI::MainGUI(QApplication * app,
     // Button to switch between manual and automatic mode
     QPushButton* switchButton = new QPushButton(this);
     switchButton->setCheckable(true);
-    switchButton->setChecked(true);
+    switchButton->setChecked(false);
     // Personnalisation de l'apparence du switch
     switchButton->setFixedHeight(50);
     switchButton->setText("Manual mode");
     switchButton->setStyleSheet("QPushButton {"
-                                "border: none;"
                                 "background-color: #ccc;"
-                                "border-radius: 10px"
-                                "}"
-                                "QPushButton:checked {"
-                                    "background-color: #6c6;"
-                                "}"
-                                "QPushButton:!checked {"
-                                    "background-color: #ccc;"
                                 "}");
 
     // Connection of the clicked signal to the corresponding slot to react to clicks on the switch
     connect(switchButton, &QPushButton::clicked, this, [=]() {
-        manual_on = switchButton->isChecked();
+        manual_on = !manual_on;
         if (manual_on){
             ros2_node->mode = "manual";
             switchButton->setText("Manual mode");
+            switchButton->setStyleSheet("QPushButton {"
+                                "background-color: #ccc;"
+                                "}");
         }
         else {
             ros2_node->mode = "grab";
             switchButton->setText("Grab mode");
+            switchButton->setStyleSheet("QPushButton {"
+                                "background-color: #6c6;"
+                                "}");
         }
+        switchButton->setChecked(false);
     });
 
     //////////////////////////////////////////////// Image Button /////////////////////////////////////////////////
@@ -116,31 +115,36 @@ MainGUI::MainGUI(QApplication * app,
     // Button to switch between depth and processed image
     QPushButton* imageButton = new QPushButton(this);
     imageButton->setCheckable(true);
-    imageButton->setChecked(false);
     // Personnalisation de l'apparence du image
     imageButton->setFixedHeight(50);
     imageButton->setText("Image displayed");
     imageButton->setStyleSheet("QPushButton {"
-                                "border: none;"
                                 "background-color: #ccc;"
-                                "border-radius: 10px"
                                 "}"
-                                "QPushButton:checked {"
-                                    "background-color: #6c6;"
-                                "}"
-                                "QPushButton:!checked {"
-                                    "background-color: #ccc;"
-                                "}");
+                                );
 
     // Connection of the clicked signal to the corresponding slot to react to clicks on the image
     connect(imageButton, &QPushButton::clicked, this, [=]() {
-        depth_frame = imageButton->isChecked();
-        if (depth_frame){
-            imageButton->setText("Depth displayed");
+        frame_stream = (frame_stream + 1) % 3;
+        if (!frame_stream){
+            imageButton->setText("Image displayed");
+            imageButton->setStyleSheet("QPushButton {"
+                                "background-color: #ccc;"
+                                "}");
+        }
+        else if(frame_stream == 1){
+            imageButton->setText("Edges displayed");
+            imageButton->setStyleSheet("QPushButton {"
+                                "background-color: #3966b7;"
+                                "}");
         }
         else {
-            imageButton->setText("Image displayed");
+            imageButton->setText("Depth displayed");
+            imageButton->setStyleSheet("QPushButton {"
+                                "background-color: #6c6;"
+                                "}");
         }
+        imageButton->setChecked(false);
     });
     
 
@@ -319,8 +323,14 @@ void MainGUI::connectSlidersWithSpinBoxes()
 // Method to update the frame and interface elements
 void MainGUI::updateFrameAndInterface()
 {
-    // Choose which frame to display based on the depth_frame flag
-    cv::Mat* selectedFrame = (depth_frame) ? &(ros2_node->depth_frame) : &(ros2_node->processed_frame);
+    // Choose which frame to display based on the frame_stream flag
+    cv::Mat* selectedFrame;
+    if(!frame_stream)
+        selectedFrame = &(ros2_node->processed_frame);
+    else if(frame_stream == 1)
+        selectedFrame = &(ros2_node->edges_frame);
+    else 
+        selectedFrame = &(ros2_node->depth_frame);
 
     // Resize the frame to reduce calculations
     cv::Size newSize(640, 360);
@@ -329,7 +339,10 @@ void MainGUI::updateFrameAndInterface()
     }
 
     // Convert the frame to QImage
-    *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_RGB888).rgbSwapped();
+    if(frame_stream != 1)
+        *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_RGB888).rgbSwapped();
+    else
+        *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_Grayscale8).rgbSwapped();
 
     // Scale the image to fit the QLabel
     if (!image->isNull()){
@@ -376,7 +389,7 @@ void MainGUI::updateFrameAndInterface()
         } else {
             turn_label->setText("Turn " + QString::number(ros2_node->turn));
 
-            if (ros2_node->player_turn == 1)
+            if (ros2_node->player_turn == 2)
                 player_label->setText("Human");
             else
                 player_label->setText("Robot");
@@ -384,7 +397,7 @@ void MainGUI::updateFrameAndInterface()
         }
 
         // Update recent messages display
-        for (int i = 0; i < ros2_node->recent_msgs.size(); i++) {
+        for (int i = 0; i < ros2_node->recent_msgs.size() && i < 9; i++) {
             info_labels[i]->setText(QString::fromStdString(ros2_node->recent_msgs[i]));
         }
 
