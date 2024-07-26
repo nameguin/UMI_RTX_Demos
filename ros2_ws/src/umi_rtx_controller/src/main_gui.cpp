@@ -80,9 +80,9 @@ MainGUI::MainGUI(QApplication * app,
     //////////////////////////////////////////////// Switch Button /////////////////////////////////////////////////
 
     // Button to switch between manual and automatic mode
-    QPushButton* switchButton = new QPushButton(this);
-    switchButton->setCheckable(true);
-    switchButton->setChecked(false);
+    switchButton = new QPushButton(this);
+    switchButton->setCheckable(false);
+    //switchButton->setChecked(false);
     // Personnalisation de l'apparence du switch
     switchButton->setFixedHeight(50);
     switchButton->setText("Manual mode");
@@ -91,24 +91,26 @@ MainGUI::MainGUI(QApplication * app,
                                 "}");
 
     // Connection of the clicked signal to the corresponding slot to react to clicks on the switch
-    connect(switchButton, &QPushButton::clicked, this, [=]() {
-        manual_on = !manual_on;
-        if (manual_on){
-            ros2_node->mode = "manual";
-            switchButton->setText("Manual mode");
-            switchButton->setStyleSheet("QPushButton {"
-                                "background-color: #ccc;"
-                                "}");
+    /*connect(switchButton, &QPushButton::clicked, this, [=]() {
+        if(!is_started_game){
+            manual_on = !manual_on;
+            if (manual_on){
+                ros2_node->mode = "manual";
+                switchButton->setText("Manual mode");
+                switchButton->setStyleSheet("QPushButton {"
+                                    "background-color: #ccc;"
+                                    "}");
+            }
+            else {
+                ros2_node->mode = "grab";
+                switchButton->setText("Automatic mode");
+                switchButton->setStyleSheet("QPushButton {"
+                                    "background-color: #3966b7;"
+                                    "}");
+            }
+            switchButton->setChecked(false);
         }
-        else {
-            ros2_node->mode = "grab";
-            switchButton->setText("Grab mode");
-            switchButton->setStyleSheet("QPushButton {"
-                                "background-color: #6c6;"
-                                "}");
-        }
-        switchButton->setChecked(false);
-    });
+    });*/
 
     //////////////////////////////////////////////// Image Button /////////////////////////////////////////////////
 
@@ -125,23 +127,17 @@ MainGUI::MainGUI(QApplication * app,
 
     // Connection of the clicked signal to the corresponding slot to react to clicks on the image
     connect(imageButton, &QPushButton::clicked, this, [=]() {
-        frame_stream = (frame_stream + 1) % 3;
+        frame_stream = (frame_stream + 1) % 2;
         if (!frame_stream){
             imageButton->setText("Image displayed");
             imageButton->setStyleSheet("QPushButton {"
                                 "background-color: #ccc;"
                                 "}");
         }
-        else if(frame_stream == 1){
-            imageButton->setText("Edges displayed");
-            imageButton->setStyleSheet("QPushButton {"
-                                "background-color: #3966b7;"
-                                "}");
-        }
         else {
             imageButton->setText("Depth displayed");
             imageButton->setStyleSheet("QPushButton {"
-                                "background-color: #6c6;"
+                                "background-color: #3966b7;"
                                 "}");
         }
         imageButton->setChecked(false);
@@ -182,7 +178,7 @@ MainGUI::MainGUI(QApplication * app,
 
     //////////////////////////////////////////////// Information Layout /////////////////////////////////////////////////
 
-    turn_label = new QLabel("Turn " + QString::number(ros2_node->turn));
+    turn_label = new QLabel("");
     turn_label->setAlignment(Qt::AlignCenter); // Alignement centré
     turn_label->setStyleSheet("font-size: 40px;"); // Taille de police plus grande
     player_label = new QLabel("");
@@ -204,6 +200,53 @@ MainGUI::MainGUI(QApplication * app,
     history_layout->setContentsMargins(0, 50, 0, 150);
     player_label->setContentsMargins(0, 50, 0, 100);
 
+    // Button to game the game
+    QPushButton* gameButton = new QPushButton(this);
+    gameButton->setCheckable(true);
+
+    gameButton->setFixedHeight(50);
+    gameButton->setText("Start game");
+    gameButton->setStyleSheet("QPushButton {"
+                                    "background-color: #6c6;"
+                                    "}");
+    gameButton->setChecked(false);
+
+    connect(gameButton, &QPushButton::clicked, this, [=]() {
+        if(is_started_game){
+            gameButton->setText("Start game");
+            gameButton->setStyleSheet("QPushButton {"
+                                    "background-color: #6c6;"
+                                    "}");
+
+            ros2_node->mode = "manual";
+                switchButton->setText("Manual mode");
+                switchButton->setStyleSheet("QPushButton {"
+                                    "background-color: #ccc;"
+                                    "}");
+
+            manual_on = true;
+            is_started_game = false;
+        }
+        else {
+            gameButton->setText("Quit game");
+            gameButton->setStyleSheet("QPushButton {"
+                                    "background-color: #ff0000;"
+                                    "}");
+            ros2_node->mode = "grab";
+            switchButton->setText("Automatic mode");
+            switchButton->setStyleSheet("QPushButton {"
+                                    "background-color: #3966b7;"
+                                    "}");
+
+            ros2_node->t = 0;
+
+            manual_on = false;
+            is_started_game = true;
+        }
+        
+        gameButton->setChecked(false);
+    });
+    info_layout->addWidget(gameButton);
 
     //////////////////////////////////////////////// Main Layout /////////////////////////////////////////////////
 
@@ -327,8 +370,6 @@ void MainGUI::updateFrameAndInterface()
     cv::Mat* selectedFrame;
     if(!frame_stream)
         selectedFrame = &(ros2_node->processed_frame);
-    else if(frame_stream == 1)
-        selectedFrame = &(ros2_node->edges_frame);
     else 
         selectedFrame = &(ros2_node->depth_frame);
 
@@ -339,10 +380,7 @@ void MainGUI::updateFrameAndInterface()
     }
 
     // Convert the frame to QImage
-    if(frame_stream != 1)
-        *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_RGB888).rgbSwapped();
-    else
-        *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_Grayscale8).rgbSwapped();
+    *image = QImage(selectedFrame->data, selectedFrame->cols, selectedFrame->rows, selectedFrame->step, QImage::Format_RGB888).rgbSwapped();
 
     // Scale the image to fit the QLabel
     if (!image->isNull()){
@@ -355,6 +393,7 @@ void MainGUI::updateFrameAndInterface()
     }
 
     // Update game board and interface elements if needed
+    
     if (ros2_node->need_update) {
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
@@ -375,32 +414,31 @@ void MainGUI::updateFrameAndInterface()
                 board_layout->addWidget(board_labels[i][j], i, j);
             }
         }
+        
+        if(is_started_game){
+            // Update game status display
+            if(ros2_node->t < 10) {
+                turn_label->setText(QString::fromStdString("Initializing..."));
+                player_label->setText(QString::fromStdString(""));
+            }
+            else {
+                turn_label->setText(QString::fromStdString(ros2_node->primary_msg));
+                player_label->setText(QString::fromStdString(ros2_node->secondary_msg));
+            }
 
-        // Update game status display
-        if (ros2_node->result != -1) {
-            turn_label->setText("Game ended");
-            if (ros2_node->result == 0)
-                player_label->setText("Draw !");
-            else if (ros2_node->result == 1)
-                player_label->setText("Robot won !");
-            else
-                player_label->setText("Human won !");
-            player_label->setStyleSheet("font-size: 26px;");
-        } else {
-            turn_label->setText("Turn " + QString::number(ros2_node->turn));
-
-            if (ros2_node->player_turn == 2)
-                player_label->setText("Human");
-            else
-                player_label->setText("Robot");
-            player_label->setStyleSheet("font-size: 20px;");
+            // Update recent messages display
+            for (int i = 0; i < 9; i++) {
+                info_labels[i]->setText(QString::fromStdString(ros2_node->moves_history[i]));
+            }
         }
+        else {
+            turn_label->setText("Tic-Tac-Toe game");
+            player_label->setText("Press the button below to start");
 
-        // Update recent messages display
-        for (int i = 0; i < ros2_node->recent_msgs.size() && i < 9; i++) {
-            info_labels[i]->setText(QString::fromStdString(ros2_node->recent_msgs[i]));
+            for (int i = 0; i < 9; i++) {
+                info_labels[i]->setText("");
+            }
         }
-
         ros2_node->need_update = false;
     }
 }

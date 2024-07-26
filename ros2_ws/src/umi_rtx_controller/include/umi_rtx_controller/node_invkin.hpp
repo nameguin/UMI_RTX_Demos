@@ -1,10 +1,6 @@
 /**
  * @file node_invkin.hpp
- * @author Théo MASSA (theo.massa@ensta-bretagne.org)
- * @brief Node dedicated in the inverse kinematics processing
- * @version 0.1
- * @date 2023-07-19
- * 
+ * @brief Déclaration des fonctions et méthodes pour le nœud d'inverse kinematics (IK).
  */
 
 #ifndef __INVKIN_H__
@@ -36,7 +32,24 @@ using namespace std::placeholders;
 using namespace std;
 
 /**
- * @brief This node processes the inverse kinematics, in order to get the joints' states required to reach the targeted pose.
+ * @class InvKin_node
+ * @brief ROS 2 node for performing inverse kinematics.
+ * 
+ * This class represents a ROS 2 node that performs inverse kinematics to compute joint states
+ * required for a robotic arm to reach a specified target pose and grip. It uses the Pinocchio
+ * library to handle kinematics calculations based on the URDF model of the robotic arm.
+ * 
+ * @details
+ * The `InvKin_node` class inherits from `rclcpp::Node` and provides functionality to:
+ * - Initialize ROS 2 interfaces including publishers and subscribers.
+ * - Read the URDF description of the robotic arm for kinematics calculations.
+ * - Compute the required joint angles to achieve a given target pose and grip using inverse kinematics.
+ * - Publish the computed joint states.
+ * 
+ * It includes methods for:
+ * - Handling incoming target pose and grip commands.
+ * - Calculating joint states through inverse kinematics.
+ * - Correcting joint angles to be within a specified range.
  */
 class InvKin_node : public rclcpp::Node{
 public:

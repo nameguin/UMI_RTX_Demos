@@ -38,7 +38,8 @@ RUN apt-get install git wget -y
 
 # Clone the repository and install dependencies
 WORKDIR /home/Stage
-WORKDIR /home/Stage/UMI-RTX-Demos
+RUN git clone https://github.com/nameguin/UMI_RTX_Demos.git
+WORKDIR /home/Stage/UMI_RTX_Demos
 RUN apt update
 
 # Pinocchio for the inverse kinematics

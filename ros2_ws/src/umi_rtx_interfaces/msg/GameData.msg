@@ -1,6 +1,6 @@
-# GameData.msg
-
 Board board
-int32 turn
-int32 playerturn
-int32 result
+string[9] moveshistory
+string primarymsg
+string secondarymsg
+bool isrobotturn
+bool isgamestarted

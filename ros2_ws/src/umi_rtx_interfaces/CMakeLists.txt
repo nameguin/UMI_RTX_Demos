@@ -13,9 +13,6 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/GameData.msg"
         "msg/Board.msg"
-        "msg/BoardCoordinates.msg"
-        "msg/Info.msg"
-        "msg/Pose.msg"
         DEPENDENCIES geometry_msgs
 )
 

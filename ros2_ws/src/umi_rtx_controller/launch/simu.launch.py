@@ -88,12 +88,6 @@ def generate_launch_description():
         name='GUI',
     )
 
-    # nodeCameraAPI = Node(
-    #     package = 'umi_rtx_controller',
-    #     namespace='',
-    #     executable='nodeCameraAPI',
-    #     name='camera_api',
-    # )
     nodeGame = Node(
         package='umi_rtx_controller',
         namespace='',

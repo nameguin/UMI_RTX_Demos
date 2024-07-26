@@ -248,7 +248,7 @@ install(TARGETS nodeCamera nodeArm nodeInverseKinematics nodeSimu GUI nodeGame
 install(DIRECTORY include
         DESTINATION include)
 
-install(DIRECTORY launch rviz urdf images CalibrationImages
+install(DIRECTORY launch rviz urdf images
         DESTINATION share/${PROJECT_NAME}
 )
 

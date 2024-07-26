@@ -1,10 +1,10 @@
 /**
  * @file node_arm.hpp
- * @author Théo MASSA (theo.massa@ensta-bretagne.org)
- * @brief ROS2 node that is connected to the arm and allows to send received commands to it.
- * @version 0.1
- * @date 2023-07-19
+ * @brief Node for controlling an arm in a robotics system.
  * 
+ * This file defines the `Arm_node` class which handles communication and control for a robotic arm.
+ * It includes functionality for receiving motor commands, target poses, and grip parameters,
+ * as well as for controlling the motors and publishing parameters.
  */
 
 #ifndef __NODE_ARM_H__
@@ -51,7 +51,12 @@ using namespace std;
 
 
 /**
- * @brief Node that communicates with the arm, intermediary between ROS architecture and arm's drivers 
+ * @class Arm_node
+ * @brief A ROS2 node that controls a robotic arm.
+ * 
+ * This class initializes the node's interfaces, subscribes to topics for motor commands, target poses,
+ * and grip parameters, and manages the robotic arm's movements. It also publishes parameters and
+ * handles motor control logic.
  */
 class Arm_node : public rclcpp::Node{
 public:

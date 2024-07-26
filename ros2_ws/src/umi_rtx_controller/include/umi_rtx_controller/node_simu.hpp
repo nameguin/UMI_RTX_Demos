@@ -1,10 +1,15 @@
 /**
- * @file node_simu.hpp
- * @author Théo MASSA (theo.massa@ensta-bretagne.org)
- * @brief Node dedicated to the simulation, converts the commands for RViz
- * @version 0.1
- * @date 2023-07-19
+ * @file node_simu.cpp
+ * @brief Implementation of the Simu_node class for simulating joint states in ROS.
  * 
+ * This file contains the implementation of the Simu_node class, which is responsible for:
+ * - Initializing ROS interfaces (subscriptions and publications).
+ * - Handling timer callbacks to publish joint states.
+ * - Parsing a URDF file to initialize joint properties.
+ * - Processing incoming joint commands and updating the joint states accordingly.
+ * 
+ * The main function initializes ROS, creates an instance of Simu_node, and starts spinning
+ * to process incoming messages.
  */
 
 #ifndef __SIMU_H__
@@ -32,7 +37,18 @@ using namespace std;
 using namespace rapidxml;
 
 /**
- * @brief ROS2 node that gather the result of the inverse kinematics process, read the URDF description of the arm and send information to the RViz2 node 
+ * @class Simu_node
+ * @brief ROS 2 node for simulating a robotic arm.
+ * 
+ * This class represents a ROS 2 node designed for simulating the operation of a robotic arm. It handles the
+ * initialization of the node's interfaces, processes commands for joint movements, and manages the simulation
+ * of the robotic arm based on the URDF description.
+ * 
+ * @details
+ * The `Simu_node` class inherits from `rclcpp::Node` and provides functionality to:
+ * - Initialize ROS 2 publishers and subscribers.
+ * - Read the URDF description to extract joint information.
+ * - Process commands for joint states and simulate their effects.
  */
 class Simu_node : public rclcpp::Node{
 public:

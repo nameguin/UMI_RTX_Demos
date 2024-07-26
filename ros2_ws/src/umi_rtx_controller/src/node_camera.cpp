@@ -1,29 +1,38 @@
 #include "umi_rtx_controller/node_camera.hpp"
 
 void Camera::init_interfaces(){
-    stereo = cv::StereoSGBM::create(min_disp,num_disp,blockSize,iP1,iP2,disp12MaxDiff,0,uniquenessRatio,speckleWindowSize,speckleRange);
-
+    // Create a timer that calls the timer_callback function at regular intervals defined by loop_dt_
     timer_ = this->create_wall_timer(loop_dt_,std::bind(&Camera::timer_callback,this));
 
+    // Initialize the publisher for processed images
     image_publisher = this->create_publisher<sensor_msgs::msg::Image>("processed_image",10);
+    
+    // Initialize the publisher for processed pose data
     processed_pose_publisher = this->create_publisher<geometry_msgs::msg::Pose>("processed_pose",10);
+    
+    // Initialize the publisher for depth images
     depth_publisher = this->create_publisher<sensor_msgs::msg::Image>("depth_image",10);
-    edges_publisher = this->create_publisher<sensor_msgs::msg::Image>("edges_image",10);
+    
+    // Initialize the publisher to signal readiness to play
+    ready_to_play_publisher = this->create_publisher<std_msgs::msg::Bool>("ready_to_play",10);
 
-
+    // Initialize the publisher for board state information
     board_state_publisher = this->create_publisher<umi_rtx_interfaces::msg::Board>("board_state",10);
-    board_coordinates_publisher = this->create_publisher<umi_rtx_interfaces::msg::BoardCoordinates>("board_coordinates",10);
 
-    //double_publisher = this->create_publisher<std_msgs::msg::Float64>("target_depth",10);
+    // Initialize the subscriber to capture step commands
+    capture_step_subscriber = this->create_subscription<std_msgs::msg::Bool>("capture_step",10,
+        std::bind(&Camera::get_capture_step, this, _1));
 }
 
 void Camera::init_camera(){
     std::cout << "Checking for available cameras... " << std::endl;
 
+    // Create a context for querying connected devices
     rs2::context ctx;
-    auto device_list = ctx.query_devices();
-    available_device = device_list.size();
+    auto device_list = ctx.query_devices(); // Query the list of connected devices
+    available_device = device_list.size(); // Store the number of available devices
 
+    // Output the number of connected RealSense devices
     if (available_device == 0)
         std::cout << "No RealSense camera detected!" << std::endl << std::endl;
     else if(available_device == 1)
@@ -31,284 +40,226 @@ void Camera::init_camera(){
     else
         std::cout << "There are " << available_device << " connected RealSense devices." << std::endl << std::endl;
 
+    // Initialize the first available device if any are found
     if(available_device > 0) {
-        auto dev = device_list[0];
+        auto dev = device_list[0]; 
         std::cout << "Using device 0 " << std::endl;
         std::cout << "Name: " << dev.get_info(RS2_CAMERA_INFO_NAME) << std::endl;
         std::cout << "Serial number: " << dev.get_info(RS2_CAMERA_INFO_SERIAL_NUMBER) << std::endl;
-        std::cout << "Firmware version: " << dev.get_info(RS2_CAMERA_INFO_FIRMWARE_VERSION) << std::endl;
+        std::cout << "Firmware version: " << dev.get_info(RS2_CAMERA_INFO_FIRMWARE_VERSION) << std::endl; 
 
+        // Set frame dimensions
         m_frame_width = 1280;
         m_frame_height = 720;
 
+        // Configure the depth and color streams
         cfg.enable_stream(RS2_STREAM_DEPTH, m_frame_width/2, m_frame_height/2, RS2_FORMAT_Z16, 30);
         cfg.enable_stream(RS2_STREAM_COLOR, m_frame_width, m_frame_height, RS2_FORMAT_BGR8, 30);
     }
 
     try {
+        // Start the pipeline with the configured settings
         pipe.start(cfg);
-        auto sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>();
-        sensor.set_option(rs2_option::RS2_OPTION_VISUAL_PRESET, rs2_rs400_visual_preset::RS2_RS400_VISUAL_PRESET_HIGH_ACCURACY);
+        auto sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>(); // Get the depth sensor
+        sensor.set_option(rs2_option::RS2_OPTION_VISUAL_PRESET, rs2_rs400_visual_preset::RS2_RS400_VISUAL_PRESET_HIGH_ACCURACY); // Set visual preset to high accuracy
     } catch (const rs2::error& e) {
-        std::cerr << "Erreur librealsense : " << e.what() << std::endl;
+        std::cerr << "Librealsense error: " << e.what() << std::endl;
     }
-    //color_map.set_option(RS2_OPTION_COLOR_SCHEME, 0)
-    color_map.set_option(RS2_OPTION_MIN_DISTANCE, 0.0f); // Minimum distance (0.0 meters)
-    color_map.set_option(RS2_OPTION_MAX_DISTANCE, 6.0f); // Maximum distance (6.0 meters)
-    color_map.set_option(RS2_OPTION_HISTOGRAM_EQUALIZATION_ENABLED, false); // Disable histogram equalization
 
-    //std::cout << "init done" << std::endl;
+    // Configure the color map options
+    color_map.set_option(RS2_OPTION_MIN_DISTANCE, 0.0f); // Minimum distance for depth color mapping
+    color_map.set_option(RS2_OPTION_MAX_DISTANCE, 6.0f); // Maximum distance for depth color mapping
+    color_map.set_option(RS2_OPTION_HISTOGRAM_EQUALIZATION_ENABLED, false); // Disable histogram equalization
 }
 
 void Camera::timer_callback(){
-    geometry_msgs::msg::Pose pose_msg;
-    umi_rtx_interfaces::msg::BoardCoordinates board_coordinates_msg;
+    geometry_msgs::msg::Pose pose_msg; // Pose message to be published
 
+    // Check if there is at least one available device
     if(available_device > 0) {
+        // Wait for the next set of frames from the camera
         rs2::frameset frames = pipe.wait_for_frames();
 
-        // Align depth frame to color frame
+        // Align the depth frame to the color frame for better accuracy
         frames = align_to_color.process(frames);
 
+        // Retrieve the depth frame, colored depth frame, and color frame
         rs2::depth_frame depth = frames.get_depth_frame();
-        rs2::frame coloredDepth = frames.get_depth_frame().apply_filter(color_map);
+        rs2::frame coloredDepth = frames.get_depth_frame().apply_filter(color_map); // Apply color map filter to depth frame
         rs2::frame color = frames.get_color_frame();
 
-        // Query frame size (width and height)
+        // Get the width and height of the frames
         const int depth_w = depth.as<rs2::video_frame>().get_width();
         const int depth_h = depth.as<rs2::video_frame>().get_height();
         const int color_w = color.as<rs2::video_frame>().get_width();
         const int color_h = color.as<rs2::video_frame>().get_height();
 
-        // Create OpenCV matrix of size (w,h) from the colorized depth data
+        // Convert depth and color frames to OpenCV matrices
         depthFrameCV = cv::Mat(cv::Size(depth_w, depth_h), CV_8UC3, (void*)coloredDepth.get_data(), cv::Mat::AUTO_STEP);
-
-        // Create OpenCV matrix of size (w,h) from the color data
         colorFrameCV = cv::Mat(cv::Size(color_w, color_h), CV_8UC3, (void*)color.get_data(), cv::Mat::AUTO_STEP);
 
-        std::vector<GridSquare> board_coordinates;
-        get_grid_position();
-        if(board_coordinates.size() > 0) {
-            geometry_msgs::msg::Point points[9];
-            auto it = board_coordinates.begin();
+        // Check if the capture step is active
+        if(capture_step) {
+            get_colored_objects(pose_msg, depth); // Process the frames to detect colored objects
+            pose_msg.position.x = m_cx; // Set the detected object's X position
+            pose_msg.position.y = m_cy; // Set the detected object's Y position
+            pose_msg.position.z = m_cz; // Set the detected object's Z position
 
-            for (size_t i = 0; it != board_coordinates.end(); ++it, ++i) {
-                points[i].x = it->center.x;
-                points[i].y = it->center.y;
-                points[i].z = 20.0;
-            }
-            board_coordinates_publisher->publish(board_coordinates_msg);
+            // Draw rectangles on the color frame to indicate regions of interest
+            int top_left_x = 333;
+            int top_left_y = m_frame_height - 444;
+            int bottom_right_x = m_frame_width - 333;
+            int bottom_right_y = m_frame_height;
+
+            cv::rectangle(colorFrameCV, cv::Point(top_left_x + 167, top_left_y), cv::Point(bottom_right_x, bottom_right_y), cv::Scalar(0, 0, 0), 2);
+            cv::rectangle(colorFrameCV, cv::Point(top_left_x, top_left_y), cv::Point(top_left_x + 148, top_left_y + 444), cv::Scalar(0, 0, 0), 2);
+
+            // Publish the board state and processed pose messages
+            umi_rtx_interfaces::msg::Board board_msg;
+            for(int i = 0; i < 9; i++)
+                board_msg.data[i] = board_state[i];
+
+            board_state_publisher->publish(board_msg);
+            processed_pose_publisher->publish(pose_msg);
+
+            // Reset capture step flag
+            capture_step = false;
         }
-        /*for(int i = 0; i < 3; ++i){
-            for(int j = 0; j < 3; ++j){
-                board_coordinates_msg.points[i*3+j].x = -40 + j*40;
-                board_coordinates_msg.points[i*3+j].y = 60 - i*10;
-                board_coordinates_msg.points[i*3+j].z = 20;
-            }
-        }*/
 
-
-        get_colored_objects(pose_msg, depth);
-
-        pose_msg.position.x = m_cx;
-        pose_msg.position.y = m_cy;
-        pose_msg.position.z = m_cz;
-
-        processed_pose_publisher->publish(pose_msg);
-
+        // Publish the depth and color images
         sensor_msgs::msg::Image::SharedPtr depth_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"bgr8",depthFrameCV).toImageMsg();
         depth_publisher->publish(*depth_msg);
+
+        sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", colorFrameCV).toImageMsg();
+        image_publisher->publish(*img_msg);
     }
-
-    umi_rtx_interfaces::msg::Board board_msg;
-    for(int i = 0; i < 9; i++){
-        board_msg.data[i] = 0;
-    }
-    board_state_publisher->publish(board_msg); 
-
-        //std_msgs::msg::Float64 target_depth_msg;
-    //target_depth_msg.data = depthMap.at<float>(depthMap.rows/2,depthMap.cols/2);
-       //target_depth_msg.data = cv::mean(depthMap)[0];
-    //target_depth_msg.data = (0.5*m_frame_width_left/tan(90*0.5*M_PI/180)) * m_baseline / disparityMap.at<float>(m_frame_width_left/2,m_frame_height_left/2);
-    //target_depth_msg.data = disparityMap.at<float>(m_frame_width_left/2,m_frame_height_left/2);
-    //target_depth_msg.data = depthMap.at<uchar>(300,300);
-       //double_publisher->publish(target_depth_msg);
-    
-    board_coordinates.clear();
-
 }
 
-void Camera::get_grid_position(){
 
-    cv::Mat blurred;
-    cv::GaussianBlur(colorFrameCV, blurred, cv::Size(5, 5), 0);
-
-    cv::Mat edges;
-    cv::Canny(blurred, edges, 50, 150);
-
-    cv::Mat dilated;
-    cv::dilate(edges, dilated, cv::Mat(), cv::Point(-1, -1), 2);
-
-    cv::Mat eroded;
-    cv::erode(dilated, eroded, cv::Mat(), cv::Point(-1, -1), 2);
-
-    cv::Mat thresh_image;
-    cv::threshold(eroded, thresh_image, 150, 255, cv::THRESH_BINARY);
-
-    std::vector<std::vector<cv::Point>> grid_contours;
-    std::vector<std::vector<cv::Point>> board_contours;
-    std::vector<cv::Vec4i> hierarchy;
-    cv::findContours(thresh_image, grid_contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
-
-    double minArea = 1000.0; // minimum contour area to consider
-
-    for (size_t i = 0; i < grid_contours.size(); i++) {
-        double epsilon = 0.01 * cv::arcLength(grid_contours[i], true);
-        std::vector<cv::Point> approx;
-        cv::approxPolyDP(grid_contours[i], approx, epsilon, true);
-
-        double contourArea = cv::contourArea(approx);
-
-        if (contourArea < minArea)
-            continue;
-
-        if (approx.size() == 4) {
-            cv::Moments moments = cv::moments(grid_contours[i]);
-            double cx = moments.m10 / moments.m00;
-            double cy = moments.m01 / moments.m00;
-            
-            GridSquare current_box;
-            current_box.contours = grid_contours[i];
-            current_box.area = contourArea;
-            current_box.center = cv::Point2f(cx, cy);
-
-            cv::Point p1 = approx[0];
-            cv::Point p2 = approx[1];
-            double length = cv::norm(p1 - p2);
-            if(min(length / sqrt(contourArea), sqrt(contourArea) / length) < 0.7)
-                continue;
-
-            bool farEnough = true;
-            for (const auto& box : board_coordinates) {
-                double distance = cv::norm(current_box.center - box.center);
-                if (distance < 1.0) {
-                    farEnough = false;
-                    cv::circle(colorFrameCV, current_box.center, 6, cv::Scalar(0,0,255), -1);
-                    break;
-                }
-            }
-            //cv::drawContours(colorFrameCV, grid_contours, i, cv::Scalar(255, 255, 255), 2);
-            //std::cout << "Area : " << current_box.area << std::endl;
-            if(farEnough)  
-                board_coordinates.push_back(current_box);          
-
-        }
-    }
-
-    if(board_coordinates.size() == 10){
-        std::sort(board_coordinates.begin(), board_coordinates.end(), [](const GridSquare& a, const GridSquare& b) {
-            return a.area < b.area;
-        });
-        board_coordinates.pop_back();
-        for (const auto& square : board_coordinates) {
-            //cv::circle(colorFrameCV, square.center, 6, cv::Scalar(0,0,255), -1);
-        }
-        
-    }
-
-    sensor_msgs::msg::Image::SharedPtr edges_msg = cv_bridge::CvImage(std_msgs::msg::Header(),"mono8",thresh_image).toImageMsg();
-    edges_publisher->publish(*edges_msg);
+void Camera::get_capture_step(const std_msgs::msg::Bool::SharedPtr msg) {
+    capture_step = msg->data;
 }
 
 void Camera::get_colored_objects(geometry_msgs::msg::Pose msg, rs2::depth_frame depth){
 
+    // Reset the board state
+    for(auto& value : board_state) {
+        value = 0;
+    }
+
+    // Define the region of interest (ROI) in the color frame
+    int x1 = 333;
+    int y1 = m_frame_height - 444;
+    int x2 = m_frame_width - 333;
+    int y2 = m_frame_height;
+
+    // Create a rectangle around the region of interest with some padding
+    cv::Rect roi(x1 - 100, y1 - 100, x2 - x1 + 200, y2 - y1 + 100);
+    cv::Mat croppedImage = colorFrameCV(roi); // Crop the image to the ROI
+
     cv::Mat hsv_img;
-    cv::cvtColor(colorFrameCV,hsv_img,cv::COLOR_BGR2HSV);
+    cv::cvtColor(croppedImage, hsv_img, cv::COLOR_BGR2HSV); // Convert cropped image to HSV color space
 
-    cv::Scalar lower_bound = cv::Scalar(25,100,100);
-    cv::Scalar upper_bound = cv::Scalar(60,255,255);
+    // Define color ranges for detection
+    cv::Scalar lower_bound_robot = cv::Scalar(25, 100, 100); // Lower bound for robot color
+    cv::Scalar upper_bound_robot = cv::Scalar(60, 255, 255); // Upper bound for robot color
 
-    cv::Mat bin_hsv_img;
-    cv::inRange(hsv_img, lower_bound, upper_bound, bin_hsv_img);
+    cv::Scalar lower_bound_human = cv::Scalar(15, 100, 100); // Lower bound for human color
+    cv::Scalar upper_bound_human = cv::Scalar(100, 255, 255); // Upper bound for human color
 
-    std::vector<std::vector<cv::Point>> contours;
-    cv::findContours(bin_hsv_img, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
+    cv::Mat bin_hsv_img_robot;
+    cv::inRange(hsv_img, lower_bound_robot, upper_bound_robot, bin_hsv_img_robot); // Binary image for robot detection
 
-    double maxArea = 0;
-    int maxAreaIdx = -1;
-    double minArea = 5.0;
-    for (size_t i = 0; i < contours.size(); i++) {
-        double area = cv::contourArea(contours[i]);
-        if(area < minArea)
+    cv::Mat bin_hsv_img_human;
+    cv::inRange(hsv_img, lower_bound_human, upper_bound_human, bin_hsv_img_human); // Binary image for human detection
+
+    // Find contours in the binary images
+    std::vector<std::vector<cv::Point>> contours_robot;
+    cv::findContours(bin_hsv_img_robot, contours_robot, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
+
+    std::vector<std::vector<cv::Point>> contours_human;
+    cv::findContours(bin_hsv_img_human, contours_human, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
+
+    double minArea = 5000.0; // Minimum contour area to be considered
+    m_cx = 0, m_cy = 0, m_cz = 0; 
+
+    // Process robot contours
+    for (size_t i = 0; i < contours_robot.size(); i++) {
+        double area = cv::contourArea(contours_robot[i]);
+        if(area < minArea) // Skip small contours
             continue;
 
-        cv::Moments moments = cv::moments(contours[i]);
-        double cx = moments.m10 / moments.m00;
-        double cy = moments.m01 / moments.m00;
-        double cz = depth.get_distance(cx, cy);
+        cv::Moments moments = cv::moments(contours_robot[i]); // Compute moments of the contour
+        double cx = moments.m10 / moments.m00; // X coordinate of the contour center
+        double cy = moments.m01 / moments.m00; // Y coordinate of the contour center
+        double cz = depth.get_distance(cx, cy); // Depth (Z) coordinate from the depth frame
 
-        cv::Point2f yellowCenter(cx, cy);
-        cv::circle(colorFrameCV, yellowCenter, 6, cv::Scalar(0, 255, 255), -1);
+        cv::Point2f robotCenter(cx, cy);
+        cv::circle(croppedImage, robotCenter, 4, cv::Scalar(0, 255, 255), -1); // Draw circle at the target center
 
-        for (const auto& square : board_coordinates) {
-            if (cv::pointPolygonTest(square.contours, yellowCenter, false) >= 0) {
-                cv::drawContours(colorFrameCV, std::vector<std::vector<cv::Point>>{square.contours}, -1, cv::Scalar(0, 255, 0), 2);
-                break;
-            }
-            else {
-                if (area > maxArea)
-                {
-                    maxArea = area;
-                    maxAreaIdx = i;
-                }
-                get_angles(contours);
-                double cz = depth.get_distance(cx, cy);
+        int box = find_box(cx, cy); // Determine which box the object is in
+        if(box >= 0 && box < 9){
+            cv::circle(croppedImage, cv::Point(cx, cy), 8, cv::Scalar(0, 0, 255), -1); // Draw circle for valid objects
+            cv::drawContours(croppedImage, contours_robot, i, cv::Scalar(255, 255, 255), 2); // Draw contour
 
-                if(cz < 2 && cz != 0) {
-                    //std::cout << "Centroid : (" << cx << ", " << cy << ")" << std::endl;
-                    cv::drawContours(colorFrameCV, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
-                    cv::drawContours(depthFrameCV, contours, maxAreaIdx, cv::Scalar(255, 255, 255), 2);
-                    m_cx = cx;
-                    m_cy = cy;
-                    m_cz = cz;
-
-                    cv::circle(colorFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
-                    cv::circle(depthFrameCV,cv::Point(m_cx,m_cy),8,cv::Scalar(0,0,255),-1);
-                } 
-                else {
-                    std::cout << "Cannot detect the target" << std::endl;
-
-                    cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
-                }
-            }
+            board_state[box] = 1; // Mark box as containing a robot
         }
-        if(maxAreaIdx == -1) {
-            std::cout << "Cannot detect the target" << std::endl;
+        else if(box == 9) { // Special case for the pick up box
+            get_angles(contours_robot[i]); // Compute angles
 
-            cv::circle(colorFrameCV,cv::Point(m_frame_width-40,40),20,cv::Scalar(0,0,255),-1);
+            // Draw circles and contours on both cropped and depth frames
+            cv::circle(croppedImage, cv::Point(cx, cy), 8, cv::Scalar(0, 255, 255), -1);
+            cv::circle(depthFrameCV, cv::Point(cx, cy), 8, cv::Scalar(0, 255, 255), -1);
+            cv::drawContours(croppedImage, contours_robot, i, cv::Scalar(255, 0, 0), 2);
+            cv::drawContours(depthFrameCV, contours_robot, i, cv::Scalar(255, 0, 0), 2);
+
+            // Update center coordinates
+            m_cx = cx;
+            m_cy = cy;
+            m_cz = cz;
         }
     }
-    cv::line(colorFrameCV,cv::Point (m_frame_width/2 - 25,m_frame_height/2),cv::Point (m_frame_width/2 + 25,m_frame_height/2),cv::Scalar(255,255,255),2);
-    cv::line(colorFrameCV,cv::Point (m_frame_width/2,m_frame_height/2 - 25),cv::Point (m_frame_width/2,m_frame_height/2 + 25),cv::Scalar(255,255,255),2);
-        
-    sensor_msgs::msg::Image::SharedPtr img_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", colorFrameCV).toImageMsg();
-    image_publisher->publish(*img_msg);
 
+    // Process human contours
+    for (size_t i = 0; i < contours_human.size(); i++) {
+        double area = cv::contourArea(contours_human[i]);
+        if(area < minArea) // Skip small contours
+            continue;
+
+        cv::Moments moments = cv::moments(contours_human[i]); // Compute moments of the contour
+        double cx = moments.m10 / moments.m00; // X coordinate of the contour center
+        double cy = moments.m01 / moments.m00; // Y coordinate of the contour center
+        double cz = depth.get_distance(cx, cy); // Depth (Z) coordinate from the depth frame
+
+        cv::Point2f humanCenter(cx, cy);
+        cv::circle(croppedImage, humanCenter, 4, cv::Scalar(0, 255, 255), -1); // Draw circle at the human center
+
+        int box = find_box(cx, cy); // Determine which box the object is in
+        if(box >= 0 && box < 9){
+            cv::circle(croppedImage, cv::Point(cx, cy), 8, cv::Scalar(0, 0, 255), -1); // Draw circle for valid objects
+            cv::drawContours(croppedImage, contours_human, i, cv::Scalar(255, 255, 255), 2); // Draw contour
+
+            board_state[box] = 2; // Mark box as containing a human
+        }
+    }
+
+    // Indicate the absence of detected objects
+    if(m_cx == 0 && m_cy == 0 && m_cz == 0) {
+        cv::circle(colorFrameCV, cv::Point(m_frame_width - 40, 40), 20, cv::Scalar(0, 0, 255), -1); // Draw a red circle if no object is detected
+    }
+
+    // Draw crosshair in the center of the color frame
+    cv::line(colorFrameCV, cv::Point(m_frame_width / 2 - 25, m_frame_height / 2), cv::Point(m_frame_width / 2 + 25, m_frame_height / 2), cv::Scalar(255, 255, 255), 2);
+    cv::line(colorFrameCV, cv::Point(m_frame_width / 2, m_frame_height / 2 - 25), cv::Point(m_frame_width / 2, m_frame_height / 2 + 25), cv::Scalar(255, 255, 255), 2);
+
+    // Update the pose message with the computed orientation
     msg.orientation.x = yaw;
     msg.orientation.y = pitch;
     msg.orientation.z = roll;
 }
 
-void Camera::get_angles(vector<vector<cv::Point>> &contours){
-    vector<cv::Point> longest_contour;
-    double max_area = 0.0;
-    for (const auto& contour : contours) {
-        double area = cv::contourArea(contour);
-        if (area > max_area) {
-            max_area = area;
-            longest_contour = contour;
-        }
-    }
+
+void Camera::get_angles(vector<cv::Point> &longest_contour){
 
     cv::Vec4f line_params;
     cv::fitLine(longest_contour, line_params, cv::DIST_L2, 0, 0.01, 0.01);
@@ -320,8 +271,41 @@ void Camera::get_angles(vector<vector<cv::Point>> &contours){
     yaw = 90.;
     pitch = 90.;
     roll = theta*180/M_PI;
-
 }
+
+int Camera::find_box(double cx, double cy){
+
+    // Check if the coordinates are outside the grid
+    if(cx < 100 || cy < 100 || cy >= 544)
+        return -1;
+    else if(cx < 248)
+        return 9;
+    else if(cx < 267)
+        return -1;
+
+    // Calculate the width of each box dynamically based on frame width
+    // Box coordinates are defined relative to frame dimensions and padding
+    else if(cx < 267 + (m_frame_width - 833) / 3 && cy < 100 + 444 / 3)
+        return 0;
+    else if (cx < 267 + 2 * (m_frame_width - 833) / 3 && cy <  100 + 444 / 3)
+        return 1;
+    else if (cx < 267 + m_frame_width - 833 && cy < 100 + 444 / 3)
+        return 2;
+    else if(cx < 267 + (m_frame_width - 833) / 3 && cy < 100 + 2 * 444 / 3)
+        return 3;
+    else if (cx < 267 + 2 * (m_frame_width - 833) / 3 && cy < 100 + 2 * 444 / 3)
+        return 4;
+    else if (cx < 267 + m_frame_width - 833 && cy < 100 +2 * 444 / 3)
+        return 5;
+    else if(cx < 267 + (m_frame_width - 833) / 3 && cy < 100 + 444)
+        return 6;
+    else if (cx < 267 + 2 * (m_frame_width - 833) / 3 && cy < 100 + 444)
+        return 7;
+    else if (cx < 267 + m_frame_width - 833 && cy < 100 + 444)
+        return 8;
+    else 
+        return -1;
+} 
 
 int main(int argc, char * argv[]){
     rclcpp::init(argc,argv);
