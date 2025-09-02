@@ -1,0 +1,12 @@
+{
+  "package_name": "umi_rtx_interfaces",
+  "output_dir": "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces/rosidl_generator_type_description/umi_rtx_interfaces",
+  "idl_tuples": [
+    "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces/rosidl_adapter/umi_rtx_interfaces:msg/GameData.idl",
+    "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces/rosidl_adapter/umi_rtx_interfaces:msg/Board.idl"
+  ],
+  "include_paths": [
+    "geometry_msgs:/opt/ros/iron/share/geometry_msgs",
+    "std_msgs:/opt/ros/iron/share/std_msgs"
+  ]
+}

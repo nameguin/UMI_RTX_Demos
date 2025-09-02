@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from umi_rtx_interfaces/msg/Board.msg
+// generated code does not contain a copyright notice
+
+
+module umi_rtx_interfaces {
+  module msg {
+    typedef int32 int32__9[9];
+    struct Board {
+      int32__9 data;
+    };
+  };
+};

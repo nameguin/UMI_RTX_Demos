@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from umi_rtx_interfaces/msg/GameData.msg
+// generated code does not contain a copyright notice
+
+#include "umi_rtx_interfaces/msg/Board.idl"
+
+module umi_rtx_interfaces {
+  module msg {
+    typedef string string__9[9];
+    struct GameData {
+      umi_rtx_interfaces::msg::Board board;
+
+      string__9 moveshistory;
+
+      string primarymsg;
+
+      string secondarymsg;
+
+      boolean isrobotturn;
+
+      boolean isgamestarted;
+    };
+  };
+};

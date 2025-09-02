@@ -1,0 +1,574 @@
+[0.000000] (-) TimerEvent: {}
+[0.000131] (umi_rtx_interfaces) JobQueued: {'identifier': 'umi_rtx_interfaces', 'dependencies': OrderedDict()}
+[0.000236] (umi_rtx_controller) JobQueued: {'identifier': 'umi_rtx_controller', 'dependencies': OrderedDict([('umi_rtx_interfaces', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces')])}
+[0.000264] (umi_rtx_interfaces) JobStarted: {'identifier': 'umi_rtx_interfaces'}
+[0.035683] (umi_rtx_interfaces) JobProgress: {'identifier': 'umi_rtx_interfaces', 'progress': 'cmake'}
+[0.036371] (umi_rtx_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces', '-DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces'], 'cwd': '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IE:en'), ('USER', 'roboticslab'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/roboticslab'), ('OLDPWD', '/home/roboticslab/UMI_RTX_Demos'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3296'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'roboticslab'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'roboticslab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/roboticslab-OptiPlex-9020:@/tmp/.ICE-unix/3039,unix/roboticslab-OptiPlex-9020:/tmp/.ICE-unix/3039'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/996f7b08_aa14_4703_a82e_69c94b0f3f08'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.CAV9B3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.140'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[0.099268] (-) TimerEvent: {}
+[0.199688] (-) TimerEvent: {}
+[0.300180] (-) TimerEvent: {}
+[0.400684] (-) TimerEvent: {}
+[0.501030] (-) TimerEvent: {}
+[0.601394] (-) TimerEvent: {}
+[0.701767] (-) TimerEvent: {}
+[0.802234] (-) TimerEvent: {}
+[0.880852] (umi_rtx_interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.902333] (-) TimerEvent: {}
+[1.002697] (-) TimerEvent: {}
+[1.103152] (-) TimerEvent: {}
+[1.203505] (-) TimerEvent: {}
+[1.222166] (umi_rtx_interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.233798] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.303676] (-) TimerEvent: {}
+[1.404011] (-) TimerEvent: {}
+[1.444191] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.453404] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.453926] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.478431] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.483523] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.504125] (-) TimerEvent: {}
+[1.604415] (-) TimerEvent: {}
+[1.610391] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.618519] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.618802] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.619260] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.670868] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 2.0.7 (/opt/ros/iron/share/ament_cmake/cmake)\n'}
+[1.704680] (-) TimerEvent: {}
+[1.805343] (-) TimerEvent: {}
+[1.905708] (-) TimerEvent: {}
+[1.989688] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[2.005807] (-) TimerEvent: {}
+[2.106135] (-) TimerEvent: {}
+[2.180088] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found geometry_msgs: 5.0.1 (/opt/ros/iron/share/geometry_msgs/cmake)\n'}
+[2.206317] (-) TimerEvent: {}
+[2.306712] (-) TimerEvent: {}
+[2.407130] (-) TimerEvent: {}
+[2.438038] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)\n'}
+[2.479258] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)\n'}
+[2.507241] (-) TimerEvent: {}
+[2.599323] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.607362] (-) TimerEvent: {}
+[2.686419] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.707474] (-) TimerEvent: {}
+[2.807769] (-) TimerEvent: {}
+[2.908117] (-) TimerEvent: {}
+[2.921801] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.5.0 (/opt/ros/iron/share/rosidl_default_generators/cmake)\n'}
+[2.951896] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.0.1 (/opt/ros/iron/share/rosidl_adapter/cmake)\n'}
+[3.008223] (-) TimerEvent: {}
+[3.108477] (-) TimerEvent: {}
+[3.208796] (-) TimerEvent: {}
+[3.285287] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.11.2 (/opt/ros/iron/share/ament_cmake_ros/cmake)\n'}
+[3.308875] (-) TimerEvent: {}
+[3.409109] (-) TimerEvent: {}
+[3.509380] (-) TimerEvent: {}
+[3.609639] (-) TimerEvent: {}
+[3.693931] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.709727] (-) TimerEvent: {}
+[3.809950] (-) TimerEvent: {}
+[3.854084] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.875506] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[3.896509] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.2 (/opt/ros/iron/share/python_cmake_module/cmake)\n'}
+[3.910176] (-) TimerEvent: {}
+[4.010702] (-) TimerEvent: {}
+[4.022742] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[4.022968] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.023041] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[4.023094] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[4.042034] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.110811] (-) TimerEvent: {}
+[4.192234] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.210918] (-) TimerEvent: {}
+[4.311227] (-) TimerEvent: {}
+[4.337670] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Generating done\n'}
+[4.360201] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces\n'}
+[4.369083] (umi_rtx_interfaces) CommandEnded: {'returncode': 0}
+[4.369879] (umi_rtx_interfaces) JobProgress: {'identifier': 'umi_rtx_interfaces', 'progress': 'build'}
+[4.371620] (umi_rtx_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces', '--', '-j8', '-l8'], 'cwd': '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IE:en'), ('USER', 'roboticslab'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/roboticslab'), ('OLDPWD', '/home/roboticslab/UMI_RTX_Demos'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3296'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'roboticslab'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'roboticslab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/roboticslab-OptiPlex-9020:@/tmp/.ICE-unix/3039,unix/roboticslab-OptiPlex-9020:/tmp/.ICE-unix/3039'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/996f7b08_aa14_4703_a82e_69c94b0f3f08'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.CAV9B3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.140'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[4.411342] (-) TimerEvent: {}
+[4.421943] (umi_rtx_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[4.429651] (umi_rtx_interfaces) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_umi_rtx_interfaces\n'}
+[4.511441] (-) TimerEvent: {}
+[4.611752] (-) TimerEvent: {}
+[4.697251] (umi_rtx_interfaces) StdoutLine: {'line': b'[  2%] Built target umi_rtx_interfaces__rosidl_generator_type_description\n'}
+[4.706315] (umi_rtx_interfaces) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[4.707712] (umi_rtx_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[4.708512] (umi_rtx_interfaces) StdoutLine: {'line': b'creating umi_rtx_interfaces.egg-info\n'}
+[4.708714] (umi_rtx_interfaces) StdoutLine: {'line': b'writing umi_rtx_interfaces.egg-info/PKG-INFO\n'}
+[4.708938] (umi_rtx_interfaces) StdoutLine: {'line': b'writing dependency_links to umi_rtx_interfaces.egg-info/dependency_links.txt\n'}
+[4.709128] (umi_rtx_interfaces) StdoutLine: {'line': b'writing top-level names to umi_rtx_interfaces.egg-info/top_level.txt\n'}
+[4.709340] (umi_rtx_interfaces) StdoutLine: {'line': b"writing manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'\n"}
+[4.711824] (-) TimerEvent: {}
+[4.716286] (umi_rtx_interfaces) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[4.740530] (umi_rtx_interfaces) StdoutLine: {'line': b"reading manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'\n"}
+[4.741119] (umi_rtx_interfaces) StdoutLine: {'line': b"writing manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'\n"}
+[4.772813] (umi_rtx_interfaces) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_build_umi_rtx_interfaces_egg\n'}
+[4.811941] (-) TimerEvent: {}
+[4.912205] (-) TimerEvent: {}
+[5.012479] (-) TimerEvent: {}
+[5.016442] (umi_rtx_interfaces) StdoutLine: {'line': b'[  6%] Built target umi_rtx_interfaces__cpp\n'}
+[5.081991] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__functions.c.o\x1b[0m\n'}
+[5.082258] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__functions.c.o\x1b[0m\n'}
+[5.083166] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__description.c.o\x1b[0m\n'}
+[5.083519] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__type_support.c.o\x1b[0m\n'}
+[5.083751] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__description.c.o\x1b[0m\n'}
+[5.084004] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__type_support.c.o\x1b[0m\n'}
+[5.112607] (-) TimerEvent: {}
+[5.213010] (-) TimerEvent: {}
+[5.313535] (-) TimerEvent: {}
+[5.335712] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libumi_rtx_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[5.413634] (-) TimerEvent: {}
+[5.495313] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 22%] Built target umi_rtx_interfaces__rosidl_generator_c\n'}
+[5.505515] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.505778] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 27%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[5.506898] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[5.507126] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.507263] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 34%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.507490] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 36%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.513738] (-) TimerEvent: {}
+[5.614060] (-) TimerEvent: {}
+[5.714366] (-) TimerEvent: {}
+[5.764946] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/umi_rtx_interfaces/msg/game_data__type_support.cpp.o\x1b[0m\n'}
+[5.765169] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/umi_rtx_interfaces/msg/board__type_support.cpp.o\x1b[0m\n'}
+[5.802011] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/umi_rtx_interfaces/msg/detail/game_data__type_support.c.o\x1b[0m\n'}
+[5.802215] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/umi_rtx_interfaces/msg/detail/board__type_support.c.o\x1b[0m\n'}
+[5.814577] (-) TimerEvent: {}
+[5.859847] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 47%] \x1b[32m\x1b[1mLinking C shared library libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[5.914677] (-) TimerEvent: {}
+[5.941905] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/umi_rtx_interfaces/msg/game_data__type_support.cpp.o\x1b[0m\n'}
+[5.944187] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/umi_rtx_interfaces/msg/board__type_support.cpp.o\x1b[0m\n'}
+[5.987100] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/umi_rtx_interfaces/msg/detail/game_data__type_support.cpp.o\x1b[0m\n'}
+[6.008987] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 54%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_c\n'}
+[6.014813] (-) TimerEvent: {}
+[6.017118] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/umi_rtx_interfaces/msg/detail/board__type_support.cpp.o\x1b[0m\n'}
+[6.025692] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/umi_rtx_interfaces/msg/detail/game_data__type_support_c.cpp.o\x1b[0m\n'}
+[6.035476] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/umi_rtx_interfaces/msg/detail/dds_fastrtps/game_data__type_support.cpp.o\x1b[0m\n'}
+[6.114909] (-) TimerEvent: {}
+[6.215335] (-) TimerEvent: {}
+[6.316002] (-) TimerEvent: {}
+[6.416643] (-) TimerEvent: {}
+[6.488747] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/umi_rtx_interfaces/msg/detail/dds_fastrtps/board__type_support.cpp.o\x1b[0m\n'}
+[6.493387] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[6.516768] (-) TimerEvent: {}
+[6.617102] (-) TimerEvent: {}
+[6.657159] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 65%] Built target umi_rtx_interfaces__rosidl_typesupport_c\n'}
+[6.669391] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/umi_rtx_interfaces/msg/detail/board__type_support_c.cpp.o\x1b[0m\n'}
+[6.717237] (-) TimerEvent: {}
+[6.817624] (-) TimerEvent: {}
+[6.918029] (-) TimerEvent: {}
+[7.018379] (-) TimerEvent: {}
+[7.121807] (-) TimerEvent: {}
+[7.222206] (-) TimerEvent: {}
+[7.322585] (-) TimerEvent: {}
+[7.422971] (-) TimerEvent: {}
+[7.485882] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[7.490045] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[7.510102] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[7.523067] (-) TimerEvent: {}
+[7.591750] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_cpp\n'}
+[7.623206] (-) TimerEvent: {}
+[7.631340] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[7.646514] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[7.713198] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[7.723298] (-) TimerEvent: {}
+[7.807742] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 77%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[7.823423] (-) TimerEvent: {}
+[7.827730] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 77%] Built target umi_rtx_interfaces\n'}
+[7.850558] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 79%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[7.923526] (-) TimerEvent: {}
+[8.023797] (-) TimerEvent: {}
+[8.124055] (-) TimerEvent: {}
+[8.224335] (-) TimerEvent: {}
+[8.238048] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 79%] Built target umi_rtx_interfaces__py\n'}
+[8.256679] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_py.dir/rosidl_generator_py/umi_rtx_interfaces/msg/_board_s.c.o\x1b[0m\n'}
+[8.256882] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_py.dir/rosidl_generator_py/umi_rtx_interfaces/msg/_game_data_s.c.o\x1b[0m\n'}
+[8.324471] (-) TimerEvent: {}
+[8.424824] (-) TimerEvent: {}
+[8.525114] (-) TimerEvent: {}
+[8.529988] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/libumi_rtx_interfaces__rosidl_generator_py.so\x1b[0m\n'}
+[8.625258] (-) TimerEvent: {}
+[8.656853] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 86%] Built target umi_rtx_interfaces__rosidl_generator_py\n'}
+[8.676836] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[8.677057] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[8.677152] (umi_rtx_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[8.725373] (-) TimerEvent: {}
+[8.776228] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.776451] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.776547] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.814568] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[8.814837] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[8.815008] (umi_rtx_interfaces) StdoutLine: {'line': b'[100%] Built target umi_rtx_interfaces__rosidl_typesupport_c__pyext\n'}
+[8.825521] (umi_rtx_interfaces) CommandEnded: {'returncode': 0}
+[8.825902] (-) TimerEvent: {}
+[8.826264] (umi_rtx_interfaces) JobProgress: {'identifier': 'umi_rtx_interfaces', 'progress': 'install'}
+[8.834676] (umi_rtx_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces'], 'cwd': '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IE:en'), ('USER', 'roboticslab'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/roboticslab'), ('OLDPWD', '/home/roboticslab/UMI_RTX_Demos'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3296'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'roboticslab'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'roboticslab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/roboticslab-OptiPlex-9020:@/tmp/.ICE-unix/3039,unix/roboticslab-OptiPlex-9020:/tmp/.ICE-unix/3039'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/996f7b08_aa14_4703_a82e_69c94b0f3f08'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.CAV9B3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.140'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[8.841853] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.842122] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/rosidl_interfaces/umi_rtx_interfaces\n'}
+[8.842295] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.json\n'}
+[8.842441] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.json\n'}
+[8.842575] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.842656] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.842751] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/game_data.h\n'}
+[8.842876] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[8.842966] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.843044] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__functions.c\n'}
+[8.843118] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__functions.h\n'}
+[8.843189] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.c\n'}
+[8.843261] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.c\n'}
+[8.843339] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__functions.h\n'}
+[8.843423] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__description.c\n'}
+[8.843504] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__struct.h\n'}
+[8.843594] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__functions.c\n'}
+[8.843679] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.h\n'}
+[8.843843] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__struct.h\n'}
+[8.843930] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__description.c\n'}
+[8.844031] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.h\n'}
+[8.844104] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/board.h\n'}
+[8.844233] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/library_path.sh\n'}
+[8.844342] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/library_path.dsv\n'}
+[8.844489] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_c.so\n'}
+[8.844941] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_c.so" to ""\n'}
+[8.845177] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.845289] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.845384] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[8.845441] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.845499] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_fastrtps_c.h\n'}
+[8.845553] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_fastrtps_c.h\n'}
+[8.845627] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[8.845855] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[8.845952] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.846008] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.846087] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/game_data.hpp\n'}
+[8.846149] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/board.hpp\n'}
+[8.846247] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.846353] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__traits.hpp\n'}
+[8.846539] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__struct.hpp\n'}
+[8.846712] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__traits.hpp\n'}
+[8.846851] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__builder.hpp\n'}
+[8.846955] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__struct.hpp\n'}
+[8.847043] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__builder.hpp\n'}
+[8.847128] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.847182] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.847235] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[8.847316] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.847394] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[8.847459] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/dds_fastrtps\n'}
+[8.847512] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[8.847582] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[8.847783] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[8.847862] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.847918] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.848004] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[8.848069] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.848144] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.c\n'}
+[8.848196] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.c\n'}
+[8.848256] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_introspection_c.h\n'}
+[8.848333] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_introspection_c.h\n'}
+[8.848491] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[8.848904] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[8.849142] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_c.so\n'}
+[8.849352] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[8.849557] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces\n'}
+[8.849620] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg\n'}
+[8.849680] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail\n'}
+[8.849778] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.cpp\n'}
+[8.849848] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_introspection_cpp.hpp\n'}
+[8.849932] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.cpp\n'}
+[8.849995] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_introspection_cpp.hpp\n'}
+[8.850068] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[8.850338] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[8.850426] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_cpp.so\n'}
+[8.850712] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[8.850822] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/pythonpath.sh\n'}
+[8.850943] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/pythonpath.dsv\n'}
+[8.851068] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info\n'}
+[8.851175] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[8.851313] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[8.851398] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[8.851467] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[8.851569] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces\n'}
+[8.851641] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg\n'}
+[8.851709] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/__init__.py\n'}
+[8.851850] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board_s.c\n'}
+[8.851955] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board.py\n'}
+[8.852049] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data.py\n'}
+[8.852129] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data_s.c\n'}
+[8.852219] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/libumi_rtx_interfaces__rosidl_generator_py.so\n'}
+[8.852327] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[8.852421] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/__init__.py\n'}
+[8.852544] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[8.852734] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.852890] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.853011] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[8.853066] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.899150] (umi_rtx_interfaces) StdoutLine: {'line': b"Listing '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces'...\n"}
+[8.899323] (umi_rtx_interfaces) StdoutLine: {'line': b"Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/__init__.py'...\n"}
+[8.899392] (umi_rtx_interfaces) StdoutLine: {'line': b"Listing '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg'...\n"}
+[8.899474] (umi_rtx_interfaces) StdoutLine: {'line': b"Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/__init__.py'...\n"}
+[8.899541] (umi_rtx_interfaces) StdoutLine: {'line': b"Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board.py'...\n"}
+[8.899599] (umi_rtx_interfaces) StdoutLine: {'line': b"Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data.py'...\n"}
+[8.904430] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.904792] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[8.905039] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.905396] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[8.905607] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[8.905977] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[8.906122] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_py.so\n'}
+[8.906410] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_py.so" to ""\n'}
+[8.906555] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.idl\n'}
+[8.906678] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.idl\n'}
+[8.906783] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.msg\n'}
+[8.906887] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.msg\n'}
+[8.907031] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/package_run_dependencies/umi_rtx_interfaces\n'}
+[8.907249] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/parent_prefix_path/umi_rtx_interfaces\n'}
+[8.907393] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/ament_prefix_path.sh\n'}
+[8.907527] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/ament_prefix_path.dsv\n'}
+[8.907661] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/path.sh\n'}
+[8.907812] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/path.dsv\n'}
+[8.907915] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.bash\n'}
+[8.908036] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.sh\n'}
+[8.908167] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.zsh\n'}
+[8.908293] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.dsv\n'}
+[8.908423] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/package.dsv\n'}
+[8.908618] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/packages/umi_rtx_interfaces\n'}
+[8.908793] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cExport.cmake\n'}
+[8.908969] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[8.909123] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[8.909267] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[8.909398] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cppExport.cmake\n'}
+[8.909546] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[8.909668] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[8.909834] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[8.909975] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[8.910124] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[8.910282] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[8.910433] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[8.910557] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[8.910704] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[8.910884] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[8.911039] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_pyExport.cmake\n'}
+[8.911210] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[8.911359] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[8.911477] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[8.911616] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[8.911762] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[8.911954] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[8.912077] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[8.912208] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[8.912349] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfacesConfig.cmake\n'}
+[8.912454] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfacesConfig-version.cmake\n'}
+[8.912559] (umi_rtx_interfaces) StdoutLine: {'line': b'-- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/package.xml\n'}
+[8.914953] (umi_rtx_interfaces) CommandEnded: {'returncode': 0}
+[8.926065] (-) TimerEvent: {}
+[9.026549] (-) TimerEvent: {}
+[9.128373] (-) TimerEvent: {}
+[9.172173] (umi_rtx_interfaces) JobEnded: {'identifier': 'umi_rtx_interfaces', 'rc': 0}
+[9.175193] (umi_rtx_controller) JobStarted: {'identifier': 'umi_rtx_controller'}
+[9.185602] (umi_rtx_controller) JobProgress: {'identifier': 'umi_rtx_controller', 'progress': 'cmake'}
+[9.186118] (umi_rtx_controller) Command: {'cmd': ['/usr/bin/cmake', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_controller', '-DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_controller'], 'cwd': '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IE:en'), ('USER', 'roboticslab'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/roboticslab'), ('OLDPWD', '/home/roboticslab/UMI_RTX_Demos'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3296'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'roboticslab'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'roboticslab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/roboticslab-OptiPlex-9020:@/tmp/.ICE-unix/3039,unix/roboticslab-OptiPlex-9020:/tmp/.ICE-unix/3039'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/996f7b08_aa14_4703_a82e_69c94b0f3f08'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.CAV9B3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.140'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:/opt/ros/iron'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:/opt/ros/iron')]), 'shell': False}
+[9.228478] (-) TimerEvent: {}
+[9.243667] (umi_rtx_controller) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[9.299019] (umi_rtx_controller) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[9.305839] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[9.328596] (-) TimerEvent: {}
+[9.367498] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[9.374689] (umi_rtx_controller) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[9.375026] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[9.375434] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[9.378188] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[9.428712] (-) TimerEvent: {}
+[9.448708] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[9.456027] (umi_rtx_controller) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[9.456272] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[9.456704] (umi_rtx_controller) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[9.458436] (umi_rtx_controller) StdoutLine: {'line': b'-- Found ament_cmake: 2.0.7 (/opt/ros/iron/share/ament_cmake/cmake)\n'}
+[9.528819] (-) TimerEvent: {}
+[9.619463] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[9.628917] (-) TimerEvent: {}
+[9.729218] (-) TimerEvent: {}
+[9.742003] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rclcpp: 21.0.8 (/opt/ros/iron/share/rclcpp/cmake)\n'}
+[9.829350] (-) TimerEvent: {}
+[9.851840] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)\n'}
+[9.865546] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)\n'}
+[9.881923] (umi_rtx_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[9.899797] (umi_rtx_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[9.929474] (-) TimerEvent: {}
+[10.029781] (-) TimerEvent: {}
+[10.130056] (-) TimerEvent: {}
+[10.163770] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.1.0 (/opt/ros/iron/share/rmw_implementation_cmake/cmake)\n'}
+[10.168902] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 7.1.4 (/opt/ros/iron/share/rmw_fastrtps_cpp/cmake)\n'}
+[10.230183] (-) TimerEvent: {}
+[10.330578] (-) TimerEvent: {}
+[10.431160] (-) TimerEvent: {}
+[10.461403] (umi_rtx_controller) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[10.531313] (-) TimerEvent: {}
+[10.580912] (umi_rtx_controller) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/iron/include  \n'}
+[10.631419] (-) TimerEvent: {}
+[10.651185] (umi_rtx_controller) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[10.731549] (-) TimerEvent: {}
+[10.831862] (-) TimerEvent: {}
+[10.899048] (umi_rtx_controller) StdoutLine: {'line': b'-- Found std_msgs: 5.0.1 (/opt/ros/iron/share/std_msgs/cmake)\n'}
+[10.931944] (-) TimerEvent: {}
+[10.944743] (umi_rtx_controller) StdoutLine: {'line': b'-- Found sensor_msgs: 5.0.1 (/opt/ros/iron/share/sensor_msgs/cmake)\n'}
+[11.032067] (-) TimerEvent: {}
+[11.132409] (-) TimerEvent: {}
+[11.153610] (umi_rtx_controller) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[11.203400] (umi_rtx_controller) StdoutLine: {'line': b'-- Found cv_bridge: 3.5.0 (/opt/ros/iron/share/cv_bridge/cmake)\n'}
+[11.232559] (-) TimerEvent: {}
+[11.246694] (umi_rtx_controller) StdoutLine: {'line': b'-- Found umi_rtx_interfaces: 0.0.0 (/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake)\n'}
+[11.332742] (-) TimerEvent: {}
+[11.349818] (umi_rtx_controller) StdoutLine: {'line': b'-- Found image_transport: 4.2.4 (/opt/ros/iron/share/image_transport/cmake)\n'}
+[11.432948] (-) TimerEvent: {}
+[11.512176] (umi_rtx_controller) StdoutLine: {'line': b'-- pinocchio FOUND. pinocchio at /opt/ros/iron/lib/x86_64-linux-gnu/libpinocchio.so\n'}
+[11.513377] (umi_rtx_controller) StdoutLine: {'line': b'-- boost_filesystem FOUND. boost_filesystem at /lib/x86_64-linux-gnu/libboost_filesystem.so\n'}
+[11.514186] (umi_rtx_controller) StdoutLine: {'line': b'-- boost_serialization FOUND. boost_serialization at /lib/x86_64-linux-gnu/libboost_serialization.so\n'}
+[11.515009] (umi_rtx_controller) StdoutLine: {'line': b'-- boost_system FOUND. boost_system at /lib/x86_64-linux-gnu/libboost_system.so\n'}
+[11.533152] (-) TimerEvent: {}
+[11.633673] (-) TimerEvent: {}
+[11.734369] (-) TimerEvent: {}
+[11.823004] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system \n'}
+[11.827595] (umi_rtx_controller) StdoutLine: {'line': b'-- eigenpy FOUND. eigenpy at /opt/ros/iron/lib/x86_64-linux-gnu/libeigenpy.so\n'}
+[11.834446] (-) TimerEvent: {}
+[11.857876] (umi_rtx_controller) StdoutLine: {'line': b'-- Checking for NumPy\n'}
+[11.934663] (-) TimerEvent: {}
+[12.035261] (-) TimerEvent: {}
+[12.135957] (-) TimerEvent: {}
+[12.236527] (-) TimerEvent: {}
+[12.337252] (-) TimerEvent: {}
+[12.437965] (-) TimerEvent: {}
+[12.538630] (-) TimerEvent: {}
+[12.639366] (-) TimerEvent: {}
+[12.740083] (-) TimerEvent: {}
+[12.840612] (-) TimerEvent: {}
+[12.941217] (-) TimerEvent: {}
+[13.039979] (umi_rtx_controller) StdoutLine: {'line': b'--   NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include\n'}
+[13.041304] (-) TimerEvent: {}
+[13.140805] (umi_rtx_controller) StdoutLine: {'line': b'--   NUMPY_VERSION=1.21.5\n'}
+[13.141384] (-) TimerEvent: {}
+[13.241610] (-) TimerEvent: {}
+[13.341989] (-) TimerEvent: {}
+[13.391201] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module NumPy \n'}
+[13.391945] (umi_rtx_controller) StdoutLine: {'line': b'-- PythonLibraryDirs: \n'}
+[13.392073] (umi_rtx_controller) StdoutLine: {'line': b'-- PythonLibVersionString: 3.10.12\n'}
+[13.416591] (umi_rtx_controller) StdoutLine: {'line': b'-- Python site lib: lib/python3.10/dist-packages\n'}
+[13.416777] (umi_rtx_controller) StdoutLine: {'line': b'-- Python include dirs: /usr/include/python3.10\n'}
+[13.442090] (-) TimerEvent: {}
+[13.452363] (umi_rtx_controller) StdoutLine: {'line': b'-- Checking for NumPy\n'}
+[13.542202] (-) TimerEvent: {}
+[13.556594] (umi_rtx_controller) StdoutLine: {'line': b'--   NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include\n'}
+[13.642308] (-) TimerEvent: {}
+[13.660077] (umi_rtx_controller) StdoutLine: {'line': b'--   NUMPY_VERSION=1.21.5\n'}
+[13.660280] (umi_rtx_controller) StdoutLine: {'line': b'-- NumPy include dir: /usr/lib/python3/dist-packages/numpy/core/include\n'}
+[13.664705] (umi_rtx_controller) StderrLine: {'line': b'\x1b[33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):\n'}
+[13.664884] (umi_rtx_controller) StderrLine: {'line': b'  No header defined for python310; skipping header check (note: header-only\n'}
+[13.664950] (umi_rtx_controller) StderrLine: {'line': b'  libraries have no designated component)\n'}
+[13.665005] (umi_rtx_controller) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[13.665055] (umi_rtx_controller) StderrLine: {'line': b'  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)\n'}
+[13.665104] (umi_rtx_controller) StderrLine: {'line': b'  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)\n'}
+[13.665152] (umi_rtx_controller) StderrLine: {'line': b'  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)\n'}
+[13.665199] (umi_rtx_controller) StderrLine: {'line': b'  /opt/ros/iron/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)\n'}
+[13.665245] (umi_rtx_controller) StderrLine: {'line': b'  CMakeLists.txt:34 (find_package)\n'}
+[13.665291] (umi_rtx_controller) StderrLine: {'line': b'\n'}
+[13.665336] (umi_rtx_controller) StderrLine: {'line': b'\x1b[0m\n'}
+[13.670022] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: python310 \n'}
+[13.670395] (umi_rtx_controller) StdoutLine: {'line': b'-- Boost_PYTHON_LIBRARY: /usr/lib/x86_64-linux-gnu/libboost_python310.so\n'}
+[13.742425] (-) TimerEvent: {}
+[13.842750] (-) TimerEvent: {}
+[13.943076] (-) TimerEvent: {}
+[13.970240] (umi_rtx_controller) StdoutLine: {'line': b'-- Default C++ standard: 201703\n'}
+[13.970584] (umi_rtx_controller) StdoutLine: {'line': b'-- Minimal C++ standard upgraded to 11\n'}
+[13.970708] (umi_rtx_controller) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 14\n'}
+[13.971895] (umi_rtx_controller) StdoutLine: {'line': b'-- hpp-fcl FOUND. hpp-fcl at /opt/ros/iron/lib/x86_64-linux-gnu/libhpp-fcl.so\n'}
+[13.984121] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: chrono serialization filesystem \n'}
+[13.988135] (umi_rtx_controller) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 14\n'}
+[13.988715] (umi_rtx_controller) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 14\n'}
+[14.043182] (-) TimerEvent: {}
+[14.143581] (-) TimerEvent: {}
+[14.193376] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rviz_common: 12.4.10 (/opt/ros/iron/share/rviz_common/cmake)\n'}
+[14.243817] (-) TimerEvent: {}
+[14.250897] (umi_rtx_controller) StdoutLine: {'line': b"-- Setting assimp_DIR to: '/opt/ros/iron/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'\n"}
+[14.341613] (umi_rtx_controller) StdoutLine: {'line': b"-- Setting OGRE_DIR to: '/opt/ros/iron/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'\n"}
+[14.344080] (-) TimerEvent: {}
+[14.353554] (umi_rtx_controller) StdoutLine: {'line': b'-- Found OGRE\n'}
+[14.354106] (umi_rtx_controller) StdoutLine: {'line': b'--   static     : OFF\n'}
+[14.354603] (umi_rtx_controller) StdoutLine: {'line': b'--   components : MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume\n'}
+[14.355150] (umi_rtx_controller) StdoutLine: {'line': b'--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[14.355439] (umi_rtx_controller) StdoutLine: {'line': b'--   media      : /opt/ros/iron/opt/rviz_ogre_vendor/share/OGRE/Media\n'}
+[14.355932] (umi_rtx_controller) StdoutLine: {'line': b'-- OGRE_LIBRARIES: OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain\n'}
+[14.356324] (umi_rtx_controller) StdoutLine: {'line': b'-- OGRE_LIBRARY_DIRS: /opt/ros/iron/opt/rviz_ogre_vendor/lib\n'}
+[14.356578] (umi_rtx_controller) StdoutLine: {'line': b'-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[14.356861] (umi_rtx_controller) StdoutLine: {'line': b'-- OGRE_PLUGIN_DIR: /opt/ros/iron/opt/rviz_ogre_vendor/lib/OGRE\n'}
+[14.357111] (umi_rtx_controller) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[14.357339] (umi_rtx_controller) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[14.357568] (umi_rtx_controller) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[14.357818] (umi_rtx_controller) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[14.360349] (umi_rtx_controller) StdoutLine: {'line': b'-- Could not find freeimage library\n'}
+[14.444373] (-) TimerEvent: {}
+[14.513632] (umi_rtx_controller) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") \n'}
+[14.533196] (umi_rtx_controller) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   \n'}
+[14.544583] (-) TimerEvent: {}
+[14.645187] (-) TimerEvent: {}
+[14.745610] (-) TimerEvent: {}
+[14.804448] (umi_rtx_controller) StdoutLine: {'line': b'-- Found X11: /usr/include   \n'}
+[14.805301] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[14.845717] (-) TimerEvent: {}
+[14.879991] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[14.880271] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[14.943191] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[14.943509] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for connect\n'}
+[14.945752] (-) TimerEvent: {}
+[15.006696] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[15.006971] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for remove\n'}
+[15.045861] (-) TimerEvent: {}
+[15.070564] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[15.070856] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[15.132712] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[15.133027] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[15.145966] (-) TimerEvent: {}
+[15.203524] (umi_rtx_controller) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[15.246261] (-) TimerEvent: {}
+[15.347120] (-) TimerEvent: {}
+[15.399615] (umi_rtx_controller) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[15.447203] (-) TimerEvent: {}
+[15.547514] (-) TimerEvent: {}
+[15.568529] (umi_rtx_controller) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[15.568793] (umi_rtx_controller) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[15.647614] (-) TimerEvent: {}
+[15.747932] (-) TimerEvent: {}
+[15.848204] (-) TimerEvent: {}
+[15.948479] (-) TimerEvent: {}
+[16.048790] (-) TimerEvent: {}
+[16.149079] (-) TimerEvent: {}
+[16.249465] (-) TimerEvent: {}
+[16.300315] (umi_rtx_controller) StdoutLine: {'line': b'-- Found rviz_default_plugins: 12.4.10 (/opt/ros/iron/share/rviz_default_plugins/cmake)\n'}
+[16.349637] (-) TimerEvent: {}
+[16.450137] (-) TimerEvent: {}
+[16.550534] (-) TimerEvent: {}
+[16.650808] (-) TimerEvent: {}
+[16.751092] (-) TimerEvent: {}
+[16.851375] (-) TimerEvent: {}
+[16.951654] (-) TimerEvent: {}
+[17.051959] (-) TimerEvent: {}
+[17.152239] (-) TimerEvent: {}
+[17.252517] (-) TimerEvent: {}
+[17.262425] (umi_rtx_controller) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:41 (find_package):\n'}
+[17.262549] (umi_rtx_controller) StderrLine: {'line': b'  By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project\n'}
+[17.262606] (umi_rtx_controller) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[17.262659] (umi_rtx_controller) StderrLine: {'line': b'  "realsense2", but CMake did not find one.\n'}
+[17.262711] (umi_rtx_controller) StderrLine: {'line': b'\n'}
+[17.262781] (umi_rtx_controller) StderrLine: {'line': b'  Could not find a package configuration file provided by "realsense2" with\n'}
+[17.262851] (umi_rtx_controller) StderrLine: {'line': b'  any of the following names:\n'}
+[17.262938] (umi_rtx_controller) StderrLine: {'line': b'\n'}
+[17.263024] (umi_rtx_controller) StderrLine: {'line': b'    realsense2Config.cmake\n'}
+[17.263101] (umi_rtx_controller) StderrLine: {'line': b'    realsense2-config.cmake\n'}
+[17.263164] (umi_rtx_controller) StderrLine: {'line': b'\n'}
+[17.263214] (umi_rtx_controller) StderrLine: {'line': b'  Add the installation prefix of "realsense2" to CMAKE_PREFIX_PATH or set\n'}
+[17.263264] (umi_rtx_controller) StderrLine: {'line': b'  "realsense2_DIR" to a directory containing one of the above files.  If\n'}
+[17.263315] (umi_rtx_controller) StderrLine: {'line': b'  "realsense2" provides a separate development package or SDK, be sure it has\n'}
+[17.263365] (umi_rtx_controller) StderrLine: {'line': b'  been installed.\n'}
+[17.263415] (umi_rtx_controller) StderrLine: {'line': b'\n'}
+[17.263464] (umi_rtx_controller) StderrLine: {'line': b'\x1b[0m\n'}
+[17.263587] (umi_rtx_controller) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[17.263669] (umi_rtx_controller) StdoutLine: {'line': b'See also "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller/CMakeFiles/CMakeOutput.log".\n'}
+[17.275497] (umi_rtx_controller) CommandEnded: {'returncode': 1}
+[17.290840] (umi_rtx_controller) JobEnded: {'identifier': 'umi_rtx_controller', 'rc': 1}
+[17.301363] (-) EventReactorShutdown: {}

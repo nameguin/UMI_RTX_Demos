@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "umi_rtx_interfaces/msg/Board",
+      "fields": [
+        {
+          "name": "data",
+          "type": {
+            "type_id": 54,
+            "capacity": 9,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "umi_rtx_interfaces/msg/Board",
+      "hash_string": "RIHS01_da88a0ef4c8289132bf5ad4c0b54021ee12ed26519d87ae5d80a6a56175ed7ed"
+    }
+  ]
+}
