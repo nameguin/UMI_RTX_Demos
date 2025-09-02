@@ -1,0 +1,265 @@
+[0.037s] Invoking command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces -DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces
+[0.881s] -- The C compiler identification is GNU 11.4.0
+[1.222s] -- The CXX compiler identification is GNU 11.4.0
+[1.234s] -- Detecting C compiler ABI info
+[1.444s] -- Detecting C compiler ABI info - done
+[1.453s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.454s] -- Detecting C compile features
+[1.478s] -- Detecting C compile features - done
+[1.483s] -- Detecting CXX compiler ABI info
+[1.610s] -- Detecting CXX compiler ABI info - done
+[1.618s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.619s] -- Detecting CXX compile features
+[1.619s] -- Detecting CXX compile features - done
+[1.671s] -- Found ament_cmake: 2.0.7 (/opt/ros/iron/share/ament_cmake/cmake)
+[1.990s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[2.180s] -- Found geometry_msgs: 5.0.1 (/opt/ros/iron/share/geometry_msgs/cmake)
+[2.438s] -- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)
+[2.479s] -- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)
+[2.599s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.686s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.922s] -- Found rosidl_default_generators: 1.5.0 (/opt/ros/iron/share/rosidl_default_generators/cmake)
+[2.952s] -- Found rosidl_adapter: 4.0.1 (/opt/ros/iron/share/rosidl_adapter/cmake)
+[3.285s] -- Found ament_cmake_ros: 0.11.2 (/opt/ros/iron/share/ament_cmake_ros/cmake)
+[3.694s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.854s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.875s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[3.904s] -- Found python_cmake_module: 0.10.2 (/opt/ros/iron/share/python_cmake_module/cmake)
+[4.023s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[4.023s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.023s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[4.023s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[4.042s] -- Found PythonExtra: .so  
+[4.192s] -- Configuring done
+[4.338s] -- Generating done
+[4.360s] -- Build files have been written to: /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces
+[4.369s] Invoked command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces -DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces
+[4.372s] Invoking command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces -- -j8 -l8
+[4.422s] [  2%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[4.430s] [  2%] Built target ament_cmake_python_copy_umi_rtx_interfaces
+[4.697s] [  2%] Built target umi_rtx_interfaces__rosidl_generator_type_description
+[4.706s] [  4%] [34m[1mGenerating C code for ROS interfaces[0m
+[4.708s] running egg_info
+[4.708s] creating umi_rtx_interfaces.egg-info
+[4.709s] writing umi_rtx_interfaces.egg-info/PKG-INFO
+[4.709s] writing dependency_links to umi_rtx_interfaces.egg-info/dependency_links.txt
+[4.709s] writing top-level names to umi_rtx_interfaces.egg-info/top_level.txt
+[4.709s] writing manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'
+[4.716s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.740s] reading manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'
+[4.741s] writing manifest file 'umi_rtx_interfaces.egg-info/SOURCES.txt'
+[4.773s] [  6%] Built target ament_cmake_python_build_umi_rtx_interfaces_egg
+[5.016s] [  6%] Built target umi_rtx_interfaces__cpp
+[5.082s] [ 11%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__functions.c.o[0m
+[5.082s] [ 11%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__functions.c.o[0m
+[5.083s] [ 13%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__description.c.o[0m
+[5.083s] [ 15%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/game_data__type_support.c.o[0m
+[5.084s] [ 18%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__description.c.o[0m
+[5.084s] [ 20%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_c.dir/rosidl_generator_c/umi_rtx_interfaces/msg/detail/board__type_support.c.o[0m
+[5.336s] [ 22%] [32m[1mLinking C shared library libumi_rtx_interfaces__rosidl_generator_c.so[0m
+[5.495s] [ 22%] Built target umi_rtx_interfaces__rosidl_generator_c
+[5.505s] [ 25%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[5.506s] [ 27%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[5.507s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[5.507s] [ 31%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[5.507s] [ 34%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[5.507s] [ 36%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[5.765s] [ 40%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/umi_rtx_interfaces/msg/game_data__type_support.cpp.o[0m
+[5.765s] [ 40%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/umi_rtx_interfaces/msg/board__type_support.cpp.o[0m
+[5.802s] [ 43%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/umi_rtx_interfaces/msg/detail/game_data__type_support.c.o[0m
+[5.802s] [ 45%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/umi_rtx_interfaces/msg/detail/board__type_support.c.o[0m
+[5.860s] [ 47%] [32m[1mLinking C shared library libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so[0m
+[5.942s] [ 50%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/umi_rtx_interfaces/msg/game_data__type_support.cpp.o[0m
+[5.944s] [ 52%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/umi_rtx_interfaces/msg/board__type_support.cpp.o[0m
+[5.987s] [ 54%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/umi_rtx_interfaces/msg/detail/game_data__type_support.cpp.o[0m
+[6.009s] [ 54%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_c
+[6.017s] [ 56%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/umi_rtx_interfaces/msg/detail/board__type_support.cpp.o[0m
+[6.026s] [ 59%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/umi_rtx_interfaces/msg/detail/game_data__type_support_c.cpp.o[0m
+[6.035s] [ 61%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/umi_rtx_interfaces/msg/detail/dds_fastrtps/game_data__type_support.cpp.o[0m
+[6.489s] [ 63%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/umi_rtx_interfaces/msg/detail/dds_fastrtps/board__type_support.cpp.o[0m
+[6.493s] [ 65%] [32m[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_c.so[0m
+[6.657s] [ 65%] Built target umi_rtx_interfaces__rosidl_typesupport_c
+[6.669s] [ 68%] [32mBuilding CXX object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/umi_rtx_interfaces/msg/detail/board__type_support_c.cpp.o[0m
+[7.486s] [ 70%] [32m[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_cpp.so[0m
+[7.490s] [ 72%] [32m[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[7.510s] [ 75%] [32m[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[7.592s] [ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_cpp
+[7.631s] [ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_cpp
+[7.646s] [ 75%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_c
+[7.713s] [ 77%] [32m[1mLinking CXX shared library libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[7.808s] [ 77%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp
+[7.828s] [ 77%] Built target umi_rtx_interfaces
+[7.850s] [ 79%] [34m[1mGenerating Python code for ROS interfaces[0m
+[8.238s] [ 79%] Built target umi_rtx_interfaces__py
+[8.257s] [ 84%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_py.dir/rosidl_generator_py/umi_rtx_interfaces/msg/_board_s.c.o[0m
+[8.257s] [ 84%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_generator_py.dir/rosidl_generator_py/umi_rtx_interfaces/msg/_game_data_s.c.o[0m
+[8.530s] [ 86%] [32m[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/libumi_rtx_interfaces__rosidl_generator_py.so[0m
+[8.657s] [ 86%] Built target umi_rtx_interfaces__rosidl_generator_py
+[8.677s] [ 93%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[8.677s] [ 93%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[8.677s] [ 93%] [32mBuilding C object CMakeFiles/umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[8.776s] [100%] [32m[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.776s] [100%] [32m[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.776s] [100%] [32m[1mLinking C shared library rosidl_generator_py/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.814s] [100%] Built target umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext
+[8.815s] [100%] Built target umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[8.815s] [100%] Built target umi_rtx_interfaces__rosidl_typesupport_c__pyext
+[8.825s] Invoked command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces -- -j8 -l8
+[8.835s] Invoking command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces
+[8.842s] -- Install configuration: ""
+[8.842s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/rosidl_interfaces/umi_rtx_interfaces
+[8.842s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.json
+[8.842s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.json
+[8.842s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.842s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/game_data.h
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_generator_c__visibility_control.h
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__functions.c
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__functions.h
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.c
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.c
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__functions.h
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__description.c
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__struct.h
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__functions.c
+[8.843s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.h
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__struct.h
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__description.c
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.h
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/board.h
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/library_path.sh
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/library_path.dsv
+[8.844s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_c.so
+[8.845s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_c.so" to ""
+[8.845s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.845s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.845s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[8.845s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.845s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_fastrtps_c.h
+[8.845s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_fastrtps_c.h
+[8.845s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so
+[8.846s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[8.846s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.846s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.846s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/game_data.hpp
+[8.846s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/board.hpp
+[8.846s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.846s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__traits.hpp
+[8.846s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__struct.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__traits.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__builder.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__struct.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__builder.hpp
+[8.847s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.847s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[8.847s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_fastrtps_cpp.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/dds_fastrtps
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_fastrtps_cpp.hpp
+[8.847s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[8.848s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[8.848s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.848s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[8.848s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.c
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.c
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_introspection_c.h
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_introspection_c.h
+[8.848s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so
+[8.849s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[8.849s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_c.so
+[8.849s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_c.so" to ""
+[8.849s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces
+[8.849s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg
+[8.849s] -- Up-to-date: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__type_support.cpp
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__rosidl_typesupport_introspection_cpp.hpp
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/board__type_support.cpp
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/include/umi_rtx_interfaces/umi_rtx_interfaces/msg/detail/game_data__rosidl_typesupport_introspection_cpp.hpp
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so
+[8.850s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[8.850s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_cpp.so
+[8.850s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_typesupport_cpp.so" to ""
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/pythonpath.sh
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/pythonpath.dsv
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg
+[8.851s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/__init__.py
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board_s.c
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board.py
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data.py
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data_s.c
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/libumi_rtx_interfaces__rosidl_generator_py.so
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/__init__.py
+[8.852s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_c.c
+[8.853s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[8.853s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[8.853s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/_umi_rtx_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[8.853s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[8.899s] Listing '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces'...
+[8.899s] Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/__init__.py'...
+[8.899s] Listing '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg'...
+[8.899s] Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/__init__.py'...
+[8.899s] Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_board.py'...
+[8.899s] Compiling '/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/msg/_game_data.py'...
+[8.904s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[8.905s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.905s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[8.905s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.905s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[8.906s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages/umi_rtx_interfaces/umi_rtx_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.906s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_py.so
+[8.906s] -- Set runtime path of "/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/libumi_rtx_interfaces__rosidl_generator_py.so" to ""
+[8.906s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.idl
+[8.906s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.idl
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/GameData.msg
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/msg/Board.msg
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/package_run_dependencies/umi_rtx_interfaces
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/parent_prefix_path/umi_rtx_interfaces
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/ament_prefix_path.sh
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/ament_prefix_path.dsv
+[8.907s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/path.sh
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/environment/path.dsv
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.bash
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.sh
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.zsh
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/local_setup.dsv
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/package.dsv
+[8.908s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/ament_index/resource_index/packages/umi_rtx_interfaces
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cExport.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cExport-noconfig.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_cppExport.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[8.909s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cExport.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[8.910s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cppExport.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_pyExport.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/export_umi_rtx_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake-extras.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.911s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfacesConfig.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake/umi_rtx_interfacesConfig-version.cmake
+[8.912s] -- Installing: /home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/package.xml
+[8.915s] Invoked command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces

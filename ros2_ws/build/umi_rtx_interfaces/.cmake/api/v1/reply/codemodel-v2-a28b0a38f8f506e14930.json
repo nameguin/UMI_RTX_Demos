@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-e291707096d56e8c65db.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "umi_rtx_interfaces__py",
+					"jsonFile" : "directory-umi_rtx_interfaces__py-d105fb62bdcd377b0ce7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces/umi_rtx_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "umi_rtx_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_umi_rtx_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_umi_rtx_interfaces_egg-1fda798fbf1157ce1c30.json",
+					"name" : "ament_cmake_python_build_umi_rtx_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_umi_rtx_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_umi_rtx_interfaces-92a88fa0c058c18e5eb8.json",
+					"name" : "ament_cmake_python_copy_umi_rtx_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces-0973d30fa3fb19e06da8.json",
+					"name" : "umi_rtx_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__cpp-cb62a5fc7566d9268614.json",
+					"name" : "umi_rtx_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "umi_rtx_interfaces__py::@7c4e5eae3948555a7171",
+					"jsonFile" : "target-umi_rtx_interfaces__py-7ab892e65aa97ab7b333.json",
+					"name" : "umi_rtx_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_generator_c-7645ce0840d8ee5b7c86.json",
+					"name" : "umi_rtx_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_generator_py-1f1c4f1b966081b4747d.json",
+					"name" : "umi_rtx_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_generator_type_description-c9b14e2e2b53b7664132.json",
+					"name" : "umi_rtx_interfaces__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_c-3962fc60acd1210e3581.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_c__pyext-298b85cfbd653a899067.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_cpp-c147445fb47010772296.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_fastrtps_c-f5eb7384a750d2fdedd9.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext-8af0d406c93e862f0546.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp-7a0a6ebff34f4a274f35.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_introspection_c-964850c7e7eb8db585b1.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext-4c7074620d6a946655a6.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces__rosidl_typesupport_introspection_cpp-1a2b007dd98e191bef9f.json",
+					"name" : "umi_rtx_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "umi_rtx_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-umi_rtx_interfaces_uninstall-0a31e4c4c1a046c04abf.json",
+					"name" : "umi_rtx_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-1ed6e82a6be0feb0bf0f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces",
+		"source" : "/home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

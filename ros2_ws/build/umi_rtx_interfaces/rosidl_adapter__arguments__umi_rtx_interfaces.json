@@ -1,0 +1,7 @@
+{
+  "package_name": "umi_rtx_interfaces",
+  "non_idl_tuples": [
+    "/home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces:msg/GameData.msg",
+    "/home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_interfaces:msg/Board.msg"
+  ]
+}

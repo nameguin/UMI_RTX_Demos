@@ -25,12 +25,17 @@ This project is built and tested with **Ubuntu 22.04** and **ROS2 Iron**.
     sudo apt install ros-iron-pinocchio -y
     sudo apt install ros-iron-xacro -y
     ```
+	
+   Or just run the installation folder:
+   ```bash
+   ./install_dependencies.sh
+   ```
 
 3. **Colcon installation**
 
     Install Colcon, the build tool required for this project:
     ```bash
-    sudo apt udpate
+    sudo apt update
     sudo apt install python3-colcon-common-extensions
    ```
 4. **Autocompletion**
@@ -47,7 +52,7 @@ This project is built and tested with **Ubuntu 22.04** and **ROS2 Iron**.
 Navigate to your ROS workspace directory:
 
 ```bash
-cd ROS_ws
+cd ros2_ws
 ```
 
 Build the package using Colcon:

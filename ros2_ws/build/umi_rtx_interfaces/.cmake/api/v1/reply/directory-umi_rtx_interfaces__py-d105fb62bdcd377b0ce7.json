@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "umi_rtx_interfaces__py",
+		"source" : "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_interfaces/umi_rtx_interfaces__py"
+	}
+}

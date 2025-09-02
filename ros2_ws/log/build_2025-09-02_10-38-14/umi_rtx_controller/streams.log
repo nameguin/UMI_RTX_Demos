@@ -1,0 +1,125 @@
+[0.012s] Invoking command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller': AMENT_PREFIX_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:/opt/ros/iron LD_LIBRARY_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_controller -DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_controller
+[0.069s] -- The C compiler identification is GNU 11.4.0
+[0.124s] -- The CXX compiler identification is GNU 11.4.0
+[0.131s] -- Detecting C compiler ABI info
+[0.192s] -- Detecting C compiler ABI info - done
+[0.200s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.200s] -- Detecting C compile features
+[0.200s] -- Detecting C compile features - done
+[0.203s] -- Detecting CXX compiler ABI info
+[0.274s] -- Detecting CXX compiler ABI info - done
+[0.281s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.281s] -- Detecting CXX compile features
+[0.282s] -- Detecting CXX compile features - done
+[0.283s] -- Found ament_cmake: 2.0.7 (/opt/ros/iron/share/ament_cmake/cmake)
+[0.444s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.567s] -- Found rclcpp: 21.0.8 (/opt/ros/iron/share/rclcpp/cmake)
+[0.677s] -- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)
+[0.690s] -- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)
+[0.707s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.725s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.989s] -- Found rmw_implementation_cmake: 7.1.0 (/opt/ros/iron/share/rmw_implementation_cmake/cmake)
+[0.994s] -- Found rmw_fastrtps_cpp: 7.1.4 (/opt/ros/iron/share/rmw_fastrtps_cpp/cmake)
+[1.286s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.406s] -- Found FastRTPS: /opt/ros/iron/include  
+[1.476s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.724s] -- Found std_msgs: 5.0.1 (/opt/ros/iron/share/std_msgs/cmake)
+[1.770s] -- Found sensor_msgs: 5.0.1 (/opt/ros/iron/share/sensor_msgs/cmake)
+[1.979s] -- Found OpenCV: /usr (found version "4.5.4") 
+[2.028s] -- Found cv_bridge: 3.5.0 (/opt/ros/iron/share/cv_bridge/cmake)
+[2.072s] -- Found umi_rtx_interfaces: 0.0.0 (/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/share/umi_rtx_interfaces/cmake)
+[2.175s] -- Found image_transport: 4.2.4 (/opt/ros/iron/share/image_transport/cmake)
+[2.337s] -- pinocchio FOUND. pinocchio at /opt/ros/iron/lib/x86_64-linux-gnu/libpinocchio.so
+[2.338s] -- boost_filesystem FOUND. boost_filesystem at /lib/x86_64-linux-gnu/libboost_filesystem.so
+[2.339s] -- boost_serialization FOUND. boost_serialization at /lib/x86_64-linux-gnu/libboost_serialization.so
+[2.340s] -- boost_system FOUND. boost_system at /lib/x86_64-linux-gnu/libboost_system.so
+[2.648s] -- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+[2.653s] -- eigenpy FOUND. eigenpy at /opt/ros/iron/lib/x86_64-linux-gnu/libeigenpy.so
+[2.683s] -- Checking for NumPy
+[3.865s] --   NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include
+[3.966s] --   NUMPY_VERSION=1.21.5
+[4.216s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module NumPy 
+[4.217s] -- PythonLibraryDirs: 
+[4.217s] -- PythonLibVersionString: 3.10.12
+[4.241s] -- Python site lib: lib/python3.10/dist-packages
+[4.242s] -- Python include dirs: /usr/include/python3.10
+[4.277s] -- Checking for NumPy
+[4.381s] --   NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include
+[4.485s] --   NUMPY_VERSION=1.21.5
+[4.485s] -- NumPy include dir: /usr/lib/python3/dist-packages/numpy/core/include
+[4.490s] [33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):
+[4.490s]   No header defined for python310; skipping header check (note: header-only
+[4.490s]   libraries have no designated component)
+[4.490s] Call Stack (most recent call first):
+[4.490s]   /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)
+[4.490s]   /opt/ros/iron/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)
+[4.490s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[4.490s]   /opt/ros/iron/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)
+[4.490s]   CMakeLists.txt:34 (find_package)
+[4.490s] 
+[4.490s] [0m
+[4.495s] -- Found Boost: /usr/include (found version "1.74.0") found components: python310 
+[4.495s] -- Boost_PYTHON_LIBRARY: /usr/lib/x86_64-linux-gnu/libboost_python310.so
+[4.795s] -- Default C++ standard: 201703
+[4.795s] -- Minimal C++ standard upgraded to 11
+[4.796s] -- C++ standard sufficient: Minimal required 11, currently defined: 14
+[4.797s] -- hpp-fcl FOUND. hpp-fcl at /opt/ros/iron/lib/x86_64-linux-gnu/libhpp-fcl.so
+[4.809s] -- Found Boost: /usr/include (found version "1.74.0") found components: chrono serialization filesystem 
+[4.813s] -- C++ standard sufficient: Minimal required 11, currently defined: 14
+[4.814s] -- C++ standard sufficient: Minimal required 11, currently defined: 14
+[5.018s] -- Found rviz_common: 12.4.10 (/opt/ros/iron/share/rviz_common/cmake)
+[5.076s] -- Setting assimp_DIR to: '/opt/ros/iron/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[5.167s] -- Setting OGRE_DIR to: '/opt/ros/iron/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[5.179s] -- Found OGRE
+[5.179s] --   static     : OFF
+[5.180s] --   components : MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[5.180s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[5.180s] --   media      : /opt/ros/iron/opt/rviz_ogre_vendor/share/OGRE/Media
+[5.181s] -- OGRE_LIBRARIES: OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[5.181s] -- OGRE_LIBRARY_DIRS: /opt/ros/iron/opt/rviz_ogre_vendor/lib
+[5.182s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[5.182s] -- OGRE_PLUGIN_DIR: /opt/ros/iron/opt/rviz_ogre_vendor/lib/OGRE
+[5.182s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[5.182s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[5.182s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[5.183s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/iron/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[5.185s] -- Could not find freeimage library
+[5.339s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[5.358s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[5.629s] -- Found X11: /usr/include   
+[5.630s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[5.705s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[5.705s] -- Looking for gethostbyname
+[5.768s] -- Looking for gethostbyname - found
+[5.768s] -- Looking for connect
+[5.832s] -- Looking for connect - found
+[5.832s] -- Looking for remove
+[5.896s] -- Looking for remove - found
+[5.896s] -- Looking for shmat
+[5.958s] -- Looking for shmat - found
+[5.958s] -- Looking for IceConnectionNumber in ICE
+[6.028s] -- Looking for IceConnectionNumber in ICE - found
+[6.225s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[6.393s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[6.394s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[7.125s] -- Found rviz_default_plugins: 12.4.10 (/opt/ros/iron/share/rviz_default_plugins/cmake)
+[8.087s] [31mCMake Error at CMakeLists.txt:41 (find_package):
+[8.087s]   By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project
+[8.087s]   has asked CMake to find a package configuration file provided by
+[8.087s]   "realsense2", but CMake did not find one.
+[8.088s] 
+[8.088s]   Could not find a package configuration file provided by "realsense2" with
+[8.088s]   any of the following names:
+[8.088s] 
+[8.088s]     realsense2Config.cmake
+[8.088s]     realsense2-config.cmake
+[8.088s] 
+[8.088s]   Add the installation prefix of "realsense2" to CMAKE_PREFIX_PATH or set
+[8.088s]   "realsense2_DIR" to a directory containing one of the above files.  If
+[8.088s]   "realsense2" provides a separate development package or SDK, be sure it has
+[8.088s]   been installed.
+[8.088s] 
+[8.088s] [0m
+[8.088s] -- Configuring incomplete, errors occurred!
+[8.088s] See also "/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller/CMakeFiles/CMakeOutput.log".
+[8.100s] Invoked command in '/home/roboticslab/UMI_RTX_Demos/ros2_ws/build/umi_rtx_controller' returned '1': AMENT_PREFIX_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces:/opt/ros/iron LD_LIBRARY_PATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/roboticslab/UMI_RTX_Demos/ros2_ws/src/umi_rtx_controller -DCMAKE_INSTALL_PREFIX=/home/roboticslab/UMI_RTX_Demos/ros2_ws/install/umi_rtx_controller
